@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "506171040470",
+    "project_id": "prozrenie-892a8",
+    "storage_bucket": "prozrenie-892a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506171040470:android:a3838b23958da6fa2f9f77",
+        "android_client_info": {
+          "package_name": "com.example.prozrenie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506171040470-dihr9qe1l2dg25qamo2qh4g47sb8mg36.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6XbNs95JYkyrTt_eQ9pFh-TW_0Oz5KGY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506171040470-dihr9qe1l2dg25qamo2qh4g47sb8mg36.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
