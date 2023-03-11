@@ -21,11 +21,9 @@ class View_Card : AppCompatActivity() {
         var data = ""
         var ids = ""
 
-        var txt: TextView? = null
-
         var fb: fb = fb()
         val database = Firebase.database
-        val myRef = database.getReference("")
+        val myRef = database.getReference("main")
         myRef.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (i in snapshot.children)
@@ -34,7 +32,8 @@ class View_Card : AppCompatActivity() {
                     Fullname = fbe?.getFullName().toString()
                     data = fbe?.getData().toString()
                     ids = fbe?.getIds().toString()
-                    txt?.text = "$Fullname \n$data \n$ids"
+                    var txt: TextView = TextView(this@View_Card)
+                    txt.text = "ФИО: $Fullname \nГод рождения: ${upgradeData(data)} \nId: $ids \n\n"
                     scroll.addView(txt)
                 }
             }
@@ -44,5 +43,11 @@ class View_Card : AppCompatActivity() {
             }
 
         })
+    }
+    fun upgradeData(s: String):String
+    {
+        var c = s.toCharArray()
+        var ns = "${c[0]}${c[1]}.${c[2]}${c[3]}.${c[4]}${c[5]}${c[6]}${c[7]}"
+        return ns
     }
 }

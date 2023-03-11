@@ -1,8 +1,8 @@
 package com.example.prozrenie
 
 class fb {
-        var sur: String? = null
-        var mid: String? = null
+        var surname: String? = null
+        var middlename: String? = null
         var name: String? = null
         var id: String? = null
         var date: String? = null
@@ -10,19 +10,19 @@ class fb {
         fun fb() {}
         fun fb(
             name: String?,
-            sur: String?,
-            mid: String?,
+            surname: String?,
+            middlename: String?,
             date: String?,
             ids: String?
         ) {
-            this.sur = sur
+            this.surname = surname
             this.name = name
-            this.mid = mid
+            this.middlename = middlename
             this.date = date
             this.id = ids
         }
         fun getFullName(): String? {
-            return "$name $sur $mid"
+            return "$surname $name $middlename"
         }
         fun getIds(): String? {
             return id
