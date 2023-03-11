@@ -27,5 +27,9 @@ class fb {
         fun getIds(): String? {
             return id
         }
+        fun getData(): String? {
+        return date
+        }
+
 
 }

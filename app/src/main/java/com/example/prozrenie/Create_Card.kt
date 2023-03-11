@@ -30,7 +30,7 @@ class Create_Card : AppCompatActivity() {
             myRef.child("name").setValue("${name.text}")
             myRef.child("surname").setValue("${sur.text}")
             myRef.child("middlename").setValue("${middle.text}")
-            myRef.child("date of birth").setValue(date.text)
+            myRef.child("date of birth").setValue("${date.text}")
             myRef.child("lessons").child("first").setValue("first lesson, jeez!")
         }
     }
