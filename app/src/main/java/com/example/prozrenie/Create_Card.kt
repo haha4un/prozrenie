@@ -23,11 +23,11 @@ class Create_Card : AppCompatActivity() {
         var middle = findViewById<EditText>(R.id.Create_middlename)
         var date = findViewById<EditText>(R.id.Date)
         val database = Firebase.database
-        val myRef = database.getReference("main")
+        database.getReference("main")
 
 
         save.setOnClickListener {
-            if (date.text.toString().toCharArray().size != 8){
+            if (date.text.toString().toCharArray().size != 10){
                 Toast.makeText(this, "Введите дату с 8 символами!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener}
             else
@@ -39,8 +39,8 @@ class Create_Card : AppCompatActivity() {
             myRef.child("surname").setValue("${sur.text}")
             myRef.child("middlename").setValue("${middle.text}")
             myRef.child("date").setValue("${date.text}")
-            myRef.child("id").setValue("${name.text.hashCode()}${sur.text.hashCode()}${middle.text.hashCode()}${date.text.hashCode()}${Random(1000).toString().hashCode()}")
-            myRef.child("lessons").child("first").setValue("first lesson, jeez!")
+            myRef.child("id").setValue("${name.text.hashCode()}${sur.text.hashCode()}${middle.text.hashCode()}${date.text.hashCode()}${Random.nextInt(9)}${Random.nextInt(9)}") // in the and you must put in ${Random(1000).toString().hashCode()} for unique id, but it's for test
+            myRef.child("lessons").child("0").setValue("jeez! We are ready to go!")
         }
     }
 }

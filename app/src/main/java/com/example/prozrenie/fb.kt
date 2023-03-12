@@ -28,7 +28,16 @@ class fb {
             return id
         }
         fun getData(): String? {
-        return date
+                return date
+        }
+        fun getNames(): String? {
+            return name
+        }
+        fun getSurnames(): String? {
+            return surname
+        }
+        fun getMiddlenames(): String? {
+            return middlename
         }
 
 

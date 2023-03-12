@@ -13,6 +13,27 @@
         android:theme="@style/Theme.Prozrenie"
         tools:targetApi="31">
         <activity
+            android:name=".create_note"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".overlook_note"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".View_Edit_Card"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".View_Card"
             android:exported="false">
             <meta-data
