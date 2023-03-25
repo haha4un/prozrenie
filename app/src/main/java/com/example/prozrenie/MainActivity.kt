@@ -31,7 +31,8 @@ class MainActivity : AppCompatActivity() {
         }
         var game_paint = findViewById<Button>(R.id.game_paint)
         game_paint.setOnClickListener {
-//            var intent = Intent(this, )
+            var intent = Intent(this, paint::class.java)
+            startActivity(intent)
         }
     }
 }
