@@ -44,6 +44,7 @@ class paint : AppCompatActivity() {
                 x = progress.toFloat()
                 s = x
                 dv?.setStrokeWidth(x)
+                path = Path()
             }
         })
         var reset = findViewById<ImageButton>(R.id.new_btn)

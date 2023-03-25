@@ -35,7 +35,7 @@ class DrawingView(context: Context, attr: AttributeSet): View(context, attr) {
 
     fun setStrokeWidth(strokeWidth: Float) {
         brushs.strokeWidth = strokeWidth
-        invalidate()
+        postInvalidate()
     }
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
