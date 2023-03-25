@@ -24,5 +24,14 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, View_Card::class.java)
             startActivity(intent)
         }
+
+        var game_pict = findViewById<Button>(R.id.game_pict)
+        game_pict.setOnClickListener {
+
+        }
+        var game_paint = findViewById<Button>(R.id.game_paint)
+        game_paint.setOnClickListener {
+//            var intent = Intent(this, )
+        }
     }
 }
