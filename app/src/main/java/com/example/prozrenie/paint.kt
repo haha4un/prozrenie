@@ -1,15 +1,18 @@
 package com.example.prozrenie
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
 import android.os.Bundle
-import android.provider.MediaStore
 import android.widget.ImageButton
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.drawingapp.DrawingView
+import com.example.drawingapp.DrawingView.Companion.colorList
+import com.example.drawingapp.DrawingView.Companion.currentBrush
+import com.example.drawingapp.DrawingView.Companion.pathList
 import java.util.*
 
 
@@ -20,11 +23,13 @@ class paint : AppCompatActivity() {
     {
         var path = Path()
         var brushs = Paint()
+        var s = 10f
     }
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_paint)
-
+        dv = findViewById<DrawingView>(R.id.view);
 
         var size = findViewById<SeekBar>(R.id.brushsize)
         var x = 0f
@@ -37,18 +42,29 @@ class paint : AppCompatActivity() {
 
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 x = progress.toFloat()
-//                dv?.edit("#0062ff", x )
+                s = x
+                dv?.setStrokeWidth(x)
             }
         })
         var reset = findViewById<ImageButton>(R.id.new_btn)
         reset.setOnClickListener{
-//            dv?.reset()
+            pathList.clear()
+            colorList.clear()
+            path.reset()
         }
         var save = findViewById<ImageButton>(R.id.save_btn)
         save.setOnClickListener {
         }
-
-        dv = findViewById<DrawingView>(R.id.view);
-//        dv?.edit("#0062ff", x )
+        var bl = findViewById<ImageButton>(R.id.bl)
+        var gr = findViewById<ImageButton>(R.id.gr)
+        bl.setOnClickListener{currentColor(Color.BLACK)}
+        gr.setOnClickListener{currentColor(Color.GREEN)}
     }
+    private fun currentColor(color: Int)
+    {
+        currentBrush = color
+        path = Path()
+    }
+
+
 }
