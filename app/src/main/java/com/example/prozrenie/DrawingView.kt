@@ -1,10 +1,7 @@
 package com.example.drawingapp
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.Path
+import android.graphics.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
@@ -69,6 +66,18 @@ class DrawingView(context: Context, attr: AttributeSet): View(context, attr) {
     }
     internal inner class CustomPath(var color: Int, var brushThickness: Float): Path(){
     }
-
-
+//    fun save(): Bitmap? {
+//        val b = Bitmap.createBitmap(measuredWidth, measuredHeight, Bitmap.Config.ARGB_8888)
+//        val c = canvas
+//        layout(left, top, right, bottom)
+//        draw(c)
+//        return b
+//    }
+//    fun clearDrawing() {
+//        path?.reset() // Avoiding saving redo from Path().
+//        pathList.clear()
+//        colorList.clear()
+//        sizeList.clear()
+//        invalidate()
+//    }
 }
