@@ -2,7 +2,6 @@ package com.example.prozrenie
 
 import android.annotation.SuppressLint
 import android.graphics.*
-import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.widget.ImageButton
@@ -15,6 +14,8 @@ import com.example.drawingapp.DrawingView.Companion.colorList
 import com.example.drawingapp.DrawingView.Companion.currentBrush
 import com.example.drawingapp.DrawingView.Companion.pathList
 import com.example.drawingapp.DrawingView.Companion.sizeList
+import yuku.ambilwarna.AmbilWarnaDialog
+import yuku.ambilwarna.AmbilWarnaDialog.OnAmbilWarnaListener
 import java.io.File
 import java.io.FileOutputStream
 import java.util.*
@@ -29,6 +30,7 @@ class paint : AppCompatActivity() {
         var brushs = Paint()
         var s = 10f
     }
+    var defColor: Int = Color.BLACK
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,7 +74,8 @@ class paint : AppCompatActivity() {
 
         var bl = findViewById<ImageButton>(R.id.bl)
         var gr = findViewById<ImageButton>(R.id.gr)
-        bl.setOnClickListener{currentColor(Color.BLACK)}
+        bl.setOnClickListener{
+        currentColor(openColorPicker().toString().toInt())}
         gr.setOnClickListener{currentColor(Color.GREEN)}
 
         var add = findViewById<ImageButton>(R.id.addimg_btn)
@@ -89,6 +92,16 @@ class paint : AppCompatActivity() {
             }
 
         }
+    }
+    fun openColorPicker():Int {
+        val colorPicker = AmbilWarnaDialog(this, defColor, object : OnAmbilWarnaListener {
+            override fun onCancel(dialog: AmbilWarnaDialog) {}
+            override fun onOk(dialog: AmbilWarnaDialog, color: Int) {
+                defColor = color
+            }
+        })
+        colorPicker.show()
+        return defColor
     }
     private fun currentColor(color: Int)
     {
