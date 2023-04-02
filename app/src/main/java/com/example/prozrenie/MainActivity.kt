@@ -27,7 +27,8 @@ class MainActivity : AppCompatActivity() {
 
         var game_pict = findViewById<Button>(R.id.game_pict)
         game_pict.setOnClickListener {
-
+            var intent = Intent(this, imges::class.java)
+            startActivity(intent)
         }
         var game_paint = findViewById<Button>(R.id.game_paint)
         game_paint.setOnClickListener {

@@ -66,6 +66,13 @@ class DrawingView(context: Context, attr: AttributeSet): View(context, attr) {
     }
     internal inner class CustomPath(var color: Int, var brushThickness: Float): Path(){
     }
+    fun save(v: View): Bitmap {
+        v.isDrawingCacheEnabled = true
+        v.buildDrawingCache(true)
+        val b = Bitmap.createBitmap(v.drawingCache)
+        v.isDrawingCacheEnabled = false
+        return b
+    }
 //    fun save(): Bitmap? {
 //        val b = Bitmap.createBitmap(measuredWidth, measuredHeight, Bitmap.Config.ARGB_8888)
 //        val c = canvas

@@ -1,16 +1,10 @@
 package com.example.prozrenie
 
 import android.annotation.SuppressLint
-import android.graphics.Bitmap
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.Path
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
+import android.graphics.*
 import android.os.Bundle
 import android.os.Environment
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import android.widget.Toast
@@ -38,7 +32,10 @@ class paint : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_paint)
+        supportActionBar?.hide()
+
         dv = findViewById<DrawingView>(R.id.view);
+        dv?.setBackgroundResource(R.drawable.save)
 
         var size = findViewById<SeekBar>(R.id.brushsize)
         var x = 0f
@@ -69,7 +66,10 @@ class paint : AppCompatActivity() {
         }
         var save = findViewById<ImageButton>(R.id.save_btn)
         save.setOnClickListener {
-        }
+
+            saveImage(dv?.save(dv!!)!!, "doesItWork")
+            }
+
         var bl = findViewById<ImageButton>(R.id.bl)
         var gr = findViewById<ImageButton>(R.id.gr)
         bl.setOnClickListener{currentColor(Color.BLACK)}
@@ -102,4 +102,23 @@ class paint : AppCompatActivity() {
 //        }
 //
 //    }
+private  fun saveImage(finalBitmap: Bitmap, image_name: String) {
+    val root = Environment.getExternalStorageDirectory().toString()
+    val myDir = File(root)
+    myDir.mkdirs()
+    val fname = "Image-$image_name.jpg"
+    val file = File(myDir, fname)
+    if (file.exists()) file.delete()
+    //Log.i("LOAD", root + fname)
+    Toast.makeText(this, "LOAD...", Toast.LENGTH_SHORT).show()
+    try {
+        val out = FileOutputStream(file)
+        finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)
+        out.flush()
+        out.close()
+    } catch (e: Exception) {
+        e.printStackTrace()
+        Toast.makeText(this, "$e", Toast.LENGTH_SHORT).show()
+    }
+}
 }
