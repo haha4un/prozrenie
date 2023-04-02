@@ -4,11 +4,13 @@ import android.annotation.SuppressLint
 import android.graphics.*
 import android.os.Bundle
 import android.os.Environment
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.toColor
 import com.example.drawingapp.DrawingView
 import com.example.drawingapp.DrawingView.Companion.colorList
 import com.example.drawingapp.DrawingView.Companion.currentBrush
@@ -31,6 +33,7 @@ class paint : AppCompatActivity() {
         var s = 10f
     }
     var defColor: Int = Color.BLACK
+    var bl: ImageButton ?= null
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,10 +75,9 @@ class paint : AppCompatActivity() {
             saveImage(dv?.save(dv!!)!!, "doesItWork")
             }
 
-        var bl = findViewById<ImageButton>(R.id.bl)
+        bl = findViewById<ImageButton>(R.id.bl)
         var gr = findViewById<ImageButton>(R.id.gr)
-        bl.setOnClickListener{
-        currentColor(openColorPicker().toString().toInt())}
+        bl?.setOnClickListener{ openColorPicker()}
         gr.setOnClickListener{currentColor(Color.GREEN)}
 
         var add = findViewById<ImageButton>(R.id.addimg_btn)
@@ -87,21 +89,22 @@ class paint : AppCompatActivity() {
                 2 -> dv?.setBackgroundResource(R.drawable.i2)
                 3 -> dv?.setBackgroundResource(R.drawable.i3)
                 4 -> dv?.setBackgroundResource(R.drawable.i4)
-                5 -> dv?.setBackgroundResource(R.drawable.i1)
+                5 -> dv?.setBackgroundColor(Color.WHITE)
                 6 -> i = 0
             }
 
         }
     }
-    fun openColorPicker():Int {
+    fun openColorPicker() {
         val colorPicker = AmbilWarnaDialog(this, defColor, object : OnAmbilWarnaListener {
             override fun onCancel(dialog: AmbilWarnaDialog) {}
             override fun onOk(dialog: AmbilWarnaDialog, color: Int) {
                 defColor = color
+                bl?.setBackgroundColor(defColor)
+                currentColor(defColor)
             }
         })
         colorPicker.show()
-        return defColor
     }
     private fun currentColor(color: Int)
     {
