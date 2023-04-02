@@ -2,6 +2,7 @@ package com.example.prozrenie
 
 import android.annotation.SuppressLint
 import android.graphics.*
+import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.widget.ImageButton
@@ -35,7 +36,7 @@ class paint : AppCompatActivity() {
         supportActionBar?.hide()
 
         dv = findViewById<DrawingView>(R.id.view);
-        dv?.setBackgroundResource(R.drawable.save)
+//        dv?.setBackgroundResource(R.drawable.save)
 
         var size = findViewById<SeekBar>(R.id.brushsize)
         var x = 0f
@@ -66,7 +67,6 @@ class paint : AppCompatActivity() {
         }
         var save = findViewById<ImageButton>(R.id.save_btn)
         save.setOnClickListener {
-
             saveImage(dv?.save(dv!!)!!, "doesItWork")
             }
 
@@ -74,6 +74,21 @@ class paint : AppCompatActivity() {
         var gr = findViewById<ImageButton>(R.id.gr)
         bl.setOnClickListener{currentColor(Color.BLACK)}
         gr.setOnClickListener{currentColor(Color.GREEN)}
+
+        var add = findViewById<ImageButton>(R.id.addimg_btn)
+        var i =  0
+        add.setOnClickListener{
+            i++
+            when (i) {
+                1 -> dv?.setBackgroundResource(R.drawable.i1)
+                2 -> dv?.setBackgroundResource(R.drawable.i2)
+                3 -> dv?.setBackgroundResource(R.drawable.i3)
+                4 -> dv?.setBackgroundResource(R.drawable.i4)
+                5 -> dv?.setBackgroundResource(R.drawable.i1)
+                6 -> i = 0
+            }
+
+        }
     }
     private fun currentColor(color: Int)
     {
