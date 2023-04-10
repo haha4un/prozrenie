@@ -22,7 +22,7 @@
         android:id="@+id/save_editedNote"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:text="save"
+        android:text="Сохранить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

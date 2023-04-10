@@ -6,60 +6,91 @@
     android:layout_height="match_parent"
     tools:context=".View_Edit_Card">
 
-    <EditText
-        android:id="@+id/Edit_Name"
+    <LinearLayout
+        android:id="@+id/l1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
-        android:hint="name"
-        android:text="Name"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/Edit_Sur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:hint="surname"
-        android:text="surname"
-        app:layout_constraintStart_toEndOf="@+id/Edit_Name"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/Edit_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Имя"
+            android:text="Name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/Edit_Mid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:hint="middlename"
-        android:text="middlename"
-        app:layout_constraintStart_toEndOf="@+id/Edit_Sur"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/Edit_Sur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Фамилия"
+            android:text="surname"
+            app:layout_constraintStart_toEndOf="@+id/Edit_Name"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/Edit_Data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:hint="data"
-        android:inputType="date"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Edit_Name" />
+        <EditText
+            android:id="@+id/Edit_Mid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Отчество"
+            android:text="middlename"
+            app:layout_constraintStart_toEndOf="@+id/Edit_Sur"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/saveEdited"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="35dp"
-        android:text="save "
-        app:layout_constraintStart_toEndOf="@+id/Edit_Data"
-        app:layout_constraintTop_toBottomOf="@+id/adding" />
+        <EditText
+            android:id="@+id/Edit_Data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+android:layout_gravity="center"
+            android:ems="10"
+            android:hint="Дата Рождения"
+            android:inputType="date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Edit_Name" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/saveEdited"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="5dp"
+                android:gravity="center"
+                android:text="Сохранить"
+                app:layout_constraintStart_toEndOf="@+id/Edit_Data"
+                app:layout_constraintTop_toBottomOf="@+id/adding" />
+
+            <Button
+                android:id="@+id/adding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="5dp"
+                android:gravity="center|left"
+                android:text="Добавить Заметку"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/Edit_Mid"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
 
     <ScrollView
         android:layout_width="0dp"
@@ -70,7 +101,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Edit_Data">
+        app:layout_constraintTop_toBottomOf="@+id/l1">
 
         <LinearLayout
             android:id="@+id/scroolForNotes"
@@ -79,15 +110,5 @@
             android:orientation="vertical" />
     </ScrollView>
 
-    <Button
-        android:id="@+id/adding"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="5dp"
-        android:text="+"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Edit_Mid"
-        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

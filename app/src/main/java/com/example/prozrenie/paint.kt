@@ -1,9 +1,13 @@
 package com.example.prozrenie
 
+import android.Manifest
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 import android.graphics.*
 import android.os.Bundle
 import android.os.Environment
+import android.provider.MediaStore
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.SeekBar
@@ -40,7 +44,7 @@ class paint : AppCompatActivity() {
         setContentView(R.layout.activity_paint)
         supportActionBar?.hide()
 
-        dv = findViewById<DrawingView>(R.id.view);
+        dv = findViewById<DrawingView>(R.id.view)
 //        dv?.setBackgroundResource(R.drawable.save)
 
         var size = findViewById<SeekBar>(R.id.brushsize)
@@ -72,8 +76,12 @@ class paint : AppCompatActivity() {
         }
         var save = findViewById<ImageButton>(R.id.save_btn)
         save.setOnClickListener {
-            saveImage(dv?.save(dv!!)!!, "doesItWork")
-            }
+//            saveImage(dv?.save(dv!!)!!, "doesItWork")
+            ch()
+            MediaStore.Images.Media.insertImage(
+                contentResolver, dv?.drawingCache,
+                UUID.randomUUID().toString()+".png", "drawing")
+        }
 
         bl = findViewById<ImageButton>(R.id.bl)
         var gr = findViewById<ImageButton>(R.id.gr)
@@ -135,7 +143,7 @@ class paint : AppCompatActivity() {
 //    }
 private  fun saveImage(finalBitmap: Bitmap, image_name: String) {
     val root = Environment.getExternalStorageDirectory().toString()
-    val myDir = File(root)
+    val myDir = File("/sdcard/Android/data/data/prozrenie")
     myDir.mkdirs()
     val fname = "Image-$image_name.jpg"
     val file = File(myDir, fname)
@@ -152,4 +160,13 @@ private  fun saveImage(finalBitmap: Bitmap, image_name: String) {
         Toast.makeText(this, "$e", Toast.LENGTH_SHORT).show()
     }
 }
+
+    fun ch()
+    {
+            requestPermissions(
+                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                1);
+            return;
+
+    }
 }

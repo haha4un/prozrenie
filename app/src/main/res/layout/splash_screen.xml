@@ -12,7 +12,7 @@
         android:background="@color/green"
         android:elegantTextHeight="true"
         android:freezesText="false"
-        android:text="haha4un\nmurai\nkeyrdis"
+        android:text="haha4un\nkeyrdis\nmurai"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
