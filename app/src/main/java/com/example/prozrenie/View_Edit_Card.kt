@@ -1,6 +1,7 @@
 package com.example.prozrenie
 
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 class View_Edit_Card : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -78,6 +80,16 @@ class View_Edit_Card : AppCompatActivity() {
             var intent = Intent(this, create_note::class.java)
             intent.putExtra("KEY_id", upgradeID(k.toString()))
             startActivity(intent)
+        }
+
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        var day = c.get(Calendar.DAY_OF_MONTH)
+        val cr: Create_Card = Create_Card()
+        d.setOnClickListener {
+            var dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{ view, mYear, mMonth, mDay->d.setText("${cr.updateDates(mDay, mMonth+1, mYear)}")}, year,month,day)
+            dpd.show()
         }
     }
     fun add(res: String, scrool: LinearLayout, ids: String, note: String, keyForNote: String)
