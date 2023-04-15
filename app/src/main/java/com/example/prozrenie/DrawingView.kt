@@ -69,7 +69,7 @@ class DrawingView(context: Context, attr: AttributeSet): View(context, attr) {
     fun save(v: View): Bitmap {
         v.isDrawingCacheEnabled = true
         v.buildDrawingCache(true)
-        val b = Bitmap.createBitmap(v.drawingCache)
+        var b = Bitmap.createBitmap(v.drawingCache)
         v.isDrawingCacheEnabled = false
         return b
     }

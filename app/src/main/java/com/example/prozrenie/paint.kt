@@ -1,20 +1,14 @@
 package com.example.prozrenie
 
-import android.Manifest
-import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.annotation.SuppressLint
-import android.content.pm.PackageManager
 import android.graphics.*
 import android.os.Bundle
 import android.os.Environment
-import android.provider.MediaStore
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.toColor
 import com.example.drawingapp.DrawingView
 import com.example.drawingapp.DrawingView.Companion.colorList
 import com.example.drawingapp.DrawingView.Companion.currentBrush
@@ -76,11 +70,7 @@ class paint : AppCompatActivity() {
         }
         var save = findViewById<ImageButton>(R.id.save_btn)
         save.setOnClickListener {
-//            saveImage(dv?.save(dv!!)!!, "doesItWork")
-            ch()
-            MediaStore.Images.Media.insertImage(
-                contentResolver, dv?.drawingCache,
-                UUID.randomUUID().toString()+".png", "drawing")
+           saveImages(dv?.save(dv!!)!!, "doesItWork")
         }
 
         bl = findViewById<ImageButton>(R.id.bl)
@@ -153,6 +143,7 @@ private  fun saveImage(finalBitmap: Bitmap, image_name: String) {
     try {
         val out = FileOutputStream(file)
         finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)
+        Toast.makeText(this, "Saved somewhere", Toast.LENGTH_SHORT).show()
         out.flush()
         out.close()
     } catch (e: Exception) {
@@ -160,13 +151,22 @@ private  fun saveImage(finalBitmap: Bitmap, image_name: String) {
         Toast.makeText(this, "$e", Toast.LENGTH_SHORT).show()
     }
 }
-
-    fun ch()
-    {
-            requestPermissions(
-                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
-                1);
-            return;
-
+    fun saveImages(finalBitmap: Bitmap, image_name: String) {
+        val root = Environment.getExternalStorageDirectory().toString()
+        val myDir = File(root)
+        myDir.mkdirs()
+        val fname = "Image-$image_name.jpg"
+        val file = File(myDir, fname)
+        if (file.exists()) file.delete()
+        Toast.makeText(this, "load in $myDir", Toast.LENGTH_SHORT).show()
+        try {
+            val out = FileOutputStream(file)
+            finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)
+            out.flush()
+            out.close()
+        } catch (e: java.lang.Exception) {
+            e.printStackTrace()
+            Toast.makeText(this, "$e", Toast.LENGTH_SHORT).show()
+        }
     }
 }
