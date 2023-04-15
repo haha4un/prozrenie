@@ -70,7 +70,7 @@ class paint : AppCompatActivity() {
         }
         var save = findViewById<ImageButton>(R.id.save_btn)
         save.setOnClickListener {
-           saveImages(dv?.save(dv!!)!!, "doesItWork")
+           saveImage(dv?.save(dv!!)!!, "doesItWork")
         }
 
         bl = findViewById<ImageButton>(R.id.bl)
@@ -109,51 +109,9 @@ class paint : AppCompatActivity() {
         currentBrush = color
         path = Path()
     }
-//    fun saved(bitmap: Bitmap)
-//    {
-//        var root: String = Environment.getExternalStorageDirectory().absolutePath
-//        var file: File = File(root+"/Download")
-//        var filename = "h4n-mur-key.jpg"
-//        var myfile = File(file,filename)
-//        if (myfile.exists())
-//        {
-//            //than do nothing
-//        }
-//        try {
-//            var fileOutputStream: FileOutputStream = FileOutputStream(myfile)
-//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100,fileOutputStream)
-//            fileOutputStream.flush()
-//            fileOutputStream.close()
-//        }
-//        catch (e: Exception)
-//        {
-//            Toast.makeText(this, "$e", Toast.LENGTH_LONG).show()
-//        }
-//
-//    }
-private  fun saveImage(finalBitmap: Bitmap, image_name: String) {
-    val root = Environment.getExternalStorageDirectory().toString()
-    val myDir = File("/sdcard/Android/data/data/prozrenie")
-    myDir.mkdirs()
-    val fname = "Image-$image_name.jpg"
-    val file = File(myDir, fname)
-    if (file.exists()) file.delete()
-    //Log.i("LOAD", root + fname)
-    Toast.makeText(this, "LOAD...", Toast.LENGTH_SHORT).show()
-    try {
-        val out = FileOutputStream(file)
-        finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)
-        Toast.makeText(this, "Saved somewhere", Toast.LENGTH_SHORT).show()
-        out.flush()
-        out.close()
-    } catch (e: Exception) {
-        e.printStackTrace()
-        Toast.makeText(this, "$e", Toast.LENGTH_SHORT).show()
-    }
-}
-    fun saveImages(finalBitmap: Bitmap, image_name: String) {
+    fun saveImage(finalBitmap: Bitmap, image_name: String) {
         val root = Environment.getExternalStorageDirectory().toString()
-        val myDir = File(root)
+        val myDir = File("$root/Pictures")
         myDir.mkdirs()
         val fname = "Image-$image_name.jpg"
         val file = File(myDir, fname)

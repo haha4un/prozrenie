@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:id="@+id/l1"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:orientation="vertical"
@@ -18,9 +18,12 @@
 
         <EditText
             android:id="@+id/Edit_Name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="#009688"
+            android:gravity="center"
             android:hint="Имя"
             android:text="Name"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,49 +31,59 @@
 
         <EditText
             android:id="@+id/Edit_Sur"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:backgroundTint="#009688"
+            android:gravity="center"
             android:hint="Фамилия"
-            android:text="surname"
+            android:text="Surname"
             app:layout_constraintStart_toEndOf="@+id/Edit_Name"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/Edit_Mid"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:backgroundTint="#009688"
+            android:gravity="center"
             android:hint="Отчество"
-            android:text="middlename"
+            android:text="Middlename"
             app:layout_constraintStart_toEndOf="@+id/Edit_Sur"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/Edit_Data"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-android:layout_gravity="center"
+            android:layout_gravity="center"
+            android:backgroundTint="#009688"
             android:ems="10"
+            android:gravity="center"
             android:hint="Дата Рождения"
             android:inputType="date"
+            android:text="Date"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Edit_Name" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
 
             <Button
                 android:id="@+id/saveEdited"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="10sp"
+                android:layout_marginTop="20sp"
                 android:layout_marginEnd="5dp"
+                android:backgroundTint="#009688"
                 android:gravity="center"
                 android:text="Сохранить"
+                android:textStyle="normal"
                 app:layout_constraintStart_toEndOf="@+id/Edit_Data"
                 app:layout_constraintTop_toBottomOf="@+id/adding" />
 
@@ -78,11 +91,13 @@ android:layout_gravity="center"
                 android:id="@+id/adding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="5dp"
-                android:gravity="center|left"
-                android:text="Добавить Заметку"
+                android:layout_marginStart="10sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginEnd="10sp"
+                android:gravity="center"
+                android:text="+"
+                android:backgroundTint="#009688"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/Edit_Mid"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -90,14 +105,12 @@ android:layout_gravity="center"
     </LinearLayout>
 
 
-
-
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
