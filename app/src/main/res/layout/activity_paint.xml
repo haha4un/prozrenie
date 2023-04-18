@@ -164,9 +164,10 @@
             android:scaleType="fitXY"
             android:src="@drawable/brush" />
 
+
         <SeekBar
             android:id="@+id/imageBrushButton"
-            android:layout_width="50dp"
+            android:layout_width="200dp"
             android:layout_height="50dp"
             android:contentDescription="brush_image"
             android:scaleType="fitXY"
@@ -182,7 +183,12 @@
             android:scaleType="fitXY"
             android:layout_margin="5dp"
             />
-
+        <ImageButton
+            android:id="@+id/new_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:contentDescription="@string/start_new"
+            android:src="@drawable/new_pic" />
     </LinearLayout>
 
 

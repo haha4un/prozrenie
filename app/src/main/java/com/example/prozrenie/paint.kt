@@ -38,7 +38,10 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
+import java.sql.Time
+import java.time.LocalDateTime
 import java.util.*
+import kotlin.random.Random
 
 
 class paint : AppCompatActivity() {
@@ -47,6 +50,7 @@ class paint : AppCompatActivity() {
     var drawingView: DrawingView ?= null
     var imageViewBackground: ImageView ?= null
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_paint)
@@ -61,7 +65,7 @@ class paint : AppCompatActivity() {
         var imageUndoButton = findViewById<ImageButton>(R.id.imageUndoButton)
         var imageGalleryButton = findViewById<ImageButton>(R.id.imageGalleryButton)
 
-
+        imageViewBackground?.setBackgroundColor(Color.WHITE)
 
         mImageButtonCurrentPaint = paintColorsLayout[1] as ImageButton
         mImageButtonCurrentPaint!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.save))
@@ -77,6 +81,12 @@ class paint : AppCompatActivity() {
                 drawingView?.setSizeForBrush(x)
             }
         })
+
+        var reset = findViewById<ImageButton>(R.id.new_btn)
+        reset.setOnClickListener{
+            for (x in 0..1000)//ahah, that's funny)
+                drawingView?.onClickUndo()
+        }
 
         imageGalleryButton.setOnClickListener {
             if(isReadStorageAllowed()){
@@ -216,6 +226,24 @@ class paint : AppCompatActivity() {
         view.draw(canvas)
 
         return returnBitmap
+    }
+    fun saveImage(finalBitmap: Bitmap, image_name: String) {
+        val root = Environment.getExternalStorageDirectory().toString()
+        val myDir = File("$root/Pictures")
+        myDir.mkdirs()
+        val fname = "Image-$image_name.jpg"
+        val file = File(myDir, fname)
+        if (file.exists()) file.delete()
+        Toast.makeText(this, "load in $myDir", Toast.LENGTH_SHORT).show()
+        try {
+            val out = FileOutputStream(file)
+            finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)
+            out.flush()
+            out.close()
+        } catch (e: java.lang.Exception) {
+            e.printStackTrace()
+            Toast.makeText(this, "$e", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private inner class BitmapAsyncTask(val mBitmap: Bitmap, val context: Context): AsyncTask<Any, Void, String>(){

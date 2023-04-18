@@ -102,6 +102,13 @@ import android.view.ViewGroup
             invalidate()
             return true
         }
+        fun save(v: View): Bitmap {
+            v.isDrawingCacheEnabled = true
+            v.buildDrawingCache(true)
+            var b = Bitmap.createBitmap(v.drawingCache)
+            v.isDrawingCacheEnabled = false
+            return b
+        }
 
         fun setSizeForBrush(newSize: Float) {
             mBrushSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, newSize, resources.displayMetrics)
