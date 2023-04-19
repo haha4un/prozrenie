@@ -16,7 +16,9 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.view.DragEvent
 import android.view.View
+import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -86,6 +88,7 @@ class paint : AppCompatActivity() {
         reset.setOnClickListener{
             for (x in 0..1000)//ahah, that's funny)
                 drawingView?.onClickUndo()
+            showImgSizeChooseDialog()
         }
 
         imageGalleryButton.setOnClickListener {
@@ -100,6 +103,7 @@ class paint : AppCompatActivity() {
 
         imageUndoButton.setOnClickListener {
             drawingView?.onClickUndo()
+//            showImgSizeChooseDialog()
         }
 
         imageSaveButton.setOnClickListener {
@@ -129,28 +133,28 @@ class paint : AppCompatActivity() {
         }
     }
 
-//    private fun showBrushSizeChooseDialog(){
-//        val brushDialog = Dialog(this)
-//        brushDialog.setContentView(R.layout.dialog_brush_size)
-//        brushDialog.setTitle("Brush size: ")
-//        val smallButton = brushDialog.smallBrushButton
-//        smallButton.setOnClickListener {
-//            drawingView.setSizeForBrush(10.toFloat())
-//            brushDialog.dismiss()
-//        }
-//        val mediumButton = brushDialog.mediumBrushButton
-//        mediumButton.setOnClickListener {
-//            drawingView.setSizeForBrush(20.toFloat())
-//            brushDialog.dismiss()
-//        }
-//        val largeButton = brushDialog.largeBrushButton
-//        largeButton.setOnClickListener {
-//            drawingView.setSizeForBrush(30.toFloat())
-//            brushDialog.dismiss()
-//        }
-//
-//        brushDialog.show()
-//    }
+    private fun showImgSizeChooseDialog(){
+        var brushDialog = Dialog(this)
+        brushDialog.setContentView(R.layout.imgd)
+
+        val im1 = brushDialog.findViewById<ImageButton>(R.id.im1)
+        im1.setOnClickListener {
+            imageViewBackground?.setBackgroundResource(R.drawable.im1)
+            brushDialog.dismiss()
+        }
+        val im2 = brushDialog.findViewById<ImageButton>(R.id.im2)
+        im2.setOnClickListener {
+            imageViewBackground?.setBackgroundResource(R.drawable.im2)
+            brushDialog.dismiss()
+        }
+        val im3 = brushDialog.findViewById<ImageButton>(R.id.im3)
+        im3.setOnClickListener {
+            imageViewBackground?.setBackgroundResource(R.drawable.im3)
+            brushDialog.dismiss()
+        }
+
+        brushDialog.show()
+    }
 
     fun paintClicked(view: View) {
         if (view !== mImageButtonCurrentPaint) {
