@@ -35,5 +35,10 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this, paint::class.java)
             startActivity(intent)
         }
+        var game_relax = findViewById<Button>(R.id.game_relax)
+        game_relax.setOnClickListener {
+            var intent = Intent(this, relax_game::class.java)
+            startActivity(intent)
+        }
     }
 }

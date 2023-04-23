@@ -6,68 +6,83 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/game_pict"
-        android:layout_width="match_parent"
+    <HorizontalScrollView
+        android:id="@+id/games"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
-        android:backgroundTint="#009688"
-        android:text="Картинки"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/game_paint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
-        android:backgroundTint="#009688"
-        android:text="Контур"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@+id/cards"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_pict" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/create_card"
-        android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/game_pict"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Картинки"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+            <Button
+                android:id="@+id/game_paint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Контур"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+            <Button
+                android:id="@+id/game_relax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="релакс"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:id="@+id/cards"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="32dp"
-        android:backgroundTint="#009688"
-        android:text="Создать карту"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        app:layout_constraintBottom_toTopOf="@+id/view_card"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_paint" />
-
-    <Button
-        android:id="@+id/view_card"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="20sp"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="#009688"
-        android:text="Просмотреть карты"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="normal"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_card" />
+        app:layout_constraintTop_toBottomOf="@+id/games">
+
+        <Button
+            android:id="@+id/view_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Просмотреть карты"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+        <Button
+            android:id="@+id/create_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Создать карту"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            tools:layout_editor_absoluteX="218dp" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
