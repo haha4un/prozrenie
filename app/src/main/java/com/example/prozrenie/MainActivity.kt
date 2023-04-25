@@ -49,23 +49,18 @@ class MainActivity : AppCompatActivity() {
                             x2 = event.x
                             val deltaX = x2 - x1
                             if (deltaX < 0) {
-                                Toast.makeText(
-                                    this@MainActivity,
-                                    "Right to Left swipe",
-                                    Toast.LENGTH_SHORT
-                                ).show()
                                 i++
                             } else if (deltaX > 0) {
-                                Toast.makeText(
-                                    this@MainActivity,
-                                    "Left to Right swipe",
-                                    Toast.LENGTH_SHORT
-                                ).show()
                                 i--
                             }
                         }
                     }
-                    toNextActivity(i, games)
+                    when(toNextActivity(i, games))
+                    {
+                        1 -> games.setOnClickListener { var intent = Intent(this@MainActivity, imges::class.java ); startActivity(intent) }
+                        2 -> games.setOnClickListener { var intent = Intent(this@MainActivity, paint::class.java ); startActivity(intent)}
+                        3 -> games.setOnClickListener { var intent = Intent(this@MainActivity, relax_game::class.java); startActivity(intent) }
+                    }
                     return false
                 }
             })
@@ -93,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             }
             3 -> {
                 view.setImageResource(R.drawable.gi3)
-                return 2
+                return 3
             }
         }
         return 0
