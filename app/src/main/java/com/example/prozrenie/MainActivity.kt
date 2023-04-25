@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        var temp = 0
         var games = findViewById<ImageButton>(R.id.games)
         games.setOnTouchListener(
             object : View.OnTouchListener {
@@ -50,20 +51,26 @@ class MainActivity : AppCompatActivity() {
                             val deltaX = x2 - x1
                             if (deltaX < 0) {
                                 i++
+                                temp = toNextActivity(i, games)
                             } else if (deltaX > 0) {
                                 i--
+                                temp = toNextActivity(i, games)
+                            }
+                            else if (deltaX == 0f)
+                            {
+                                when(temp)
+                                {
+                                    1 -> { var intent = Intent(this@MainActivity, imges::class.java ); startActivity(intent) }
+                                    2 -> { var intent = Intent(this@MainActivity, paint::class.java ); startActivity(intent)}
+                                    3 ->  { var intent = Intent(this@MainActivity, relax_game::class.java); startActivity(intent) }
+                                }
                             }
                         }
-                    }
-                    when(toNextActivity(i, games))
-                    {
-                        1 -> games.setOnClickListener { var intent = Intent(this@MainActivity, imges::class.java ); startActivity(intent) }
-                        2 -> games.setOnClickListener { var intent = Intent(this@MainActivity, paint::class.java ); startActivity(intent)}
-                        3 -> games.setOnClickListener { var intent = Intent(this@MainActivity, relax_game::class.java); startActivity(intent) }
                     }
                     return false
                 }
             })
+
     }
     fun toNextActivity(i:Int, view: ImageView) : Int
     {
