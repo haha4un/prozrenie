@@ -1,8 +1,11 @@
 package com.example.prozrenie
 
-import android.media.MediaPlayer.OnCompletionListener
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import android.view.MotionEvent
+import android.view.View
 import android.widget.Button
 import android.widget.MediaController
 import android.widget.VideoView
@@ -27,7 +30,7 @@ class relax_game : AppCompatActivity() {
             var path = x
             when (i) {
                  1 -> path += R.raw.v1
-                2-> path += R.raw.v2
+                 2-> path += R.raw.v2
             }
             var uri: Uri = Uri.parse(path)
             v.setVideoURI(uri)
@@ -35,8 +38,6 @@ class relax_game : AppCompatActivity() {
             v.setMediaController(m)
             m.setAnchorView(v)
             v.start()
-            if (!v.isPlaying)
-                v.setVisibility(VideoView.INVISIBLE)
         }
 
 //        videoView.setOnCompletionListener(OnCompletionListener {
