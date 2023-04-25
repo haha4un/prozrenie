@@ -6,63 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <HorizontalScrollView
-        android:id="@+id/games"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/cards"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/game_pict"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Картинки"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:textStyle="normal" />
-
-            <Button
-                android:id="@+id/game_paint"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Контур"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:textStyle="normal" />
-            <Button
-                android:id="@+id/game_relax"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="релакс"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:textStyle="normal" />
-        </LinearLayout>
-    </HorizontalScrollView>
-
     <LinearLayout
         android:id="@+id/cards"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="70dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/games">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/view_card"
@@ -82,7 +33,57 @@
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textSize="20sp"
-            android:textStyle="normal"
-            tools:layout_editor_absoluteX="218dp" />
+            android:textStyle="normal" />
     </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/games"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cards">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/game_pict"
+                android:layout_width="400sp"
+                android:layout_height="400sp"
+                android:text="Картинки"
+                android:background="@drawable/gi1"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+            <ImageButton
+                android:id="@+id/game_paint"
+                android:layout_width="400sp"
+                android:layout_height="400sp"
+                android:text="Контур"
+                android:background="@drawable/gi2"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+            <ImageButton
+                android:id="@+id/game_relax"
+                android:layout_width="400sp"
+                android:layout_height="400sp"
+                android:text="релакс"
+                android:background="@drawable/gi3"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+    </HorizontalScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

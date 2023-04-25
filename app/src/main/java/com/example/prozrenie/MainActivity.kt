@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -25,17 +26,17 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        var game_pict = findViewById<Button>(R.id.game_pict)
+        var game_pict = findViewById<ImageButton>(R.id.game_pict)
         game_pict.setOnClickListener {
             var intent = Intent(this, imges::class.java)
             startActivity(intent)
         }
-        var game_paint = findViewById<Button>(R.id.game_paint)
+        var game_paint = findViewById<ImageButton>(R.id.game_paint)
         game_paint.setOnClickListener {
             var intent = Intent(this, paint::class.java)
             startActivity(intent)
         }
-        var game_relax = findViewById<Button>(R.id.game_relax)
+        var game_relax = findViewById<ImageButton>(R.id.game_relax)
         game_relax.setOnClickListener {
             var intent = Intent(this, relax_game::class.java)
             startActivity(intent)
