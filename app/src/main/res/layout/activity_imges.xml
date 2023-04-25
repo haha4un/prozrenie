@@ -23,25 +23,28 @@
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/sc">
+    android:id="@+id/sc"
+    android:layout_marginStart="4dp"
+    android:layout_marginTop="32dp"
+    android:layout_marginBottom="12dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/text">
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="12dp"
-        android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/text">
+        android:gravity="center">
 
 
         <ImageButton
             android:id="@+id/imageButton"
             android:layout_width="200sp"
             android:layout_height="200sp"
+            android:layout_marginTop="20sp"
             android:src="@drawable/g1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
