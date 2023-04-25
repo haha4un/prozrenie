@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        var gamesPic = findViewById<ImageView>(R.id.games_big_pic)
+
         var temp = 0
         var games = findViewById<ImageButton>(R.id.games)
         games.setOnTouchListener(
@@ -65,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                     }
-                    temp = toNextActivity(i, games)
+                    temp = toNextActivity(i, gamesPic)
                     return false
                 }
             })

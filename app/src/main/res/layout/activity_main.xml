@@ -37,14 +37,26 @@
             android:textStyle="normal" />
     </LinearLayout>
 
-   <ImageButton
-       android:id="@+id/games"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:src="@drawable/gi1"
-       android:layout_marginTop="100dp"
-       app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/cards"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cards">
+
+        <ImageView
+            android:id="@+id/games_big_pic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/gi1" />
+
+        <ImageButton
+            android:id="@+id/games"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00FFFFFF" />
+
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
