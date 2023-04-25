@@ -51,10 +51,8 @@ class MainActivity : AppCompatActivity() {
                             val deltaX = x2 - x1
                             if (deltaX < 0) {
                                 i++
-                                temp = toNextActivity(i, games)
                             } else if (deltaX > 0) {
                                 i--
-                                temp = toNextActivity(i, games)
                             }
                             else if (deltaX == 0f)
                             {
@@ -67,6 +65,7 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                     }
+                    temp = toNextActivity(i, games)
                     return false
                 }
             })
