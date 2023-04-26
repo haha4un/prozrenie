@@ -1,7 +1,6 @@
 package com.example.prozrenie
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Dialog
 import android.content.ContentValues
@@ -16,9 +15,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.view.DragEvent
 import android.view.View
-import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -30,7 +27,6 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.toColor
 import androidx.core.view.get
 import com.example.drawingapp.DrawingView
 
@@ -40,13 +36,10 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
-import java.sql.Time
-import java.time.LocalDateTime
 import java.util.*
-import kotlin.random.Random
 
 
-class paint : AppCompatActivity() {
+class paint_game : AppCompatActivity() {
 
     private var mImageButtonCurrentPaint: ImageButton? = null
     var drawingView: DrawingView ?= null
@@ -302,18 +295,18 @@ class paint : AppCompatActivity() {
             cancelProgressDialog()
             if (result!!.isNotEmpty()) {
                 Toast.makeText(
-                    this@paint,
+                    this@paint_game,
                     "File saved successfully :$result",
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
                 Toast.makeText(
-                    this@paint,
+                    this@paint_game,
                     "Something went wrong while saving the file.",
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            MediaScannerConnection.scanFile(this@paint, arrayOf(result), null){
+            MediaScannerConnection.scanFile(this@paint_game, arrayOf(result), null){
                     path, uri -> val shareIntent = Intent()
                 shareIntent.action = Intent.ACTION_SEND
                 shareIntent.putExtra(Intent.EXTRA_STREAM, uri)

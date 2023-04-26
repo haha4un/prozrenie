@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 
-class imges : AppCompatActivity() {
+class imges_game_1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_imges)
@@ -14,7 +14,7 @@ class imges : AppCompatActivity() {
         val imgBtn1 = findViewById<ImageButton>(R.id.imageButton)
         val imgBtn2 = findViewById<ImageButton>(R.id.imageButton2)
         val imgBtn3= findViewById<ImageButton>(R.id.imageButton3)
-        val intent = Intent(this, lookatimg::class.java)
+        val intent = Intent(this, imges_game_2::class.java)
 
         imgBtn1.setOnClickListener() {
             intent.putExtra("IMG", "g1")

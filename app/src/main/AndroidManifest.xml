@@ -23,7 +23,7 @@
             android:exported="false"
             android:screenOrientation="landscape"/>
         <activity
-            android:name=".lookatimg"
+            android:name=".imges_game_2"
             android:exported="false"
             android:screenOrientation="landscape">
             <meta-data
@@ -31,7 +31,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".imges"
+            android:name=".imges_game_1"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -55,7 +55,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".paint"
+            android:name=".paint_game"
             android:exported="false"
             android:screenOrientation="landscape">
             <meta-data

@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -60,8 +59,8 @@ class MainActivity : AppCompatActivity() {
                             {
                                 when(temp)
                                 {
-                                    1 -> { var intent = Intent(this@MainActivity, imges::class.java ); startActivity(intent) }
-                                    2 -> { var intent = Intent(this@MainActivity, paint::class.java ); startActivity(intent)}
+                                    1 -> { var intent = Intent(this@MainActivity, imges_game_1::class.java ); startActivity(intent) }
+                                    2 -> { var intent = Intent(this@MainActivity, paint_game::class.java ); startActivity(intent)}
                                     3 ->  { var intent = Intent(this@MainActivity, relax_game::class.java); startActivity(intent) }
                                 }
                             }
@@ -101,30 +100,4 @@ class MainActivity : AppCompatActivity() {
         }
         return 0
     }
-//    view.setOnTouchListener(
-//    object : View.OnTouchListener {
-//        override fun onTouch(v: View?, event: MotionEvent): Boolean {
-//            when (event.action) {
-//                MotionEvent.ACTION_DOWN -> x1 = event.x
-//                MotionEvent.ACTION_UP -> {
-//                    x2 = event.x
-//                    val deltaX = x2 - x1
-//                    if (deltaX < 0) {
-//                        Toast.makeText(
-//                            this@MainActivity,
-//                            "Right to Left swipe",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                    } else if (deltaX > 0) {
-//                        Toast.makeText(
-//                            this@MainActivity,
-//                            "Left to Right swipe",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                    }
-//                }
-//            }
-//            return false
-//        }
-//    })
 }
