@@ -41,8 +41,23 @@ class create_note : AppCompatActivity() {
             else {
                 ref = database.getReference("main/${info.toString()}/lessons")
                 ref.child("/$i").setValue(n.text.toString())
-                var intent = Intent(this, View_Card::class.java)
-                startActivity(intent)
+
+                var ids =""
+                var intent: Intent = Intent(this, View_Edit_Card::class.java)
+                ref.addValueEventListener(object: ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        for (i in snapshot.children)
+                        {
+                            var fbe = i.getValue(fb().javaClass)
+                            ids = fbe?.getIds().toString()
+
+                            intent.putExtra("KEY", ids)
+                            startActivity(intent)
+                        }
+                    }
+                    override fun onCancelled(error: DatabaseError) {
+                    }
+                })
                 return@setOnClickListener
             }
         }

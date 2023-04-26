@@ -29,7 +29,8 @@ class overlook_note : AppCompatActivity() {
             val db = database.getReference("main/$id/lessons/$key")
             db.setValue(n.text.toString())
 
-            var intent = Intent(this, MainActivity::class.java)
+            var intent = Intent(this, View_Card::class.java)
+//            intent.putExtra("KEY", intent.getSerializableExtra("ID"))
             startActivity(intent)
         }
     }
