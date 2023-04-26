@@ -39,18 +39,18 @@ class Create_Card : AppCompatActivity() {
                 2-> {sur = create.text.toString();
                     Toast.makeText(this, "sur: $sur", Toast.LENGTH_SHORT).show(); create.setText("");create.hint = "Отчество";  i++}
                 3-> {middle = create.text.toString();
-                    Toast.makeText(this, "middle: $middle", Toast.LENGTH_SHORT).show(); create.setText("");create.hint = "Дата Рождения"; }
+                    Toast.makeText(this, "middle: $middle", Toast.LENGTH_SHORT).show();i++;create.setText("");create.hint = "Нажмите на кнопку еще раз" }
                 4-> {
+                    create.setText("");create.hint = "Дата Рождения";
                     val c = Calendar.getInstance()
                     val y = c.get(Calendar.YEAR)
                     val m = c.get(Calendar.MONTH)
                     val d = c.get(Calendar.DAY_OF_MONTH)
                     val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{view, mYear, mMonth, mDay->date=
-                        updateDates(mDay, mMonth+1, mYear)}, y,m,d)
+                        updateDates(mDay, mMonth+1, mYear);create.setText(date);}, y,m,d)
                     dpd.show()
-                    create.setText("");
                     i++}
-                5-> {save.text = "Сохранить?"; create.setText(""); i++}
+                5-> {create.hint = "";save.text = "Сохранить?"; create.setText(""); i++}
                 6-> {i = 0
                     var x = "${name.hashCode()}${sur.hashCode()}${middle.hashCode()}${date.hashCode()}"
                     val myRef = database.getReference("main/$x")

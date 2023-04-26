@@ -9,11 +9,12 @@
     <EditText
         android:id="@+id/create"
         android:layout_width="0dp"
-        android:layout_height="90dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="10sp"
         android:layout_marginTop="30sp"
         android:layout_marginEnd="10sp"
         android:ems="10"
+        android:inputType="textPersonName"
         android:hint="Имя"
         android:textAlignment="center"
         android:textAllCaps="false"
