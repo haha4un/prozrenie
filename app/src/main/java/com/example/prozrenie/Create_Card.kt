@@ -34,12 +34,27 @@ class Create_Card : AppCompatActivity() {
         save.setOnClickListener {
             when (i)
             {
-                1 -> {create.hint = "Имя"; name = create.text.toString();
-                    Toast.makeText(this, "name: $name", Toast.LENGTH_SHORT).show(); create.setText("");create.hint = "Фамилия";i++;}
+                1 -> {
+                    create.hint = "Имя"; name = create.text.toString();
+                    if (name == "")
+                    {  Toast.makeText(this, "Поле не должно быть пустым!", Toast.LENGTH_SHORT).show()
+                        return@setOnClickListener}
+                    else{
+                    Toast.makeText(this, "name: $name", Toast.LENGTH_SHORT).show(); create.setText("");create.hint = "Фамилия";i++;
+                    }
+                }
                 2-> {sur = create.text.toString();
-                    Toast.makeText(this, "sur: $sur", Toast.LENGTH_SHORT).show(); create.setText("");create.hint = "Отчество";  i++}
+                    if (sur == "")
+                    {  Toast.makeText(this, "Поле не должно быть пустым!", Toast.LENGTH_SHORT).show()
+                        return@setOnClickListener}
+                    else{
+                    Toast.makeText(this, "sur: $sur", Toast.LENGTH_SHORT).show(); create.setText("");create.hint = "Отчество";  i++}}
                 3-> {middle = create.text.toString();
-                    Toast.makeText(this, "middle: $middle", Toast.LENGTH_SHORT).show();i++;create.setText("");create.hint = "Нажмите на кнопку еще раз" }
+                    if (middle == "")
+                    {  Toast.makeText(this, "Поле не должно быть пустым!", Toast.LENGTH_SHORT).show()
+                        return@setOnClickListener}
+                    else{
+                    Toast.makeText(this, "middle: $middle", Toast.LENGTH_SHORT).show();i++;create.setText("");create.hint = "Нажмите на кнопку еще раз" }}
                 4-> {
                     create.setText("");create.hint = "Дата Рождения";
                     val c = Calendar.getInstance()
@@ -49,7 +64,8 @@ class Create_Card : AppCompatActivity() {
                     val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{view, mYear, mMonth, mDay->date=
                         updateDates(mDay, mMonth+1, mYear);create.setText(date);}, y,m,d)
                     dpd.show()
-                    i++}
+                    i++
+                }
                 5-> {create.hint = "";save.text = "Сохранить?"; create.setText(""); i++}
                 6-> {i = 0
                     var x = "${name.hashCode()}${sur.hashCode()}${middle.hashCode()}${date.hashCode()}"
