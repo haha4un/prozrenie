@@ -21,16 +21,16 @@ class View_Edit_Card : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_edit_card)
-        var k = intent.getSerializableExtra("KEY")
+        val k = intent.getSerializableExtra("KEY")
 
-        var scroll = findViewById<LinearLayout>(R.id.scroolForNotes)
+        val scroll = findViewById<LinearLayout>(R.id.scroolForNotes)
 
-        var n = findViewById<EditText>(R.id.Edit_Name)
-        var s = findViewById<EditText>(R.id.Edit_Sur)
-        var m = findViewById<EditText>(R.id.Edit_Mid)
-        var d = findViewById<EditText>(R.id.Edit_Data)
+        val n = findViewById<EditText>(R.id.Edit_Name)
+        val s = findViewById<EditText>(R.id.Edit_Sur)
+        val m = findViewById<EditText>(R.id.Edit_Mid)
+        val d = findViewById<EditText>(R.id.Edit_Data)
 
-        var save = findViewById<Button>(R.id.saveEdited)
+        val save = findViewById<Button>(R.id.saveEdited)
         save.setOnClickListener {
             val database = Firebase.database
             val myRef = database.getReference("main/${upgradeID(k.toString())}")
@@ -48,7 +48,7 @@ class View_Edit_Card : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (i in snapshot.children)
                 {
-                    var fbe = i.getValue(fb().javaClass)
+                    val fbe = i.getValue(fb().javaClass)
                     if(fbe?.getIds().toString() == k.toString())
                     {
                         n.setText(fbe?.getNames())
@@ -63,7 +63,7 @@ class View_Edit_Card : AppCompatActivity() {
             }
         })
 
-        var notes = database.getReference("main/${upgradeID(k.toString())}/lessons")
+        val notes = database.getReference("main/${upgradeID(k.toString())}/lessons")
         notes.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (i in snapshot.children)
@@ -75,9 +75,9 @@ class View_Edit_Card : AppCompatActivity() {
             }
         })
 
-        var plus = findViewById<Button>(R.id.adding)
+        val plus = findViewById<Button>(R.id.adding)
         plus.setOnClickListener {
-            var intent = Intent(this, create_note::class.java)
+            val intent = Intent(this, create_note::class.java)
             intent.putExtra("KEY_id", upgradeID(k.toString()))
             startActivity(intent)
         }
@@ -85,21 +85,21 @@ class View_Edit_Card : AppCompatActivity() {
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
         val month = c.get(Calendar.MONTH)
-        var day = c.get(Calendar.DAY_OF_MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
         val cr: Create_Card = Create_Card()
         d.setOnClickListener {
-            var dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{ view, mYear, mMonth, mDay->d.setText("${cr.updateDates(mDay, mMonth+1, mYear)}")}, year,month,day)
+            val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{ view, mYear, mMonth, mDay->d.setText("${cr.updateDates(mDay, mMonth+1, mYear)}")}, year,month,day)
             dpd.show()
         }
     }
     fun add(res: String, scrool: LinearLayout, ids: String, note: String, keyForNote: String)
     {
-        var noneContent: TextView = TextView(this)
+        val noneContent: TextView = TextView(this)
         noneContent.text = "$res\n\n"
         scrool.addView(noneContent)
 
         noneContent.setOnClickListener{
-            var intent = Intent(this, overlook_note::class.java)
+            val intent = Intent(this, overlook_note::class.java)
             intent.putExtra("KEY_id", ids)
             intent.putExtra("KEY_note", note)
             intent.putExtra("KEY", keyForNote)
