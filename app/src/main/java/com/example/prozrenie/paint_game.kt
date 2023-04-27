@@ -16,6 +16,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.view.View
+import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -56,9 +57,9 @@ class paint_game : AppCompatActivity() {
         var paintColorsLayout = findViewById<LinearLayout>(R.id.paintColorsLayout)
         var imageBrushSize = findViewById<SeekBar>(R.id.imageBrushButton)
         var drawingFrameLayout = findViewById<FrameLayout>(R.id.drawingFrameLayout)
-        var imageSaveButton = findViewById<ImageButton>(R.id.imageSaveButton)
-        var imageUndoButton = findViewById<ImageButton>(R.id.imageUndoButton)
-        var imageGalleryButton = findViewById<ImageButton>(R.id.imageGalleryButton)
+        var imageSaveButton = findViewById<Button>(R.id.imageSaveButton)
+        var imageUndoButton = findViewById<Button>(R.id.imageUndoButton)
+        var imageGalleryButton = findViewById<Button>(R.id.imageGalleryButton)
 
         imageViewBackground?.setBackgroundColor(Color.WHITE)
 

@@ -46,7 +46,7 @@ class overlook_note : AppCompatActivity() {
 
         // --------------------------------------------------------- //
         del.setOnClickListener{
-            var dellRef = database.getReference("main/$id/lessons/$key")
+            var dellRef = database.getReference("main/$id/lessons/")
             var dell_dialog: Dialog =  Dialog(this);
             dell_dialog.setTitle("Удалить?:");
             dell_dialog.setContentView(R.layout.del_dialog);
@@ -57,8 +57,11 @@ class overlook_note : AppCompatActivity() {
                     dell_dialog.dismiss()
                 else
                 {
+                    //  #TODO there're a bug - it does'nt replace notes and makes difficult to add a new one!
                     dellRef.child(check(key.toString())).removeValue()
-                    //startActivity(Intent(this, MainActivity::class.java))
+                    val intent = Intent(this, View_Edit_Card::class.java)
+                    intent.putExtra("KEY", ID)
+                    startActivity(intent)
                 }
             }
             n.setOnClickListener { dell_dialog.dismiss() }
@@ -74,7 +77,8 @@ class overlook_note : AppCompatActivity() {
             Toast.makeText(this, "Ты не можешь удалить id-заметку!", Toast.LENGTH_SHORT).show()
             return "denied"
         }
-        else
+        else {
             return x
+        }
     }
 }
