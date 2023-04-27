@@ -79,7 +79,7 @@ class View_Edit_Card : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (i in snapshot.children)
                 {
-                    add(i.value.toString(), scroll, upgradeID(k.toString()), i.value.toString(), i.key.toString())
+                    add(i.value.toString(), scroll, upgradeID(k.toString()), i.value.toString(), i.key.toString(), k.toString())
                 }
             }
             override fun onCancelled(error: DatabaseError) {
@@ -121,7 +121,7 @@ class View_Edit_Card : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         }
     }
-    fun add(res: String, scrool: LinearLayout, ids: String, note: String, keyForNote: String)
+    fun add(res: String, scrool: LinearLayout, ids: String, note: String, keyForNote: String, ID:String)
     {
         val noneContent: TextView = TextView(this)
         noneContent.text = "$res\n\n"
@@ -132,6 +132,7 @@ class View_Edit_Card : AppCompatActivity() {
             intent.putExtra("KEY_id", ids)
             intent.putExtra("KEY_note", note)
             intent.putExtra("KEY", keyForNote)
+            intent.putExtra("ID", ID)
             startActivity(intent)
         }
     }
