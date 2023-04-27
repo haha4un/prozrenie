@@ -64,19 +64,20 @@ class Create_Card : AppCompatActivity() {
                             this,
                             "date: $date",
                             Toast.LENGTH_SHORT
-                        ).show(); create.setVisibility(EditText.INVISIBLE);
+                        ).show(); create.setVisibility(EditText.INVISIBLE);create.hint = "";save.text = "Сохранить?";
                     }
-                    5 -> {create.hint = "";save.text = "Сохранить?"; }
+                    5 -> {/*do nothing*/}
                     6 -> {
                         i = 0
+                        var id = "${name.hashCode()}${sur.hashCode()}${middle.hashCode()}${date.hashCode()}${Random.nextInt(9)}${Random.nextInt(9)}"
                         var x = "${name.hashCode()}${sur.hashCode()}${middle.hashCode()}${date.hashCode()}"
                         val myRef = database.getReference("main/$x")
                         myRef.child("name").setValue(name)
                         myRef.child("surname").setValue(sur)
                         myRef.child("middlename").setValue(middle)
                         myRef.child("date").setValue(date)
-                        myRef.child("id").setValue("${name.hashCode()}${sur.hashCode()}${middle.hashCode()}${date.hashCode()}${Random.nextInt(9)}${Random.nextInt(9)}") // in the and you must put in ${Random(1000).toString().hashCode()} for unique id, but it's for test
-                        myRef.child("lessons").child("0").setValue("Id: $x")
+                        myRef.child("id").setValue(id) // in the and you must put in ${Random(1000).toString().hashCode()} for unique id, but it's for test
+                        myRef.child("lessons").child("0").setValue("Id: $id")
                         Toast.makeText(this, "Успешно!", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this, MainActivity::class.java))
                     }
