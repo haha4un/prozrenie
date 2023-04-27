@@ -4,6 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="25"
+        android:text="Удалить?"
+        android:gravity="center"/>
     <Button
         android:id="@+id/yes"
         android:layout_width="match_parent"
