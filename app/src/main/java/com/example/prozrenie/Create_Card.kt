@@ -66,8 +66,7 @@ class Create_Card : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show(); create.setVisibility(EditText.INVISIBLE);create.hint = "";save.text = "Сохранить?";
                     }
-                    5 -> {/*do nothing*/}
-                    6 -> {
+                    5 -> {
                         i = 0
                         var id = "${name.hashCode()}${sur.hashCode()}${middle.hashCode()}${date.hashCode()}${Random.nextInt(9)}${Random.nextInt(9)}"
                         var x = "${name.hashCode()}${sur.hashCode()}${middle.hashCode()}${date.hashCode()}"
