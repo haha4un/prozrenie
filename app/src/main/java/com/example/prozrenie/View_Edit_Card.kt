@@ -2,6 +2,7 @@ package com.example.prozrenie
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -21,6 +24,14 @@ class View_Edit_Card : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_edit_card)
+
+        var actB: ActionBar = getSupportActionBar()!!
+        actB.setCustomView(R.layout.actionbar_del_n_main)
+        var del = actB.customView.findViewById<Button>(R.id.del_smth)
+        var tohome = actB.customView.findViewById<Button>(R.id.tohome)
+        actB.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM)
+        // --------------------------------------------------------- //
+
         val k = intent.getSerializableExtra("KEY")
 
         val scroll = findViewById<LinearLayout>(R.id.scroolForNotes)
@@ -90,6 +101,24 @@ class View_Edit_Card : AppCompatActivity() {
         d.setOnClickListener {
             val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{ view, mYear, mMonth, mDay->d.setText("${cr.updateDates(mDay, mMonth+1, mYear)}")}, year,month,day)
             dpd.show()
+        }
+
+        // --------------------------------------------------------- //
+
+        del.setOnClickListener{
+            var dell_dialog: Dialog =  Dialog(this);
+            //var del = actB.customView.findViewById<Button>(R.id.del_smth)
+            dell_dialog.setTitle("Удалить?:");
+            dell_dialog.setContentView(R.layout.del_dialog);
+            var y = dell_dialog.findViewById<Button>(R.id.yes)
+            var n = dell_dialog.findViewById<Button>(R.id.no)
+            y.setOnClickListener { addingRef.child(upgradeID(k.toString())).removeValue(); startActivity(Intent(this, MainActivity::class.java))}
+            n.setOnClickListener { dell_dialog.dismiss() }
+            dell_dialog.show()
+
+        }
+        tohome.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
     fun add(res: String, scrool: LinearLayout, ids: String, note: String, keyForNote: String)

@@ -18,7 +18,11 @@ class Splashscreen : AppCompatActivity() {
         if (!isOnline(this))
         {
             Toast.makeText(this, "Нет соеденения с сетью!", Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this, Splashscreen::class.java))
+            Handler().postDelayed({
+                val intent = Intent(this, Splashscreen::class.java)
+                startActivity(intent)
+                finish()
+            }, 2000)
         }
 
         Handler().postDelayed({
