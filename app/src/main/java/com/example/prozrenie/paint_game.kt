@@ -78,7 +78,7 @@ class paint_game : AppCompatActivity() {
             }
         })
 
-        var reset = findViewById<ImageButton>(R.id.new_btn)
+        var reset = findViewById<Button>(R.id.new_btn)
         reset.setOnClickListener{
             for (x in 0..1000)//ahah, that's funny)
                 drawingView?.onClickUndo()
