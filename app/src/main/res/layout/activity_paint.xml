@@ -152,38 +152,34 @@
             android:textColor="@color/white"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:contentDescription="image"
-            android:scaleType="fitXY"/>
+            android:contentDescription="image" />
         <Button
             android:id="@+id/imageUndoButton"
-            android:text="↩"
+            android:text="⏪"
+            android:layout_marginStart="10sp"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:contentDescription="image"
-            android:scaleType="fitXY"/>
+            android:contentDescription="image" />
 
         <SeekBar
             android:id="@+id/imageBrushButton"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:contentDescription="brush_image"
-            android:scaleType="fitXY"
-            />
-
+            android:contentDescription="brush_image" />
         <Button
             android:id="@+id/imageSaveButton"
             android:text="💾"
+            android:layout_marginStart="10sp"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:contentDescription="brush_image"
-            android:scaleType="fitXY" />
+            android:contentDescription="brush_image" />
         <Button
             android:id="@+id/new_btn"
             android:text="🔄"
+            android:layout_marginStart="10sp"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:contentDescription="@string/start_new"
-            android:src="@drawable/new_pic" />
+            android:contentDescription="@string/start_new" />
     </LinearLayout>
 
 
