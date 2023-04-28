@@ -38,6 +38,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        var info_btn = findViewById<Button>(R.id.inf_btn)
+        info_btn.setOnClickListener {
+            val intent = Intent(this, info::class.java)
+            startActivity(intent)
+        }
+
         var gamesPic = findViewById<ImageView>(R.id.games_big_pic)
 
         var temp = 0

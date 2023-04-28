@@ -19,9 +19,12 @@
         android:theme="@style/Theme.Prozrenie"
         tools:targetApi="31">
         <activity
+            android:name=".info"
+            android:exported="false" />
+        <activity
             android:name=".relax_game"
             android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".imges_game_2"
             android:exported="false"

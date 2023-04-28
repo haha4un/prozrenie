@@ -17,6 +17,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="info"
+            android:id="@+id/inf_btn"
+            android:background="@drawable/roundbutton"
+            android:layout_marginBottom="5dp"/>
+        <Button
             android:id="@+id/view_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,7 +50,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
