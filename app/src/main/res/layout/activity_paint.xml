@@ -149,16 +149,18 @@
         <Button
             android:id="@+id/imageGalleryButton"
             android:text="➕"
+            android:background="@drawable/roundbutton"
             android:textColor="@color/white"
             android:layout_width="50sp"
-            android:layout_height="50sp"
+            android:layout_height="wrap_content"
             android:contentDescription="image" />
         <Button
             android:id="@+id/imageUndoButton"
             android:text="⏪"
+            android:background="@drawable/roundbutton"
             android:layout_marginStart="10sp"
             android:layout_width="50sp"
-            android:layout_height="50sp"
+            android:layout_height="wrap_content"
             android:contentDescription="image" />
 
         <SeekBar
@@ -169,16 +171,18 @@
         <Button
             android:id="@+id/imageSaveButton"
             android:text="💾"
+            android:background="@drawable/roundbutton"
             android:layout_marginStart="10sp"
             android:layout_width="50sp"
-            android:layout_height="50sp"
+            android:layout_height="wrap_content"
             android:contentDescription="brush_image" />
         <Button
             android:id="@+id/new_btn"
             android:text="🔄"
+            android:background="@drawable/roundbutton"
             android:layout_marginStart="10sp"
             android:layout_width="50sp"
-            android:layout_height="50sp"
+            android:layout_height="wrap_content"
             android:contentDescription="@string/start_new" />
     </LinearLayout>
 
