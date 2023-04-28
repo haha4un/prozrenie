@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import org.w3c.dom.Text
 import java.util.*
 
 class View_Edit_Card : AppCompatActivity() {
@@ -106,12 +107,13 @@ class View_Edit_Card : AppCompatActivity() {
         // --------------------------------------------------------- //
 
         del.setOnClickListener{
-            var dell_dialog: Dialog =  Dialog(this);
+            val dell_dialog: Dialog =  Dialog(this);
             //var del = actB.customView.findViewById<Button>(R.id.del_smth)
-            dell_dialog.setTitle("Удалить?:");
             dell_dialog.setContentView(R.layout.del_dialog);
-            var y = dell_dialog.findViewById<Button>(R.id.yes)
-            var n = dell_dialog.findViewById<Button>(R.id.no)
+            val y = dell_dialog.findViewById<Button>(R.id.yes)
+            val t = dell_dialog.findViewById<TextView>(R.id.txt_del)
+            t.text = "Удалить карточку этого человека?"
+            val n = dell_dialog.findViewById<Button>(R.id.no)
             y.setOnClickListener { addingRef.child(upgradeID(k.toString())).removeValue(); startActivity(Intent(this, MainActivity::class.java))}
             n.setOnClickListener { dell_dialog.dismiss() }
             dell_dialog.show()

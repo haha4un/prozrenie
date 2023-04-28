@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.google.firebase.database.ktx.database
@@ -51,6 +52,8 @@ class overlook_note : AppCompatActivity() {
             dell_dialog.setTitle("Удалить?:");
             dell_dialog.setContentView(R.layout.del_dialog);
             var y = dell_dialog.findViewById<Button>(R.id.yes)
+            var t = dell_dialog.findViewById<TextView>(R.id.txt_del)
+            t.text = "Удалить эту замемтку?"
             var n = dell_dialog.findViewById<Button>(R.id.no)
             y.setOnClickListener {
                 if (check(key.toString()) == "denied")
