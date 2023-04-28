@@ -10,6 +10,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import kotlin.random.Random
 
@@ -20,15 +21,18 @@ class create_note : AppCompatActivity() {
 
         var info = intent.getSerializableExtra("KEY_id")
 
-        var s = findViewById<Button>(R.id.save_newNote)
-        var n = findViewById<EditText>(R.id.Newnote)
+        val s = findViewById<Button>(R.id.save_newNote)
+        val n = findViewById<EditText>(R.id.Newnote)
         var i = 0
 
         val database = Firebase.database
         var ref = database.getReference("main/${info.toString()}/lessons")
-        ref.addListenerForSingleValueEvent(object : ValueEventListener {
+        ref.orderByKey().limitToLast(1).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                i = dataSnapshot.childrenCount.toInt()
+                for (j in dataSnapshot.children)
+                {
+                    i = j.key.toString().toInt()+1
+                }
             }
             override fun onCancelled(error: DatabaseError) {
             }
