@@ -6,13 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".Splashscreen">
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/green"
         android:elegantTextHeight="true"
         android:freezesText="false"
-        android:text="haha4un\nkeyrdis\nmurai"
+        android:src="@drawable/icon"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"

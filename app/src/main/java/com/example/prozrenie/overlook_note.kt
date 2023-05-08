@@ -60,7 +60,6 @@ class overlook_note : AppCompatActivity() {
                     dell_dialog.dismiss()
                 else
                 {
-                    //  #TODO there're a bug - it does'nt replace notes and makes difficult to add a new one!
                     dellRef.child(check(key.toString())).removeValue()
                     val intent = Intent(this, View_Edit_Card::class.java)
                     intent.putExtra("KEY", ID)
