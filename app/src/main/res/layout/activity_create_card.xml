@@ -88,7 +88,7 @@
         android:src="@drawable/homeb_c"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"            android:background="@drawable/roundbutton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
