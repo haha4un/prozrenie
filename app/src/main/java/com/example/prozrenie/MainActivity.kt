@@ -26,84 +26,40 @@ class MainActivity : AppCompatActivity() {
         getSupportActionBar()?.hide();
 
 
-        var create_card = findViewById<Button>(R.id.create_card)
+        var create_card = findViewById<ImageView>(R.id.create_card)
         create_card.setOnClickListener{
             val intent = Intent(this, Create_Card::class.java)
             startActivity(intent)
         }
 
-        var view_card = findViewById<Button>(R.id.view_card)
+        var view_card = findViewById<ImageView>(R.id.view_card)
         view_card.setOnClickListener{
             val intent = Intent(this, View_Card::class.java)
             startActivity(intent)
         }
 
-        var info_btn = findViewById<Button>(R.id.inf_btn)
+        var info_btn = findViewById<ImageView>(R.id.inf_btn)
         info_btn.setOnClickListener {
             val intent = Intent(this, info::class.java)
             startActivity(intent)
         }
 
-        var gamesPic = findViewById<ImageView>(R.id.games_big_pic)
+        var drawing_game = findViewById<ImageView>(R.id.drawing_game)
+        drawing_game.setOnClickListener {
+            val intent = Intent(this, paint_game::class.java)
+            startActivity(intent)
+        }
 
-        var temp = 0
-        var games = findViewById<ImageButton>(R.id.games)
-        games.setOnTouchListener(
-            object : View.OnTouchListener {
-                override fun onTouch(v: View?, event: MotionEvent): Boolean {
-                    when (event.action) {
-                        MotionEvent.ACTION_DOWN -> x1 = event.x
-                        MotionEvent.ACTION_UP -> {
-                            x2 = event.x
-                            val deltaX = x2 - x1
-                            if (deltaX < 0) {
-                                i++
-                            } else if (deltaX > 0) {
-                                i--
-                            }
-                            else if (deltaX == 0f)
-                            {
-                                when(temp)
-                                {
-                                    1 -> { var intent = Intent(this@MainActivity, imges_game_1::class.java ); startActivity(intent) }
-                                    2 -> { var intent = Intent(this@MainActivity, paint_game::class.java ); startActivity(intent)}
-                                    3 ->  { var intent = Intent(this@MainActivity, relax_game::class.java); startActivity(intent) }
-                                }
-                            }
-                        }
-                    }
-                    temp = toNextActivity(i, gamesPic)
-                    return false
-                }
-            })
+        var imgs_game = findViewById<ImageView>(R.id.imgs_game)
+        imgs_game.setOnClickListener {
+            val intent = Intent(this, imges_game_1::class.java)
+            startActivity(intent)
+        }
 
-    }
-    fun toNextActivity(i:Int, view: ImageView) : Int
-    {
-        var j = i
-        if (j > limitOfGames){
-            j = 1
-            this.i = 1
+        var relax_game = findViewById<ImageView>(R.id.relax_game)
+        relax_game.setOnClickListener {
+            val intent = Intent(this, relax_game::class.java)
+            startActivity(intent)
         }
-        if (j <= 0) {
-            j = limitOfGames
-            this.i = limitOfGames
-        }
-        when(j)
-        {
-            1 -> {
-                view.setImageResource(R.drawable.gi1)
-                return 1
-            }
-            2 -> {
-                view.setImageResource(R.drawable.gi2)
-                return 2
-            }
-            3 -> {
-                view.setImageResource(R.drawable.gi3)
-                return 3
-            }
-        }
-        return 0
     }
 }
