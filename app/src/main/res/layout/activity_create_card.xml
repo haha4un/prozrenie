@@ -6,41 +6,89 @@
     android:layout_height="match_parent"
     tools:context=".create_card">
 
-    <EditText
-        android:id="@+id/create"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/lilwithinf"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10sp"
-        android:layout_marginTop="30sp"
-        android:layout_marginEnd="10sp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Имя"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="italic"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_m"
+            android:layout_gravity="center"
+            android:layout_marginStart="5sp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/txt_m"
+            android:layout_gravity="center"
+            android:layout_marginStart="10sp"/>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/save"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/creation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10sp"
-        android:layout_marginTop="5sp"
-        android:layout_marginEnd="10sp"
-        android:ems="10"
-        android:text="Далее"
-        android:background="@drawable/roundbutton"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="italic"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/homebtn_c"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create" />
+        app:layout_constraintTop_toBottomOf="@id/lilwithinf">
+
+        <EditText
+            android:id="@+id/create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10sp"
+            android:layout_marginTop="30sp"
+            android:layout_marginEnd="10sp"
+            android:ems="10"
+            android:hint="Имя"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10sp"
+            android:layout_marginTop="5sp"
+            android:layout_marginEnd="10sp"
+            android:background="@drawable/roundbutton"
+            android:ems="10"
+            android:src="@drawable/nextb_c"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/create" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/homebtn_c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10sp"
+        android:src="@drawable/homeb_c"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

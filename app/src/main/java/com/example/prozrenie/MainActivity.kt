@@ -56,8 +56,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        var relax_game = findViewById<ImageView>(R.id.relax_game)
-        relax_game.setOnClickListener {
+        var relax = findViewById<ImageView>(R.id.relax_game)
+        relax.setOnClickListener {
             val intent = Intent(this, relax_game::class.java)
             startActivity(intent)
         }

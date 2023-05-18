@@ -10,36 +10,16 @@
         android:id="@+id/icon_spl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250sp"
-        android:layout_marginBottom="5sp"
         android:elegantTextHeight="true"
         android:freezesText="false"
-        android:src="@drawable/iconSpl"
+        android:src="@drawable/icon_spl"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textIsSelectable="false"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/name_spl"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/name_spl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5sp"
-        android:elegantTextHeight="true"
-        android:freezesText="false"
-        android:src="@drawable/nameSpl"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textIsSelectable="false"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icon_spl" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

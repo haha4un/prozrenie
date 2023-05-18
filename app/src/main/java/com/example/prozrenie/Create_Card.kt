@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.VideoView
@@ -22,7 +23,7 @@ class Create_Card : AppCompatActivity() {
         setContentView(R.layout.activity_create_card)
         getSupportActionBar()?.hide();
 
-        var save = findViewById<Button>(R.id.save)
+        var save = findViewById<ImageButton>(R.id.save)
         var create = findViewById<EditText>(R.id.create)
         var name = ""
         var sur = ""
@@ -64,7 +65,11 @@ class Create_Card : AppCompatActivity() {
                             this,
                             "date: $date",
                             Toast.LENGTH_SHORT
-                        ).show(); create.setVisibility(EditText.INVISIBLE);create.hint = "";save.text = "Сохранить?";
+                        ).show(); create.setVisibility(EditText.INVISIBLE);create.hint = "";Toast.makeText(
+                            this,
+                            "Нажмите еще раз, чтобы подтвердить сохранение.",
+                            Toast.LENGTH_SHORT
+                        ).show();
                     }
                     5 -> {
                         i = 0
@@ -92,6 +97,10 @@ class Create_Card : AppCompatActivity() {
                 ).show()
                 return@setOnClickListener
             }
+        }
+        var tohome = findViewById<ImageButton>(R.id.homebtn_c)
+        tohome.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
     fun openDataPic(view_text: EditText)

@@ -15,6 +15,7 @@ class View_Card : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_card)
+        supportActionBar?.hide()
 
         var scroll = findViewById<LinearLayout>(R.id.scroll)
 

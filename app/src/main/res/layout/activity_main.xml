@@ -18,21 +18,21 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/logoM"
+            android:src="@drawable/logo_m"
             android:layout_gravity="center"
-            android:layout_marginStart="25sp"/>
+            android:layout_marginStart="5sp"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/txtM"
+            android:src="@drawable/txt_m"
             android:layout_gravity="center"
             android:layout_marginStart="10sp"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/infoM"
+            android:src="@drawable/info_m"
             android:layout_gravity="center"
-            android:layout_marginStart="100sp"
+            android:layout_marginStart="10sp"
             android:id="@+id/inf_btn"/>
     </LinearLayout>
 
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100sp"
         android:layout_marginBottom="10dp"
-        android:src="@drawable/minigamesTxtM"
+        android:src="@drawable/minigamestxt_m"
         app:layout_constraintBottom_toTopOf="@+id/gamesM"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10sp"
-            android:src="@drawable/drawM"
+            android:src="@drawable/draw_m"
             android:id="@+id/drawing_game"/>
 
         <ImageView
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10sp"
-            android:src="@drawable/imgsM"
+            android:src="@drawable/imgs_m"
             android:id="@+id/imgs_game"/>
 
         <ImageView
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10sp"
-            android:src="@drawable/relaxM"
+            android:src="@drawable/relax_m"
             android:id="@+id/relax_game"/>
     </LinearLayout>
 
@@ -101,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10sp"
-            android:src="@drawable/createCardM" />
+            android:src="@drawable/createcard_m" />
 
         <ImageView
             android:id="@+id/view_card"
@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10sp"
-            android:src="@drawable/lookatCardsM" />
+            android:src="@drawable/cards_m" />
     </LinearLayout>
 <!--    <LinearLayout-->
 <!--        android:id="@+id/cards"-->
