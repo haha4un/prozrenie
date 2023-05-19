@@ -114,7 +114,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/gamesM">
 
-                <TextView
+                <Button
                     android:id="@+id/create_card"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
                     app:autoSizeMaxTextSize="40sp"
                     app:autoSizeMinTextSize="20sp" />
 
-                <TextView
+                <Button
                     android:id="@+id/view_card"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

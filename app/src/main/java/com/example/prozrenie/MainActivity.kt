@@ -13,13 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class MainActivity : AppCompatActivity() {
-
-    private var x1 = 0f
-    private var x2 = 0f
-    val MIN_DISTANCE = 150
-
-    var limitOfGames = 3
-    var i = 0
     @SuppressLint("MissingInflatedId", "ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,13 +20,13 @@ class MainActivity : AppCompatActivity() {
         getSupportActionBar()?.hide();
 
 
-        var create_card = findViewById<TextView>(R.id.create_card)
+        var create_card = findViewById<Button>(R.id.create_card)
         create_card.setOnClickListener{
             val intent = Intent(this, Create_Card::class.java)
             startActivity(intent)
         }
 
-        var view_card = findViewById<TextView>(R.id.view_card)
+        var view_card = findViewById<Button>(R.id.view_card)
         view_card.setOnClickListener{
             val intent = Intent(this, View_Card::class.java)
             startActivity(intent)
