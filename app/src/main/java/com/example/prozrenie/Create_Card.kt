@@ -23,7 +23,7 @@ class Create_Card : AppCompatActivity() {
         setContentView(R.layout.activity_create_card)
         getSupportActionBar()?.hide();
 
-        var save = findViewById<ImageButton>(R.id.save)
+        var save = findViewById<Button>(R.id.save)
         var create = findViewById<EditText>(R.id.create)
         var name = ""
         var sur = ""
@@ -98,7 +98,7 @@ class Create_Card : AppCompatActivity() {
                 return@setOnClickListener
             }
         }
-        var tohome = findViewById<ImageButton>(R.id.homebtn_c)
+        var tohome = findViewById<Button>(R.id.homebtn_c)
         tohome.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }

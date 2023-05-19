@@ -10,6 +10,7 @@
         android:id="@+id/lilwithinf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5sp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,15 +19,16 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/logo_m"
             android:layout_gravity="center"
-            android:layout_marginStart="5sp"/>
+            android:layout_marginStart="5sp"
+            android:src="@drawable/logo_m" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/txt_m"
             android:layout_gravity="center"
-            android:layout_marginStart="10sp"/>
+            android:layout_marginStart="10sp"
+            android:src="@drawable/txt_m" />
     </LinearLayout>
 
     <LinearLayout
@@ -44,51 +46,56 @@
         <EditText
             android:id="@+id/create"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginStart="10sp"
             android:layout_marginTop="30sp"
             android:layout_marginEnd="10sp"
             android:ems="10"
             android:hint="Имя"
+            app:autoSizeMaxTextSize="40sp"
+            app:autoSizeMinTextSize="20sp"
+            android:fontFamily="@font/montserrat_italic"
             android:inputType="textPersonName"
             android:textAlignment="center"
             android:textAllCaps="false"
-            android:textSize="20sp"
-            android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
+        <Button
             android:id="@+id/save"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginStart="10sp"
             android:layout_marginTop="5sp"
             android:layout_marginEnd="10sp"
             android:background="@drawable/roundbutton"
             android:ems="10"
-            android:src="@drawable/nextb_c"
+            android:text="Далее"
             android:textAlignment="center"
             android:textAllCaps="false"
+            android:textColor="@color/gray"
             android:textSize="20sp"
-            android:textStyle="italic"
+            android:fontFamily="@font/montserrat_regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/create" />
     </LinearLayout>
 
-    <ImageButton
+    <Button
         android:id="@+id/homebtn_c"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10sp"
-        android:src="@drawable/homeb_c"
+        android:background="@drawable/roundbutton"
+        android:text="вернуться назад"
+        android:textColor="@color/gray"
+        android:fontFamily="@font/montserrat_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"            android:background="@drawable/roundbutton" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -29,15 +29,20 @@
             android:layout_marginStart="10sp"/>
     </LinearLayout>
 
-    <ImageView
+    <TextView
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20sp"
+        android:fontFamily="@font/montserrat_bold"
         android:src="@drawable/imgch_img"
+        android:text="выберите картинку:"
+        android:textAllCaps="true"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lilwithinf"
-        android:id="@+id/text"/>
+        app:layout_constraintTop_toBottomOf="@id/lilwithinf" />
 
     <ScrollView
         android:id="@+id/sc"
@@ -49,7 +54,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text">
+        app:layout_constraintTop_toBottomOf="@+id/text"
+        android:overScrollMode="never">
 
         <LinearLayout
             android:id="@+id/linearLayout"
