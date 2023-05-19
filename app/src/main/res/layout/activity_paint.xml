@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/paintColorsLayout">
+        app:layout_constraintBottom_toTopOf="@+id/sc_p">
 
         <ImageView
             android:id="@+id/imageViewBackground"
@@ -32,113 +32,17 @@
             />
 
     </FrameLayout>
-
-
-    <LinearLayout
-        android:id="@+id/paintColorsLayout"
-        android:layout_width="wrap_content"
+    <HorizontalScrollView
+        android:id="@+id/sc_p"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/actionButtonsLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/drawingFrameLayout">
-
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_margin="2dp"
-            android:contentDescription="color_pallet"
-            android:background="@color/skin"
-            android:src="@drawable/pallet_normal"
-            android:tag="@color/skin"
-            android:onClick="paintClicked"/>
-
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_margin="2dp"
-            android:contentDescription="color_pallet"
-            android:background="@color/black"
-            android:src="@drawable/pallet_normal"
-            android:tag="@color/black"
-            android:onClick="paintClicked"/>
-
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_margin="2dp"
-            android:contentDescription="color_pallet"
-            android:background="@color/red"
-            android:src="@drawable/pallet_normal"
-            android:tag="@color/red"
-            android:onClick="paintClicked"/>
-
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_margin="2dp"
-            android:contentDescription="color_pallet"
-            android:background="@color/green"
-            android:src="@drawable/pallet_normal"
-            android:tag="@color/green"
-            android:onClick="paintClicked"/>
-
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_margin="2dp"
-            android:contentDescription="color_pallet"
-            android:background="@color/blue"
-            android:src="@drawable/pallet_normal"
-            android:tag="@color/blue"
-            android:onClick="paintClicked"/>
-
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_margin="2dp"
-            android:contentDescription="color_pallet"
-            android:background="@color/yellow"
-            android:src="@drawable/pallet_normal"
-            android:tag="@color/yellow"
-            android:onClick="paintClicked"/>
-
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_margin="2dp"
-            android:contentDescription="color_pallet"
-            android:background="@color/lollipop"
-            android:src="@drawable/pallet_normal"
-            android:tag="@color/lollipop"
-            android:onClick="paintClicked"/>
-
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_margin="2dp"
-            android:contentDescription="color_pallet"
-            android:background="@color/random"
-            android:src="@drawable/pallet_normal"
-            android:tag="@color/random"
-            android:onClick="paintClicked"/>
-
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_margin="2dp"
-            android:contentDescription="color_pallet"
-            android:background="@color/white"
-            android:src="@drawable/pallet_normal"
-            android:tag="@color/white"
-            android:onClick="paintClicked"/>
-
-    </LinearLayout>
-
+        android:overScrollMode="never">
     <LinearLayout
         android:id="@+id/actionButtonsLayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
@@ -147,27 +51,21 @@
         app:layout_constraintRight_toRightOf="parent">
 
         <Button
+            android:id="@+id/downlded_imgs"
+            android:text="🎞"
+            android:background="@drawable/roundbutton"
+            android:layout_marginStart="10sp"
+            android:layout_width="50sp"
+            android:layout_height="wrap_content" />
+        <Button
             android:id="@+id/imageGalleryButton"
-            android:text="➕"
+            android:text="📁"
             android:background="@drawable/roundbutton"
             android:textColor="@color/white"
-            android:layout_width="50sp"
-            android:layout_height="wrap_content"
-            android:contentDescription="image" />
-        <Button
-            android:id="@+id/imageUndoButton"
-            android:text="⏪"
-            android:background="@drawable/roundbutton"
             android:layout_marginStart="10sp"
             android:layout_width="50sp"
             android:layout_height="wrap_content"
             android:contentDescription="image" />
-
-        <SeekBar
-            android:id="@+id/imageBrushButton"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:contentDescription="brush_image" />
         <Button
             android:id="@+id/imageSaveButton"
             android:text="💾"
@@ -176,6 +74,19 @@
             android:layout_width="50sp"
             android:layout_height="wrap_content"
             android:contentDescription="brush_image" />
+        <SeekBar
+            android:id="@+id/imageBrushButton"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:contentDescription="brush_image" />
+        <Button
+            android:id="@+id/imageUndoButton"
+            android:text="⏪"
+            android:background="@drawable/roundbutton"
+            android:layout_marginStart="10sp"
+            android:layout_width="50sp"
+            android:layout_height="wrap_content"
+            android:contentDescription="image" />
         <Button
             android:id="@+id/new_btn"
             android:text="🔄"
@@ -184,8 +95,13 @@
             android:layout_width="50sp"
             android:layout_height="wrap_content"
             android:contentDescription="@string/start_new" />
+        <Button
+            android:id="@+id/open_pallete"
+            android:text="🎨"
+            android:background="@drawable/roundbutton"
+            android:layout_marginStart="10sp"
+            android:layout_width="50sp"
+            android:layout_height="wrap_content" />
     </LinearLayout>
-
-
-
+    </HorizontalScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

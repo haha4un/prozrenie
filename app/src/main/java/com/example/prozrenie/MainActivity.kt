@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -26,13 +27,13 @@ class MainActivity : AppCompatActivity() {
         getSupportActionBar()?.hide();
 
 
-        var create_card = findViewById<ImageView>(R.id.create_card)
+        var create_card = findViewById<TextView>(R.id.create_card)
         create_card.setOnClickListener{
             val intent = Intent(this, Create_Card::class.java)
             startActivity(intent)
         }
 
-        var view_card = findViewById<ImageView>(R.id.view_card)
+        var view_card = findViewById<TextView>(R.id.view_card)
         view_card.setOnClickListener{
             val intent = Intent(this, View_Card::class.java)
             startActivity(intent)

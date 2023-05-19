@@ -54,17 +54,19 @@ class paint_game : AppCompatActivity() {
 
         drawingView = findViewById<DrawingView>(R.id.drawingView)
         imageViewBackground = findViewById<ImageView>(R.id.imageViewBackground)
-        var paintColorsLayout = findViewById<LinearLayout>(R.id.paintColorsLayout)
+
         var imageBrushSize = findViewById<SeekBar>(R.id.imageBrushButton)
         var drawingFrameLayout = findViewById<FrameLayout>(R.id.drawingFrameLayout)
         var imageSaveButton = findViewById<Button>(R.id.imageSaveButton)
         var imageUndoButton = findViewById<Button>(R.id.imageUndoButton)
         var imageGalleryButton = findViewById<Button>(R.id.imageGalleryButton)
+        var palleteOpener = findViewById<Button>(R.id.open_pallete)
+        var dowlnd = findViewById<Button>(R.id.downlded_imgs)
+
 
         imageViewBackground?.setBackgroundColor(Color.WHITE)
-
-        mImageButtonCurrentPaint = paintColorsLayout[1] as ImageButton
-        mImageButtonCurrentPaint!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.save))
+        setDefCol()
+        mImageButtonCurrentPaint!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.name_spl))
 
         var x = 0f
         imageBrushSize.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
@@ -82,7 +84,6 @@ class paint_game : AppCompatActivity() {
         reset.setOnClickListener{
             for (x in 0..1000)//ahah, that's funny)
                 drawingView?.onClickUndo()
-            showImgSizeChooseDialog()
         }
 
         imageGalleryButton.setOnClickListener {
@@ -107,6 +108,14 @@ class paint_game : AppCompatActivity() {
                 requestStoragePermission()
             }
         }
+
+        palleteOpener.setOnClickListener {
+            showPallete()
+        }
+
+        dowlnd.setOnClickListener {
+            showImgSizeChooseDialog()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -127,13 +136,24 @@ class paint_game : AppCompatActivity() {
         }
     }
 
+    private fun showPallete(){
+        var brushDialog = Dialog(this)
+        brushDialog.setContentView(R.layout.pallete_dialog)
+        brushDialog.show()
+    }
+    private fun setDefCol(){
+        var brushDialog = Dialog(this)
+        brushDialog.setContentView(R.layout.pallete_dialog)
+        val i = brushDialog.findViewById<LinearLayout>(R.id.paintColorsLayout)
+        mImageButtonCurrentPaint = i[1] as ImageButton
+    }
     private fun showImgSizeChooseDialog(){
         var brushDialog = Dialog(this)
         brushDialog.setContentView(R.layout.imgd)
 
-        val im1 = brushDialog.findViewById<ImageButton>(R.id.im1)
+        val im1 = brushDialog.findViewById<ImageButton>(R.id.im1_p)
         im1.setOnClickListener {
-            imageViewBackground?.setBackgroundResource(R.drawable.im1)
+            imageViewBackground?.setBackgroundColor(Color.WHITE)
             brushDialog.dismiss()
         }
         val im2 = brushDialog.findViewById<ImageButton>(R.id.im2)
@@ -146,7 +166,7 @@ class paint_game : AppCompatActivity() {
             imageViewBackground?.setBackgroundResource(R.drawable.im3)
             brushDialog.dismiss()
         }
-
+        // #TODO make this better!
         brushDialog.show()
     }
 
