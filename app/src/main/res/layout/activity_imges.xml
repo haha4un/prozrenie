@@ -71,6 +71,7 @@
                 android:layout_marginTop="20sp"
                 android:src="@drawable/g1"
                 android:tag="1"
+                android:onClick="Clicked"
                 app:layout_constraintVertical_bias="0.155" />
 
             <ImageButton
@@ -79,6 +80,7 @@
                 android:layout_marginTop="20sp"
                 android:src="@drawable/g2"
                 android:tag="2"
+                android:onClick="Clicked"
                 app:layout_constraintVertical_bias="0.155" />
 
             <ImageButton
@@ -87,6 +89,7 @@
                 android:layout_marginTop="20sp"
                 android:layout_marginBottom="20sp"
                 android:src="@drawable/g3"
+                android:onClick="Clicked"
                 android:tag="3" />
             <ImageButton
                 android:layout_width="200sp"
@@ -94,6 +97,7 @@
                 android:layout_marginTop="20sp"
                 android:layout_marginBottom="20sp"
                 android:src="@drawable/g4"
+                android:onClick="Clicked"
                 android:tag="4"/>
             <ImageButton
                 android:layout_width="200sp"
@@ -101,6 +105,7 @@
                 android:layout_marginTop="20sp"
                 android:layout_marginBottom="20sp"
                 android:src="@drawable/g5"
+                android:onClick="Clicked"
                 android:tag="5" />
             <ImageButton
                 android:layout_width="200sp"
@@ -108,7 +113,16 @@
                 android:layout_marginTop="20sp"
                 android:layout_marginBottom="20sp"
                 android:src="@drawable/g6"
+                android:onClick="Clicked"
                 android:tag="6" />
+            <ImageButton
+                android:layout_width="200sp"
+                android:layout_height="200sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginBottom="20sp"
+                android:src="@drawable/g7"
+                android:onClick="Clicked"
+                android:tag="7" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
