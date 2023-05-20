@@ -3,6 +3,7 @@ package com.example.prozrenie
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageButton
 
 class imges_game_1 : AppCompatActivity() {
@@ -11,24 +12,13 @@ class imges_game_1 : AppCompatActivity() {
         setContentView(R.layout.activity_imges)
         supportActionBar?.hide()
 
-        val imgBtn1 = findViewById<ImageButton>(R.id.imageButton)
-        val imgBtn2 = findViewById<ImageButton>(R.id.imageButton2)
-        val imgBtn3= findViewById<ImageButton>(R.id.imageButton3)
-        val intent = Intent(this, imges_game_2::class.java)
 
-        imgBtn1.setOnClickListener() {
-            intent.putExtra("IMG", "g1")
-            startActivity(intent)
-        }
+    }
+    fun paintClicked(view: View) {
+         var x = view.tag.toString().toInt()
+            when (x) {
+                1 ->
+            }
 
-        imgBtn2.setOnClickListener(){
-            intent.putExtra("IMG", "g2")
-            startActivity(intent)
-        }
-
-        imgBtn3.setOnClickListener(){
-            intent.putExtra("IMG", "g3")
-            startActivity(intent)
         }
     }
-}

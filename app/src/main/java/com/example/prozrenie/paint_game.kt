@@ -158,7 +158,7 @@ class paint_game : AppCompatActivity() {
         }
         val im2 = brushDialog.findViewById<ImageButton>(R.id.im2)
         im2.setOnClickListener {
-            imageViewBackground?.setBackgroundResource(R.drawable.im2)
+            imageViewBackground?.setBackgroundResource(R.drawable.im4)
             brushDialog.dismiss()
         }
         val im3 = brushDialog.findViewById<ImageButton>(R.id.im3)

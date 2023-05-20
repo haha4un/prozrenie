@@ -66,40 +66,49 @@
 
 
             <ImageButton
-                android:id="@+id/imageButton"
                 android:layout_width="200sp"
                 android:layout_height="200sp"
                 android:layout_marginTop="20sp"
                 android:src="@drawable/g1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.086"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:tag="1"
                 app:layout_constraintVertical_bias="0.155" />
 
             <ImageButton
-                android:id="@+id/imageButton2"
                 android:layout_width="200sp"
                 android:layout_height="200sp"
                 android:layout_marginTop="20sp"
                 android:src="@drawable/g2"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageButton"
-                app:layout_constraintTop_toTopOf="parent"
+                android:tag="2"
                 app:layout_constraintVertical_bias="0.155" />
 
             <ImageButton
-                android:id="@+id/imageButton3"
                 android:layout_width="200sp"
                 android:layout_height="200sp"
                 android:layout_marginTop="20sp"
                 android:layout_marginBottom="20sp"
                 android:src="@drawable/g3"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+                android:tag="3" />
+            <ImageButton
+                android:layout_width="200sp"
+                android:layout_height="200sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginBottom="20sp"
+                android:src="@drawable/g4"
+                android:tag="4"/>
+            <ImageButton
+                android:layout_width="200sp"
+                android:layout_height="200sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginBottom="20sp"
+                android:src="@drawable/g5"
+                android:tag="5" />
+            <ImageButton
+                android:layout_width="200sp"
+                android:layout_height="200sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginBottom="20sp"
+                android:src="@drawable/g6"
+                android:tag="6" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
