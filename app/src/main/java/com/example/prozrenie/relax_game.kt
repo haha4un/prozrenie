@@ -53,7 +53,6 @@ class relax_game : AppCompatActivity() {
                             else if (deltaX == 0f)
                             {
                                 if (!stopper){
-                                    Toast.makeText(this@relax_game, "Vid: $temp_for_name", Toast.LENGTH_SHORT).show()
                                     v.pause()
                                     stopper = true
                                 }
@@ -63,36 +62,21 @@ class relax_game : AppCompatActivity() {
                         }
                     }
                     if (!stopper){
-                        temp_for_name = toNextVideo(i, v, x)
+                       toNextVideo(v, x)
                     }
                     return false
                 }
             })
     }
-    fun toNextVideo(i:Int, view: VideoView, txt: String)  : String
+    fun toNextVideo(view: VideoView, txt: String)
     {
         var path = txt
-        var j = i
-
-        if (j > limitOfVideos){
-            j = 1
-            this.i = 1
-        }
-        if (j <= 0) {
-            j = limitOfVideos
-            this.i = limitOfVideos
-        }
-        when (j) {
-            1 -> path += com.example.prozrenie.R.raw.v1
-            2-> path += com.example.prozrenie.R.raw.v2;
-            3-> path += com.example.prozrenie.R.raw.v2;
-        }
+        path += com.example.prozrenie.R.raw.v1
         var uri: Uri = Uri.parse(path)
         view.setVideoURI(uri)
         val m = MediaController(this)
         view.setMediaController(m)
         m.setAnchorView(view)
         view.start()
-        return uri.toString()
     }
 }
