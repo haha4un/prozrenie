@@ -49,7 +49,7 @@ class relax_game : AppCompatActivity() {
                             } else if (deltaX > 0) {
                                 i--
                                 stopper = false
-                            }
+                             }
                             else if (deltaX == 0f)
                             {
                                 if (!stopper){

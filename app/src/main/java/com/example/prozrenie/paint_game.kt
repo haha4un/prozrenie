@@ -1,13 +1,14 @@
 package com.example.prozrenie
 
 import android.Manifest
-import android.app.Activity
+import android.R.attr
 import android.app.Dialog
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.*
+import android.graphics.drawable.Drawable
 import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.AsyncTask
@@ -30,7 +31,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import com.example.drawingapp.DrawingView
-
 import yuku.ambilwarna.AmbilWarnaDialog
 import yuku.ambilwarna.AmbilWarnaDialog.OnAmbilWarnaListener
 import java.io.ByteArrayOutputStream
@@ -45,6 +45,7 @@ class paint_game : AppCompatActivity() {
     private var mImageButtonCurrentPaint: ImageButton? = null
     var drawingView: DrawingView ?= null
     var imageViewBackground: ImageView ?= null
+    var imageViewBackground_temp: ImageView ?= null
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +55,7 @@ class paint_game : AppCompatActivity() {
 
         drawingView = findViewById<DrawingView>(R.id.drawingView)
         imageViewBackground = findViewById<ImageView>(R.id.imageViewBackground)
+        imageViewBackground_temp = ImageView(this)
 
         var imageBrushSize = findViewById<SeekBar>(R.id.imageBrushButton)
         var drawingFrameLayout = findViewById<FrameLayout>(R.id.drawingFrameLayout)
@@ -120,12 +122,17 @@ class paint_game : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode == Activity.RESULT_OK){
+        if(resultCode == RESULT_OK){
             if(requestCode == GALLERY){
                 try {
                     if(data!!.data != null){
+                        var path: Uri = data.data!!
+
                         imageViewBackground?.visibility = View.VISIBLE
-                        imageViewBackground?.setImageURI(data.data)
+                        imageViewBackground_temp?.setImageURI(path)
+                        val f: File = File(getRealPathFromURI(path))
+                        val d = Drawable.createFromPath(f.absolutePath)
+                        imageViewBackground?.setBackground(d)
                     }else{
                         Toast.makeText(this, "error in parsing the image", Toast.LENGTH_SHORT).show()
                     }
@@ -133,6 +140,16 @@ class paint_game : AppCompatActivity() {
                     e.printStackTrace()
                 }
             }
+        }
+    }
+    private fun getRealPathFromURI(contentURI: Uri): String? {
+        val cursor = contentResolver.query(contentURI, null, null, null, null)
+        return if (cursor == null) { // Source is Dropbox or other similar local file path
+            contentURI.path
+        } else {
+            cursor.moveToFirst()
+            val idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
+            cursor.getString(idx)
         }
     }
 

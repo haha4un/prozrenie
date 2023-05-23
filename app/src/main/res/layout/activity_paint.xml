@@ -19,21 +19,18 @@
 
         <ImageView
             android:id="@+id/imageViewBackground"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:contentDescription="background_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:foregroundGravity="center"/>
-
+            android:contentDescription="background_image"
+            android:foregroundGravity="center"
+            android:scaleType="centerCrop" />
         <com.example.drawingapp.DrawingView
             android:id="@+id/drawingView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#80FFFFFF"
             android:layout_gravity="center"
-            android:foregroundGravity="center"
-            />
+            android:foregroundGravity="center" />
 
     </FrameLayout>
     <HorizontalScrollView
@@ -44,68 +41,76 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:overScrollMode="never">
-    <LinearLayout
-        android:id="@+id/actionButtonsLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
 
-        <Button
-            android:id="@+id/downlded_imgs"
-            android:text="🎞"
-            android:background="@drawable/roundbutton"
-            android:layout_marginStart="10sp"
-            android:layout_width="50sp"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/imageGalleryButton"
-            android:text="📁"
-            android:background="@drawable/roundbutton"
-            android:textColor="@color/white"
-            android:layout_marginStart="10sp"
-            android:layout_width="50sp"
+        <LinearLayout
+            android:id="@+id/actionButtonsLayout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="image" />
-        <Button
-            android:id="@+id/imageSaveButton"
-            android:text="💾"
-            android:background="@drawable/roundbutton"
-            android:layout_marginStart="10sp"
-            android:layout_width="50sp"
-            android:layout_height="wrap_content"
-            android:contentDescription="brush_image" />
-        <SeekBar
-            android:id="@+id/imageBrushButton"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:contentDescription="brush_image" />
-        <Button
-            android:id="@+id/imageUndoButton"
-            android:text="⏪"
-            android:background="@drawable/roundbutton"
-            android:layout_marginStart="10sp"
-            android:layout_width="50sp"
-            android:layout_height="wrap_content"
-            android:contentDescription="image" />
-        <Button
-            android:id="@+id/new_btn"
-            android:text="🔄"
-            android:background="@drawable/roundbutton"
-            android:layout_marginStart="10sp"
-            android:layout_width="50sp"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/start_new" />
-        <Button
-            android:id="@+id/open_pallete"
-            android:text="🎨"
-            android:background="@drawable/roundbutton"
-            android:layout_marginStart="10sp"
-            android:layout_width="50sp"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <Button
+                android:id="@+id/downlded_imgs"
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:background="@drawable/roundbutton"
+                android:text="🎞" />
+
+            <Button
+                android:id="@+id/imageGalleryButton"
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:background="@drawable/roundbutton"
+                android:contentDescription="image"
+                android:text="📁"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/imageSaveButton"
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:background="@drawable/roundbutton"
+                android:contentDescription="brush_image"
+                android:text="💾" />
+
+            <SeekBar
+                android:id="@+id/imageBrushButton"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:contentDescription="brush_image" />
+
+            <Button
+                android:id="@+id/imageUndoButton"
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:background="@drawable/roundbutton"
+                android:contentDescription="image"
+                android:text="⏪" />
+
+            <Button
+                android:id="@+id/new_btn"
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:background="@drawable/roundbutton"
+                android:contentDescription="@string/start_new"
+                android:text="🔄" />
+
+            <Button
+                android:id="@+id/open_pallete"
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:background="@drawable/roundbutton"
+                android:text="🎨" />
+        </LinearLayout>
     </HorizontalScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

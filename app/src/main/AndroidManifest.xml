@@ -37,8 +37,7 @@
         </activity>
         <activity
             android:name=".imges_game_1"
-            android:exported="false"
-            android:screenOrientation="portrait">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
