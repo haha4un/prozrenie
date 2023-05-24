@@ -15,9 +15,9 @@ class imges_game_1 : AppCompatActivity() {
 
     }
     fun Clicked(view: View) {
-         var x = view.tag.toString()
-         var i: Intent = Intent(this, imges_game_2::class.java)
-            i.putExtra("IMG", "g$x");
-            startActivity(i)
+             var x = view.tag.toString()
+             var i: Intent = Intent(this, imges_game_2::class.java)
+             i.putExtra("IMG", "g$x");
+             startActivity(i)
         }
     }

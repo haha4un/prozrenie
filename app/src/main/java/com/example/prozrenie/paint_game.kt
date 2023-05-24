@@ -1,7 +1,6 @@
 package com.example.prozrenie
 
 import android.Manifest
-import android.R.attr
 import android.app.Dialog
 import android.content.ContentValues
 import android.content.Context
@@ -45,7 +44,6 @@ class paint_game : AppCompatActivity() {
     private var mImageButtonCurrentPaint: ImageButton? = null
     var drawingView: DrawingView ?= null
     var imageViewBackground: ImageView ?= null
-    var imageViewBackground_temp: ImageView ?= null
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,7 +53,6 @@ class paint_game : AppCompatActivity() {
 
         drawingView = findViewById<DrawingView>(R.id.drawingView)
         imageViewBackground = findViewById<ImageView>(R.id.imageViewBackground)
-        imageViewBackground_temp = ImageView(this)
 
         var imageBrushSize = findViewById<SeekBar>(R.id.imageBrushButton)
         var drawingFrameLayout = findViewById<FrameLayout>(R.id.drawingFrameLayout)
@@ -116,7 +113,7 @@ class paint_game : AppCompatActivity() {
         }
 
         dowlnd.setOnClickListener {
-            showImgSizeChooseDialog()
+            showImgChooseDialog()
         }
     }
 
@@ -129,10 +126,9 @@ class paint_game : AppCompatActivity() {
                         var path: Uri = data.data!!
 
                         imageViewBackground?.visibility = View.VISIBLE
-                        imageViewBackground_temp?.setImageURI(path)
                         val f: File = File(getRealPathFromURI(path))
                         val d = Drawable.createFromPath(f.absolutePath)
-                        imageViewBackground?.setBackground(d)
+                        imageViewBackground?.background = d
                     }else{
                         Toast.makeText(this, "error in parsing the image", Toast.LENGTH_SHORT).show()
                     }
@@ -144,7 +140,7 @@ class paint_game : AppCompatActivity() {
     }
     private fun getRealPathFromURI(contentURI: Uri): String? {
         val cursor = contentResolver.query(contentURI, null, null, null, null)
-        return if (cursor == null) { // Source is Dropbox or other similar local file path
+        return if (cursor == null) {
             contentURI.path
         } else {
             cursor.moveToFirst()
@@ -164,27 +160,20 @@ class paint_game : AppCompatActivity() {
         val i = brushDialog.findViewById<LinearLayout>(R.id.paintColorsLayout)
         mImageButtonCurrentPaint = i[1] as ImageButton
     }
-    private fun showImgSizeChooseDialog(){
-        var brushDialog = Dialog(this)
-        brushDialog.setContentView(R.layout.imgd)
-
-        val im1 = brushDialog.findViewById<ImageButton>(R.id.im1_p)
-        im1.setOnClickListener {
+    private fun showImgChooseDialog(){
+        var dialog = Dialog(this)
+        dialog.setContentView(R.layout.imgd)
+        dialog.show()
+    }
+    fun OnClick_imgd(view: View)
+    {
+        if (view.tag.toString().toInt() == 1)
             imageViewBackground?.setBackgroundColor(Color.WHITE)
-            brushDialog.dismiss()
+        else
+        {
+            val resId = resources.getIdentifier("im${view.tag.toString().toInt()-1}", "drawable", packageName)
+            imageViewBackground?.setBackgroundResource(resId)
         }
-        val im2 = brushDialog.findViewById<ImageButton>(R.id.im2)
-        im2.setOnClickListener {
-            imageViewBackground?.setBackgroundResource(R.drawable.im4)
-            brushDialog.dismiss()
-        }
-        val im3 = brushDialog.findViewById<ImageButton>(R.id.im3)
-        im3.setOnClickListener {
-            imageViewBackground?.setBackgroundResource(R.drawable.im3)
-            brushDialog.dismiss()
-        }
-        // #TODO make this better!
-        brushDialog.show()
     }
 
     fun paintClicked(view: View) {
