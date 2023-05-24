@@ -20,7 +20,7 @@ class relax_game : AppCompatActivity() {
     private var x1 = 0f
     private var x2 = 0f
 
-    var limitOfVideos = 3
+    var limitOfVideos = 4
     var i = 0
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,21 +62,37 @@ class relax_game : AppCompatActivity() {
                         }
                     }
                     if (!stopper){
-                       toNextVideo(v, x)
+                       toNextVideo(i, v, x)
                     }
                     return false
                 }
             })
     }
-    fun toNextVideo(view: VideoView, txt: String)
+    fun toNextVideo(i:Int, view: VideoView, txt: String) : String
     {
         var path = txt
-        path += com.example.prozrenie.R.raw.v1
+        var j = i
+
+        if (j > limitOfVideos){
+            j = 1
+            this.i = 1
+        }
+        if (j <= 0) {
+            j = limitOfVideos
+            this.i = limitOfVideos
+        }
+        when (j) {
+            1 -> path += com.example.prozrenie.R.raw.v1
+            2-> path += com.example.prozrenie.R.raw.v2;
+            3-> path += com.example.prozrenie.R.raw.v3;
+            4-> path += com.example.prozrenie.R.raw.v4;
+        }
         var uri: Uri = Uri.parse(path)
         view.setVideoURI(uri)
         val m = MediaController(this)
         view.setMediaController(m)
         m.setAnchorView(view)
         view.start()
+        return uri.toString()
     }
 }
