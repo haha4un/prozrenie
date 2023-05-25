@@ -167,6 +167,7 @@ class paint_game : AppCompatActivity() {
     }
     fun OnClick_imgd(view: View)
     {
+        var x = view.tag.toString().toInt()
         if (view.tag.toString().toInt() == 1)
             imageViewBackground?.setBackgroundColor(Color.WHITE)
         else

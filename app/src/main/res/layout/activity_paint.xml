@@ -24,7 +24,7 @@
             android:layout_gravity="center"
             android:contentDescription="background_image"
             android:foregroundGravity="center"
-            android:scaleType="centerCrop" />
+            android:scaleType="fitCenter" />
         <com.example.drawingapp.DrawingView
             android:id="@+id/drawingView"
             android:layout_width="match_parent"
