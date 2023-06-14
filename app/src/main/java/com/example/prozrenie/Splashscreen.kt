@@ -22,7 +22,7 @@ class Splashscreen : AppCompatActivity() {
         {
             Toast.makeText(this, "Нет соеденения с сетью!", Toast.LENGTH_SHORT).show()
         }
-
+        // hah, wtf man! That's quite funny. But IDC
         var dialog = Dialog(this)
         dialog.setContentView(R.layout.checker)
         var pass = dialog.findViewById<EditText>(R.id.pass_checker)
