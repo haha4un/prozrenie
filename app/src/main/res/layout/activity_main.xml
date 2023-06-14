@@ -35,12 +35,16 @@
                     android:layout_marginStart="5sp"
                     android:src="@drawable/logo_m" />
 
-                <ImageView
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="10sp"
-                    android:src="@drawable/txt_m" />
+                    android:text="Носорог"
+                    android:textAllCaps="true"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textSize="34sp"
+                    android:textColor="@color/gray"/>
 
                 <ImageView
                     android:id="@+id/inf_btn"
@@ -78,29 +82,77 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/minigamesTxtM">
 
-                <ImageView
+                <LinearLayout
                     android:id="@+id/drawing_game"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_margin="10sp">
+                <ImageView
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_margin="10sp"
                     android:src="@drawable/draw_m"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Рисовалка"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:textColor="@color/gray"
+                        android:textSize="15sp"
+                        android:textAllCaps="true"/>
+                </LinearLayout>
 
-                <ImageView
+                <LinearLayout
                     android:id="@+id/imgs_game"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5sp"
                     android:layout_gravity="center"
-                    android:layout_margin="10sp"
-                    android:src="@drawable/imgs_m" />
+                    android:gravity="center"
+                    android:layout_margin="10sp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:src="@drawable/imgs_m"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Картинки"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:textColor="@color/gray"
+                        android:textSize="15sp"
+                        android:textAllCaps="true"/>
+                </LinearLayout>
 
-                <ImageView
+                <LinearLayout
                     android:id="@+id/relax_game"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5sp"
                     android:layout_gravity="center"
-                    android:layout_margin="10sp"
-                    android:src="@drawable/relax_m" />
+                    android:gravity="center"
+                    android:layout_margin="10sp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:src="@drawable/relax_m"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Релакс"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:textColor="@color/gray"
+                        android:textSize="15sp"
+                        android:textAllCaps="true"/>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout

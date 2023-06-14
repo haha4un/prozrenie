@@ -21,12 +21,16 @@
             android:src="@drawable/logo_m"
             android:layout_gravity="center"
             android:layout_marginStart="5sp"/>
-        <ImageView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/txt_m"
             android:layout_gravity="center"
-            android:layout_marginStart="10sp"/>
+            android:layout_marginStart="10sp"
+            android:text="Носорог"
+            android:textAllCaps="true"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="34sp"
+            android:textColor="@color/gray"/>
     </LinearLayout>
 
     <TextView

@@ -23,12 +23,16 @@
             android:layout_marginStart="5sp"
             android:src="@drawable/logo_m" />
 
-        <ImageView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="10sp"
-            android:src="@drawable/txt_m" />
+            android:text="Носорог"
+            android:textAllCaps="true"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="34sp"
+            android:textColor="@color/gray"/>
     </LinearLayout>
 
     <LinearLayout
@@ -91,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10sp"
         android:background="@drawable/roundbutton"
-        android:text="вернуться назад"
+        android:text="Вернуться назад"
         android:textColor="@color/gray"
         android:fontFamily="@font/montserrat_regular"
         app:layout_constraintBottom_toBottomOf="parent"

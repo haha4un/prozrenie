@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -38,19 +39,19 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        var drawing_game = findViewById<ImageView>(R.id.drawing_game)
+        var drawing_game = findViewById<LinearLayout>(R.id.drawing_game)
         drawing_game.setOnClickListener {
             val intent = Intent(this, paint_game::class.java)
             startActivity(intent)
         }
 
-        var imgs_game = findViewById<ImageView>(R.id.imgs_game)
+        var imgs_game = findViewById<LinearLayout>(R.id.imgs_game)
         imgs_game.setOnClickListener {
             val intent = Intent(this, imges_game_1::class.java)
             startActivity(intent)
         }
 
-        var relax = findViewById<ImageView>(R.id.relax_game)
+        var relax = findViewById<LinearLayout>(R.id.relax_game)
         relax.setOnClickListener {
             val intent = Intent(this, relax_game::class.java)
             startActivity(intent)

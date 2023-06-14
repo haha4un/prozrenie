@@ -22,9 +22,13 @@
         android:id="@+id/save_editedNote"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:text="Сохранить"
+        android:layout_marginBottom="5sp"
         android:background="@drawable/roundbutton"
+        android:fontFamily="@font/montserrat_italic"
+        android:text="Сохранить"
+        android:textColor="@color/gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/note" />
 </androidx.constraintlayout.widget.ConstraintLayout>
