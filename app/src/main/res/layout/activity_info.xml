@@ -11,7 +11,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,10 +28,10 @@
                 android:id="@+id/inf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:linksClickable="true"
                 android:padding="10sp"
                 android:text="@string/info"
-                android:textColor="@color/gray" />
+                android:textColor="@color/gray"
+                android:linksClickable="true"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -69,9 +71,10 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="5sp"
                     android:fontFamily="@font/montserrat_regular"
-                    android:linksClickable="true"
                     android:text="@string/savely"
-                    android:textColor="@color/gray" />
+                    android:textColor="@color/gray"
+                    android:linksClickable="true"
+                    android:id="@+id/s_inf"/>
             </LinearLayout>
 
             <LinearLayout
@@ -103,7 +106,8 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:linksClickable="true"
                     android:text="@string/maximus"
-                    android:textColor="@color/gray" />
+                    android:textColor="@color/gray"
+                    android:id="@+id/m_inf"/>
             </LinearLayout>
 
             <LinearLayout
@@ -135,7 +139,8 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:linksClickable="true"
                     android:text="@string/danilus"
-                    android:textColor="@color/gray" />
+                    android:textColor="@color/gray"
+                    android:id="@+id/d_inf"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

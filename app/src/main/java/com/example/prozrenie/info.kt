@@ -16,5 +16,14 @@ class info : AppCompatActivity() {
 
         val t = findViewById<TextView>(R.id.inf)
         t.movementMethod = LinkMovementMethod.getInstance()
+
+        val s = findViewById<TextView>(R.id.s_inf)
+        s.movementMethod = LinkMovementMethod.getInstance()
+
+        val m = findViewById<TextView>(R.id.m_inf)
+        m.movementMethod = LinkMovementMethod.getInstance()
+
+        val d = findViewById<TextView>(R.id.d_inf)
+        d.movementMethod = LinkMovementMethod.getInstance()
     }
 }
