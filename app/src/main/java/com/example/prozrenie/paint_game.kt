@@ -182,15 +182,10 @@ class paint_game : AppCompatActivity() {
             val imageButton = view as ImageButton
             val colorTag = imageButton.tag.toString()
 
-            if (colorTag == "#ffffcc99")
+            if (colorTag == "#000000")
                 openColorPicker(imageButton)
             else
                 drawingView?.setColor(colorTag)
-
-            imageButton.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.pallet_pressed))
-
-            mImageButtonCurrentPaint!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.pallet_normal))
-
             mImageButtonCurrentPaint = view
         }
     }

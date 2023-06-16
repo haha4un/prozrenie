@@ -62,7 +62,8 @@ class relax_game : AppCompatActivity() {
                         }
                     }
                     if (!stopper){
-                       toNextVideo(i, v, x)
+                        ch.text = ""
+                        toNextVideo(i, v, x)
                     }
                     return false
                 }
@@ -81,11 +82,12 @@ class relax_game : AppCompatActivity() {
             j = limitOfVideos
             this.i = limitOfVideos
         }
+        Toast.makeText(this, "Видео: $j", Toast.LENGTH_SHORT).show()
         when (j) {
-            1 -> path += com.example.prozrenie.R.raw.v1
-            2-> path += com.example.prozrenie.R.raw.v2;
-            3-> path += com.example.prozrenie.R.raw.v3;
-            4-> path += com.example.prozrenie.R.raw.v4;
+            1 -> {path += com.example.prozrenie.R.raw.v1;}
+            2-> {path += com.example.prozrenie.R.raw.v2;}
+            3-> {path += com.example.prozrenie.R.raw.v3;}
+            4-> {path += com.example.prozrenie.R.raw.v4;}
         }
         var uri: Uri = Uri.parse(path)
         view.setVideoURI(uri)
