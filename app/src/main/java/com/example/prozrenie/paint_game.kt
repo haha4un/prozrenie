@@ -176,25 +176,26 @@ class paint_game : AppCompatActivity() {
             imageViewBackground?.setBackgroundResource(resId)
         }
     }
-
     fun paintClicked(view: View) {
         if (view !== mImageButtonCurrentPaint) {
             val imageButton = view as ImageButton
             val colorTag = imageButton.tag.toString()
 
-            if (colorTag == "#000000")
-                openColorPicker(imageButton)
-            else
-                drawingView?.setColor(colorTag)
+            if (colorTag == "#ff000000")
+            {
+                openColorPicker(imageButton);
+            }
+            else drawingView?.setColor(colorTag)
             mImageButtonCurrentPaint = view
         }
     }
     fun openColorPicker(i: ImageButton) {
-        val colorPicker = AmbilWarnaDialog(this, R.color.skin, object : OnAmbilWarnaListener {
+        val colorPicker = AmbilWarnaDialog(this, Color.GREEN, object : OnAmbilWarnaListener {
             override fun onCancel(dialog: AmbilWarnaDialog) {}
             @RequiresApi(Build.VERSION_CODES.O)
             override fun onOk(dialog: AmbilWarnaDialog, color: Int) {
                 i.setBackgroundColor(color)
+                i.tag = "$color"
                 drawingView?.setColor(color)
             }
         })
