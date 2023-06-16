@@ -18,11 +18,7 @@ class Splashscreen : AppCompatActivity() {
         setContentView(R.layout.splash_screen)
         getSupportActionBar()?.hide();
 
-        if (!isOnline(this))
-        {
-            Toast.makeText(this, "Нет соеденения с сетью!", Toast.LENGTH_SHORT).show()
-        }
-        // hah, wtf man! That's quite funny. But IDC
+        // hah, wtf man! That's quite funny. But ID<f>C
         var dialog = Dialog(this)
         dialog.setContentView(R.layout.checker)
         var pass = dialog.findViewById<EditText>(R.id.pass_checker)

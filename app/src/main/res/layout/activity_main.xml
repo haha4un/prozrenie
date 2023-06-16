@@ -19,7 +19,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <LinearLayout
+            <FrameLayout
                 android:id="@+id/lilwithinf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_gravity="left|center_vertical"
                     android:layout_marginStart="5sp"
                     android:src="@drawable/logo_m" />
 
@@ -47,14 +47,19 @@
                     android:textSize="34sp"
                     android:textColor="@color/gray"/>
 
-                <ImageView
+                <TextView
                     android:id="@+id/inf_btn"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="10sp"
-                    android:src="@drawable/info_m" />
-            </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="5sp"
+                    android:background="@drawable/around"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
+                    android:text="i"
+                    android:textColor="@color/gold"
+                    android:textSize="20sp" />
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/minigamesTxtM"
