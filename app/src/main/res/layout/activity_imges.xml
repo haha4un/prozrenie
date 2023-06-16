@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".imges_game_1">
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/lilwithinf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,23 +15,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo_m"
-            android:layout_gravity="center"
-            android:layout_marginStart="5sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="10sp"
             android:text="Носорог"
             android:textAllCaps="true"
             android:fontFamily="@font/montserrat_bold"
-            android:textSize="34sp"
+            android:textSize="35sp"
             android:textColor="@color/gray"/>
-    </LinearLayout>
+        <TextView
+            android:id="@+id/quest_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginEnd="5sp"
+            android:background="@drawable/around"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            android:text="\?"
+            android:textColor="@color/gold"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText"
+            android:tag="imgs"
+            android:layout_margin="5sp"
+            android:onClick="question_btn_imgs"/>
+    </FrameLayout>
 
     <TextView
         android:id="@+id/text"
@@ -39,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20sp"
         android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
         android:src="@drawable/imgch_img"
         android:text="выберите картинку:"
         android:textAllCaps="true"

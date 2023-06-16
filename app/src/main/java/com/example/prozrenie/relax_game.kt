@@ -1,6 +1,7 @@
 package com.example.prozrenie
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -10,6 +11,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.MediaController
+import android.widget.TextView
 import android.widget.Toast
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
@@ -96,5 +98,15 @@ class relax_game : AppCompatActivity() {
         m.setAnchorView(view)
         view.start()
         return uri.toString()
+    }
+
+    fun question_btn_rel(view: View) {
+        var dialog = Dialog(this)
+        dialog.setContentView(R.layout.questtext)
+        var txt = dialog.findViewById<TextView>(R.id.questtxt)
+        txt.setText(R.string.howto_relax)
+        var ok = dialog.findViewById<Button>(R.id.offthedial)
+        ok.setOnClickListener { dialog.dismiss() }
+        dialog.show()
     }
 }
