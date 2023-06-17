@@ -224,7 +224,7 @@ class paint_game : AppCompatActivity() {
             if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 Toast.makeText(this, "Now can read storage", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "oops cant read storage", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "oops, cant read storage", Toast.LENGTH_SHORT).show()
             }
         }
     }

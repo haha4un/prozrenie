@@ -4,8 +4,11 @@ import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -17,11 +20,22 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.itextpdf.text.Paragraph
+import com.itextpdf.text.pdf.PdfWriter
+import org.w3c.dom.Document
 import org.w3c.dom.Text
+import java.io.FileOutputStream
+import java.lang.Exception
+import java.text.SimpleDateFormat
 import java.util.*
 
 class View_Edit_Card : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
+    private var NAME:String?=null
+    private var SECOND_NAME:String?=null
+    private var MIDDLE_NAME:String?=null
+    private var DATE:String?=null
+    private var DIAGNOSE:String?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_edit_card)
@@ -67,6 +81,12 @@ class View_Edit_Card : AppCompatActivity() {
                         s.setText(fbe?.getSurnames())
                         m.setText(fbe?.getMiddlenames())
                         d.setText(fbe?.getData())
+
+                        NAME = n.text.toString()
+                        SECOND_NAME = s.text.toString()
+                        MIDDLE_NAME = m.text.toString()
+                        DATE = d.text.toString()
+                        DIAGNOSE = "-"
                         return
                     }
                 }
@@ -121,6 +141,66 @@ class View_Edit_Card : AppCompatActivity() {
         }
         tohome.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
+        }
+        // --------------------------------------------------------- //
+
+        var save_pdf = findViewById<Button>(R.id.makePdf)
+        save_pdf.setOnClickListener {
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M)
+            {
+                if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED)
+                {
+                    val permission = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    requestPermissions(permission, STORAGE_CODE)
+                }
+                else
+                    savePdf(n.toString(), s.toString(), m.toString(), d.toString(), "-")
+            }
+            else
+                savePdf(n.toString(), s.toString(), m.toString(), d.toString(), "-")
+        }
+    }
+    val STORAGE_CODE = 1001
+    fun savePdf(name: String, second: String, third: String, Date: String, diagnose: String)
+    {
+        val mDoc = com.itextpdf.text.Document()
+
+        val mFileName = "$name-$second-${SimpleDateFormat("yyyMMdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis())}"
+        val mFilePath = "${Environment.getExternalStorageDirectory().toString()}/${mFileName}.pdf"
+
+        try {
+            PdfWriter.getInstance(mDoc, FileOutputStream(mFilePath))
+            mDoc.open()
+            mDoc.addAuthor("Savely Stulcev (haha4un) and co")
+
+            var data = "\bИмя:\b $name\n\n\bФамилия:\b $second\n\n\bОтчество:\b $third\n\n\bДата Рождения:\b\n\nДиагноз: $diagnose"
+
+            mDoc.addTitle("$second $name $third")
+            mDoc.add(Paragraph(data))
+            mDoc.close()
+            Toast.makeText(this, "All is good! downloaded into: \n$mFilePath", Toast.LENGTH_SHORT).show()
+        }
+        catch (e: Exception)
+        {
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode)
+        {
+            STORAGE_CODE -> {
+                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    savePdf(name = NAME!!, second = SECOND_NAME!!, third = MIDDLE_NAME!!, Date = DATE!!, diagnose =  DIAGNOSE!!)
+                }
+                else
+                    Toast.makeText(this, "prem den", Toast.LENGTH_SHORT).show()
+            }
         }
     }
     fun add(res: String, scrool: LinearLayout, ids: String, note: String, keyForNote: String, ID:String)

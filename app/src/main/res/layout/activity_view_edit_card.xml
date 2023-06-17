@@ -71,13 +71,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Edit_Name" />
 
-        <LinearLayout
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:padding="5sp">
 
-
+            <Button
+                android:id="@+id/makePdf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="5dp"
+                android:gravity="center"
+                android:text="🖨"
+                android:background="@drawable/roundbutton"
+                android:textStyle="normal" />
             <Button
                 android:id="@+id/saveEdited"
                 android:layout_width="wrap_content"
@@ -89,9 +103,7 @@
                 android:fontFamily="@font/montserrat_regular"
                 android:textColor="@color/gray"
                 android:background="@drawable/roundbutton"
-                android:textStyle="normal"
-                app:layout_constraintStart_toEndOf="@+id/Edit_Data"
-                app:layout_constraintTop_toBottomOf="@+id/adding" />
+                android:textStyle="normal" />
 
             <Button
                 android:id="@+id/adding"
@@ -104,11 +116,9 @@
                 android:fontFamily="@font/montserrat_regular"
                 android:textColor="@color/gray"
                 android:background="@drawable/roundbutton"
-                android:textStyle="normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/Edit_Mid"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textStyle="normal" />
         </LinearLayout>
+        </HorizontalScrollView>
     </LinearLayout>
 
 
