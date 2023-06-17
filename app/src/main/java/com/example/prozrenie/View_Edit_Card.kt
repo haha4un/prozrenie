@@ -36,6 +36,7 @@ class View_Edit_Card : AppCompatActivity() {
     private var MIDDLE_NAME:String?=null
     private var DATE:String?=null
     private var DIAGNOSE:String?=null
+    private var ID_str:String?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_edit_card)
@@ -87,6 +88,8 @@ class View_Edit_Card : AppCompatActivity() {
                         MIDDLE_NAME = m.text.toString()
                         DATE = d.text.toString()
                         DIAGNOSE = "-"
+
+                        ID_str = fbe?.getIds()
                         return
                     }
                 }
@@ -146,18 +149,21 @@ class View_Edit_Card : AppCompatActivity() {
 
         var save_pdf = findViewById<Button>(R.id.makePdf)
         save_pdf.setOnClickListener {
+            val permission = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            requestPermissions(permission, STORAGE_CODE)
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M)
             {
                 if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED)
                 {
-                    val permission = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     requestPermissions(permission, STORAGE_CODE)
                 }
                 else
-                    savePdf(n.toString(), s.toString(), m.toString(), d.toString(), "-")
+                {
+                    savePdf(name = NAME!!, second = SECOND_NAME!!, third = MIDDLE_NAME!!, Date = DATE!!, diagnose =  DIAGNOSE!!)
+                }
             }
             else
-                savePdf(n.toString(), s.toString(), m.toString(), d.toString(), "-")
+                savePdf(name = NAME!!, second = SECOND_NAME!!, third = MIDDLE_NAME!!, Date = DATE!!, diagnose =  DIAGNOSE!!)
         }
     }
     val STORAGE_CODE = 1001
@@ -173,16 +179,17 @@ class View_Edit_Card : AppCompatActivity() {
             mDoc.open()
             mDoc.addAuthor("Savely Stulcev (haha4un) and co")
 
-            var data = "\bИмя:\b $name\n\n\bФамилия:\b $second\n\n\bОтчество:\b $third\n\n\bДата Рождения:\b\n\nДиагноз: $diagnose"
+            var data = "${second.toUpperCase()} ${name.toUpperCase()} ${third.toUpperCase()}\n\n\nName: $name\n\nSecond-name: $second\n\nMiddle-name: $third\n\nDate of birth: $Date\n\nID: $ID_str\n\nDiagnose: $diagnose\n\n\n/------------/"
 
             mDoc.addTitle("$second $name $third")
             mDoc.add(Paragraph(data))
+            mDoc.add(Paragraph("Some texts"))
             mDoc.close()
             Toast.makeText(this, "All is good! downloaded into: \n$mFilePath", Toast.LENGTH_SHORT).show()
         }
         catch (e: Exception)
         {
-            Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Something went wrong^ $e", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -192,14 +199,11 @@ class View_Edit_Card : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when (requestCode)
-        {
-            STORAGE_CODE -> {
-                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                    savePdf(name = NAME!!, second = SECOND_NAME!!, third = MIDDLE_NAME!!, Date = DATE!!, diagnose =  DIAGNOSE!!)
-                }
-                else
-                    Toast.makeText(this, "prem den", Toast.LENGTH_SHORT).show()
+        if(requestCode == Companion.STORAGE_PERMISSION_CODE){
+            if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(this, "Now can read storage", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "oops, cant read storage", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -220,4 +224,8 @@ class View_Edit_Card : AppCompatActivity() {
     }
     fun upgradeID(s: String):String{
         return s.dropLast(2)}
+
+    companion object {
+        private const val STORAGE_PERMISSION_CODE = 1
+    }
 }
