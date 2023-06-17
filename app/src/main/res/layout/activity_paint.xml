@@ -16,7 +16,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/sc_p">
-
         <ImageView
             android:id="@+id/imageViewBackground"
             android:layout_width="wrap_content"
@@ -31,7 +30,18 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:foregroundGravity="center" />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/around"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            android:layout_gravity="end"
+            android:layout_margin="5sp"
+            android:text="\?"
+            android:textColor="@color/gold"
+            android:textSize="20sp"
+            android:onClick="question_btn_paint"/>
     </FrameLayout>
     <HorizontalScrollView
         android:id="@+id/sc_p"

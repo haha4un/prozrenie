@@ -23,6 +23,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -355,5 +356,16 @@ class paint_game : AppCompatActivity() {
     companion object{
         private const val STORAGE_PERMISSION_CODE = 1
         private const val GALLERY = 2
+    }
+
+
+    fun question_btn_paint(view: View) {
+        var dialog = Dialog(this)
+        dialog.setContentView(R.layout.questtext)
+        var txt = dialog.findViewById<TextView>(R.id.questtxt)
+        txt.setText(R.string.howto_draw)
+        var ok = dialog.findViewById<Button>(R.id.offthedial)
+        ok.setOnClickListener { dialog.dismiss() }
+        dialog.show()
     }
 }

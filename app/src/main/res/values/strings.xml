@@ -1,10 +1,27 @@
 <resources>
     <string name="app_name">Носорог</string>
+    <string name="app_ver">Версия: beta_10.8.9</string>
+
+    <string name="LICENSE">MIT License\nCopyright © 2023 haha4un, murai, keyrdis\n\nPermission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</string>
+
     <string name="start_new">New</string>
     <string name="brush">Brush</string>
     <string name="erase">Erase</string>
     <string name="save">Save</string>
     <string name="paint">Paint</string>
+
     <string name="info">Это приложение создано для детей с плохим зрением. Тут Вы можете найти комплекс упражнений, которые помогут сохранить Ваше зрение.\n\nКоманда состоит из одного разработчика и двух дизайнеров - похожо на инди-студию?)</string>
     <string name="savely">Главный разработчик: код всех версий. Также подрабатывал в дизайне: дизайн до версии beta_v10 (См. commits on Github). И как плюс, создал эту страничку:)\n<a href="https://haha4un.github.io/me">Контакты</a></string>
     <string name="maximus">Главный дизайнер: дизайн версий beta_v10 и выше; Стоит ли объяснять, почему он главный дизайнер?\n<a href="https://vk.com/maximkeyrdis">Контакты</a></string>
