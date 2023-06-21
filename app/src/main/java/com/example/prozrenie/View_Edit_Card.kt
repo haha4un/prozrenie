@@ -6,7 +6,6 @@ import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.widget.Button
@@ -15,19 +14,23 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.itextpdf.text.Document
+import com.itextpdf.text.Font
 import com.itextpdf.text.Paragraph
+import com.itextpdf.text.pdf.BaseFont
 import com.itextpdf.text.pdf.PdfWriter
-import org.w3c.dom.Document
-import org.w3c.dom.Text
+import java.io.File
 import java.io.FileOutputStream
-import java.lang.Exception
+import java.nio.file.Files
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class View_Edit_Card : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -37,6 +40,7 @@ class View_Edit_Card : AppCompatActivity() {
     private var DATE:String?=null
     private var DIAGNOSE:String?=null
     private var ID_str:String?=null
+    private var All_notes:String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_edit_card)
@@ -166,24 +170,35 @@ class View_Edit_Card : AppCompatActivity() {
                 savePdf(name = NAME!!, second = SECOND_NAME!!, third = MIDDLE_NAME!!, Date = DATE!!, diagnose =  DIAGNOSE!!)
         }
     }
+
     val STORAGE_CODE = 1001
     fun savePdf(name: String, second: String, third: String, Date: String, diagnose: String)
     {
-        val mDoc = com.itextpdf.text.Document()
+        val mDoc = Document()
 
         val mFileName = "$name-$second-${SimpleDateFormat("yyyMMdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis())}"
-        val mFilePath = "${Environment.getExternalStorageDirectory().toString()}/${mFileName}.pdf"
+        val path = "${Environment.getExternalStorageDirectory()}/носорог"
+        //Files.createDirectory(path)
+        val mFilePath = "${Environment.getExternalStorageDirectory()}/носорог/${mFileName}.pdf"
+
+         val FONT = "res/font/arial.ttf"
+         var bf: BaseFont = BaseFont.createFont(FONT, BaseFont.IDENTITY_H, BaseFont.EMBEDDED)
+         var font: Font = Font(bf, 30f, Font.NORMAL) // yu can choose and change the line 198#
 
         try {
             PdfWriter.getInstance(mDoc, FileOutputStream(mFilePath))
             mDoc.open()
             mDoc.addAuthor("Savely Stulcev (haha4un) and co")
 
-            var data = "${second.toUpperCase()} ${name.toUpperCase()} ${third.toUpperCase()}\n\n\nName: $name\n\nSecond-name: $second\n\nMiddle-name: $third\n\nDate of birth: $Date\n\nID: $ID_str\n\nDiagnose: $diagnose\n\n\n/------------/"
+            var data = "${second.toUpperCase()} ${name.toUpperCase()} ${third.toUpperCase()}\n\n\nName: $name\nSecond-name: $second\nMiddle-name: $third\nDate of birth: $Date\nID: $ID_str\nDiagnose: $diagnose\n\n\n/------------/\n\n"
 
             mDoc.addTitle("$second $name $third")
-            mDoc.add(Paragraph(data))
-            mDoc.add(Paragraph("Some texts"))
+            mDoc.newPage()
+            var paragraph = Paragraph()
+            paragraph.setFont(Font(bf))
+            paragraph.add(data)
+            paragraph.add("$All_notes")
+            mDoc.add(paragraph)
             mDoc.close()
             Toast.makeText(this, "All is good! downloaded into: \n$mFilePath", Toast.LENGTH_SHORT).show()
         }
@@ -210,7 +225,8 @@ class View_Edit_Card : AppCompatActivity() {
     fun add(res: String, scrool: LinearLayout, ids: String, note: String, keyForNote: String, ID:String)
     {
         val noneContent: TextView = TextView(this)
-        noneContent.text = "$res\n\n"
+        noneContent.text = "$res\n―――――――――\n\n"
+        All_notes += "$res\n―――――――――\n\n"
         scrool.addView(noneContent)
 
         noneContent.setOnClickListener{

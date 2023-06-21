@@ -167,6 +167,29 @@
                         android:textSize="15sp"
                         android:textAllCaps="true"/>
                 </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/flower_game"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginStart="10sp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:src="@drawable/flower_m"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Цветок"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:textColor="@color/gray"
+                        android:textSize="15sp"
+                        android:textAllCaps="true"/>
+                </LinearLayout>
             </LinearLayout>
             </HorizontalScrollView>
 
