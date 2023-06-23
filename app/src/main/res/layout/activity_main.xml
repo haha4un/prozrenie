@@ -85,7 +85,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:overScrollMode="never"
-                android:scrollbars="horizontal"
+                android:scrollbars="none"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/minigamesTxtM">
