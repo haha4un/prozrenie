@@ -1,16 +1,20 @@
 package com.example.prozrenie
 
+import android.R.attr.bottom
+import android.R.attr.left
+import android.R.attr.right
+import android.R.attr.top
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewGroup.MarginLayoutParams
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.updateLayoutParams
 
 
 class imges_game_1 : AppCompatActivity() {
@@ -27,6 +31,7 @@ class imges_game_1 : AppCompatActivity() {
             iv.tag = i
             iv.setImageResource(resources.getIdentifier("g$i", "drawable", packageName))
 
+
             iv.maxHeight = 300
             iv.maxWidth = 300
 
@@ -35,17 +40,13 @@ class imges_game_1 : AppCompatActivity() {
             iv.setOnClickListener {
                 var x = iv.tag.toString()
                 var i: Intent = Intent(this, imges_game_2::class.java)
-                i.putExtra("IMG", "g$x");
+                i.putExtra("IMG", "g$x")
                 startActivity(i)
             }
-        }
-    }
-    fun setMargins (v: View, l: Int, t: Int, r: Int, b: Int) {
-            if (v.getLayoutParams() is ViewGroup.MarginLayoutParams) {
-                val p: ViewGroup.MarginLayoutParams = v.getLayoutParams() as ViewGroup.MarginLayoutParams;
-                p.setMargins(l, t, r, b);
-                v.requestLayout();
+            iv.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                setMargins(0,20,0,0)
             }
+        }
     }
     fun question_btn_imgs(view: View) {
         var dialog = Dialog(this)
