@@ -18,13 +18,15 @@ import androidx.core.view.updateLayoutParams
 
 
 class imges_game_1 : AppCompatActivity() {
+
+    val MAX_COUNT_IMGS = 13
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_imges)
         supportActionBar?.hide()
 
         var sc = findViewById<LinearLayout>(R.id.linearLayout)
-        for (i in 1..7){
+        for (i in 1..MAX_COUNT_IMGS){
             var iv = ImageView(this)
             iv.adjustViewBounds = true
 
