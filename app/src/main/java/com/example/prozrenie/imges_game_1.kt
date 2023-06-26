@@ -20,6 +20,7 @@ import androidx.core.view.updateLayoutParams
 class imges_game_1 : AppCompatActivity() {
 
     val MAX_COUNT_IMGS = 13
+    val PRE_FIX = "g"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_imges)
@@ -31,7 +32,7 @@ class imges_game_1 : AppCompatActivity() {
             iv.adjustViewBounds = true
 
             iv.tag = i
-            iv.setImageResource(resources.getIdentifier("g$i", "drawable", packageName))
+            iv.setImageResource(resources.getIdentifier("$PRE_FIX$i", "drawable", packageName))
 
 
             iv.maxHeight = 300
@@ -40,9 +41,9 @@ class imges_game_1 : AppCompatActivity() {
             sc.addView(iv)
 
             iv.setOnClickListener {
-                var x = iv.tag.toString()
-                var i: Intent = Intent(this, imges_game_2::class.java)
-                i.putExtra("IMG", "g$x")
+                val x = iv.tag.toString()
+                val i: Intent = Intent(this, imges_game_2::class.java)
+                i.putExtra("IMG", "$PRE_FIX$x")
                 startActivity(i)
             }
             iv.updateLayoutParams<ViewGroup.MarginLayoutParams> {

@@ -33,8 +33,7 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".imges_game_2"
-            android:exported="false"
-            android:screenOrientation="landscape">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
