@@ -26,14 +26,14 @@
             android:id="@+id/first_lay">
                 <FrameLayout
                     android:layout_width="50sp"
-                    android:layout_height="50sp">
+                    android:layout_height="50sp"
+                    android:tag="1"
+                    android:onClick="game">
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:rotation="90"
-                        android:src="@drawable/hexagon"
-                        android:tag="1"
-                        android:onClick="game"/>
+                        android:src="@drawable/hexagon" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -44,14 +44,14 @@
 
                     <FrameLayout
                         android:layout_width="50sp"
-                        android:layout_height="50sp">
+                        android:layout_height="50sp"
+                        android:tag="2"
+                        android:onClick="game">
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:rotation="90"
-                            android:src="@drawable/hexagon"
-                            android:tag="2"
-                            android:onClick="game"/>
+                            android:src="@drawable/hexagon" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -71,14 +71,14 @@
 
                 <FrameLayout
                     android:layout_width="50sp"
-                    android:layout_height="50sp">
+                    android:layout_height="50sp"
+                    android:tag="3"
+                    android:onClick="game">
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:rotation="90"
-                        android:src="@drawable/hexagon"
-                        android:tag="3"
-                        android:onClick="game"/>
+                        android:src="@drawable/hexagon" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -89,14 +89,13 @@
 
                 <FrameLayout
                     android:layout_width="50sp"
-                    android:layout_height="50sp">
+                    android:layout_height="50sp"
+                    android:tag="0">
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:rotation="90"
-                        android:src="@drawable/hexagon_gold"
-                        android:tag="0"
-                        android:onClick="game"/>
+                        android:src="@drawable/hexagon_gold" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -107,14 +106,14 @@
 
                 <FrameLayout
                     android:layout_width="50sp"
-                    android:layout_height="50sp">
+                    android:layout_height="50sp"
+                    android:tag="4"
+                    android:onClick="game">
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:rotation="90"
-                        android:src="@drawable/hexagon"
-                        android:tag="4"
-                        android:onClick="game"/>
+                        android:src="@drawable/hexagon" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -132,14 +131,14 @@
             android:id="@+id/third_lay">
                 <FrameLayout
                     android:layout_width="50sp"
-                    android:layout_height="50sp">
+                    android:layout_height="50sp"
+                    android:tag="5"
+                    android:onClick="game">
                         <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:rotation="90"
-                        android:src="@drawable/hexagon"
-                        android:tag="5"
-                        android:onClick="game"/>
+                        android:src="@drawable/hexagon" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -150,14 +149,14 @@
 
                 <FrameLayout
                     android:layout_width="50sp"
-                    android:layout_height="50sp">
+                    android:layout_height="50sp"
+                    android:tag="6"
+                    android:onClick="game">
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:rotation="90"
-                        android:src="@drawable/hexagon"
-                        android:tag="6"
-                        android:onClick="game"/>
+                        android:src="@drawable/hexagon" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
