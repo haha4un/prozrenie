@@ -17,7 +17,7 @@
             android:orientation="vertical">
             <ImageButton
                 android:id="@+id/im1_p"
-                android:tag="1"
+                android:tag="w"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:background="@color/white"
@@ -54,7 +54,7 @@
                 android:background="@drawable/im4"
                 android:onClick="OnClick_imgd"/>
             <ImageButton
-                android:tag="1"
+                android:tag="w"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:background="@color/white"

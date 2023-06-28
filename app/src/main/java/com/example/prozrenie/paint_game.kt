@@ -17,6 +17,7 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -45,6 +46,7 @@ class paint_game : AppCompatActivity() {
     private var mImageButtonCurrentPaint: ImageButton? = null
     var drawingView: DrawingView ?= null
     var imageViewBackground: ImageView ?= null
+    var FILE_NAME = "DW"
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -102,11 +104,23 @@ class paint_game : AppCompatActivity() {
         }
 
         imageSaveButton.setOnClickListener {
-            if(isReadStorageAllowed()) {
-                BitmapAsyncTask(getBitmapFromView(drawingFrameLayout), this).execute()
-            }else {
-                requestStoragePermission()
+
+
+            var dialog = Dialog(this)
+            dialog.setContentView(R.layout.setnameoffile)
+            var txt = dialog.findViewById<EditText>(R.id.filename)
+            var ok = dialog.findViewById<Button>(R.id.save_file)
+            ok.setOnClickListener {
+                FILE_NAME = txt.text.toString()
+
+                if(isReadStorageAllowed()) {
+                    BitmapAsyncTask(getBitmapFromView(drawingFrameLayout), this).execute()
+                }else {
+                    requestStoragePermission()
+                }
+                dialog.dismiss()
             }
+            dialog.show()
         }
 
         palleteOpener.setOnClickListener {
@@ -168,8 +182,7 @@ class paint_game : AppCompatActivity() {
     }
     fun OnClick_imgd(view: View)
     {
-        var x = view.tag.toString().toInt()
-        if (view.tag.toString().toInt() == 1)
+        if (view.tag == "w")
             imageViewBackground?.setBackgroundColor(Color.WHITE)
         else
         {
@@ -282,7 +295,7 @@ class paint_game : AppCompatActivity() {
 
             try {
                 val bytes = ByteArrayOutputStream()
-                val fileName = "DrawingApp_" + System.currentTimeMillis()/1000 + ".png"
+                val fileName = "${FILE_NAME}_" + System.currentTimeMillis()/1000 + ".png"
                 var fos : OutputStream? = null
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     context.contentResolver?.also { resolver ->

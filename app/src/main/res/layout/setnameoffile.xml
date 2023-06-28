@@ -15,28 +15,20 @@
         android:gravity="center">
 
         <EditText
-            android:id="@+id/login_checker"
+            android:id="@+id/filename"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:fontFamily="@font/montserrat_regular"
             android:gravity="center"
-            android:hint="Введите логин" />
-        <EditText
-            android:id="@+id/pass_checker"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20sp"
-            android:gravity="center"
-            android:fontFamily="@font/montserrat_regular"
-            android:hint="Введите пароль"/>
+            android:hint="Введите имя файла" />
         <Button
-            android:id="@+id/check_checker"
+            android:id="@+id/save_file"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="20sp"
             android:gravity="center"
             android:fontFamily="@font/montserrat_regular"
-            android:hint="Проверить"/>
+            android:hint="Сохранить"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Splashscreen">
+    tools:context=".Splashscreen"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/icon_spl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5sp"
         android:elegantTextHeight="true"
         android:freezesText="false"
         android:src="@drawable/icon_spl"
@@ -17,9 +20,50 @@
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textIsSelectable="false"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon_spl">
+
+        <EditText
+            android:id="@+id/Login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/montserrat_italic"
+            android:gravity="center"
+            android:hint="Введите Логин"
+            android:textColor="@color/gray"
+            android:layout_marginBottom="20sp"
+            android:inputType="textPersonName"/>
+
+        <EditText
+            android:id="@+id/Password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/montserrat_italic"
+            android:gravity="center"
+            android:hint="Введите пароль"
+            android:textColor="@color/gray"
+            android:layout_marginBottom="20sp"
+            android:inputType="textWebPassword"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Проверить"
+            android:fontFamily="@font/montserrat_italic"
+            android:id="@+id/Check" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

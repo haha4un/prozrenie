@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,164 +7,210 @@
     tools:context=".flower_game">
 
     <LinearLayout
+        android:id="@+id/common_lay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="vertical"
         android:gravity="center"
-        android:id="@+id/common_lay">
+        android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/first_lay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_gravity="center"
             android:gravity="center"
-            android:id="@+id/first_lay">
-                <FrameLayout
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
-                    android:tag="1"
-                    android:onClick="game">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:rotation="90"
-                        android:src="@drawable/hexagon" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="1"
-                        android:gravity="center"
-                        android:textColor="@color/white"/>
-                </FrameLayout>
+            android:orientation="horizontal">
 
-                    <FrameLayout
-                        android:layout_width="50sp"
-                        android:layout_height="50sp"
-                        android:tag="2"
-                        android:onClick="game">
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:rotation="90"
-                            android:src="@drawable/hexagon" />
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="2"
-                            android:gravity="center"
-                            android:textColor="@color/white"/>
-                    </FrameLayout>
+            <FrameLayout
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:onClick="game"
+                android:tag="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:rotation="90"
+                    android:src="@drawable/hexagon_1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/white" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:onClick="game"
+                android:tag="2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:rotation="90"
+                    android:src="@drawable/hexagon_1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textColor="@color/white" />
+            </FrameLayout>
 
         </LinearLayout>
+
         <LinearLayout
+            android:id="@+id/second_lay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_gravity="center"
             android:gravity="center"
-            android:id="@+id/second_lay">
+            android:orientation="horizontal">
 
-                <FrameLayout
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
-                    android:tag="3"
-                    android:onClick="game">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:rotation="90"
-                        android:src="@drawable/hexagon" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="3"
-                        android:gravity="center"
-                        android:textColor="@color/white"/>
-                </FrameLayout>
+            <FrameLayout
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:onClick="game"
+                android:tag="3">
 
-                <FrameLayout
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
-                    android:tag="0">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:rotation="90"
-                        android:src="@drawable/hexagon_gold" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="0"
-                        android:gravity="center"
-                        android:textColor="@color/white"/>
-                </FrameLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:rotation="90"
+                    android:src="@drawable/hexagon_1" />
 
-                <FrameLayout
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
-                    android:tag="4"
-                    android:onClick="game">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:rotation="90"
-                        android:src="@drawable/hexagon" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="4"
-                        android:gravity="center"
-                        android:textColor="@color/white"/>
-                </FrameLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textColor="@color/white" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:tag="0">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:rotation="90"
+                    android:src="@drawable/hexagon_0" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:onClick="game"
+                android:tag="4">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:rotation="90"
+                    android:src="@drawable/hexagon_1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="4"
+                    android:textColor="@color/white" />
+            </FrameLayout>
         </LinearLayout>
+
         <LinearLayout
+            android:id="@+id/third_lay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_gravity="center"
             android:gravity="center"
-            android:id="@+id/third_lay">
-                <FrameLayout
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
-                    android:tag="5"
-                    android:onClick="game">
-                        <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:rotation="90"
-                        android:src="@drawable/hexagon" />
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="5"
-                            android:gravity="center"
-                            android:textColor="@color/white"/>
-                </FrameLayout>
+            android:orientation="horizontal">
 
-                <FrameLayout
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
-                    android:tag="6"
-                    android:onClick="game">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:rotation="90"
-                        android:src="@drawable/hexagon" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="6"
-                        android:gravity="center"
-                        android:textColor="@color/white"/>
-                </FrameLayout>
+            <FrameLayout
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:onClick="game"
+                android:tag="5">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:rotation="90"
+                    android:src="@drawable/hexagon_1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="5"
+                    android:textColor="@color/white" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:onClick="game"
+                android:tag="6">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:rotation="90"
+                    android:src="@drawable/hexagon_1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="6"
+                    android:textColor="@color/white" />
+            </FrameLayout>
         </LinearLayout>
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20sp"
+        android:orientation="vertical"
+        android:layout_gravity="end"
+        android:gravity="end">
+        <TextView
+            android:id="@+id/quest_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5sp"
+            android:background="@drawable/around"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            android:text="\?"
+            android:textColor="@color/gold"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText"
+            android:tag="flower"
+            android:layout_margin="5sp"
+            android:onClick="question_btn_flower"/>
+        <TextView
+            android:id="@+id/scores_flower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:fontFamily="@font/montserrat_italic"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="50sp"/>
+    </LinearLayout>
+</FrameLayout>

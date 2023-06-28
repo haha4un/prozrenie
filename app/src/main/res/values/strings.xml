@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Носорог</string>
-    <string name="app_ver">Версия: beta_10.9.2</string>
+    <string name="app_ver">Версия: beta_10.10</string>
 
     <string name="LICENSE">MIT License\nCopyright © 2023 haha4un, murai, keyrdis\n\nPermission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +23,12 @@ SOFTWARE.</string>
     <string name="paint">Paint</string>
 
     <string name="info">Это приложение создано для детей с плохим зрением. Тут Вы можете найти комплекс упражнений, которые помогут сохранить Ваше зрение.\n\nКоманда состоит из одного разработчика и двух дизайнеров - похожо на инди-студию?)</string>
-    <string name="savely">Главный разработчик: код всех версий. Также подрабатывал в дизайне: дизайн до версии beta_v10 (См. commits on Github). И как плюс, создал эту страничку:)\n<a href="https://haha4un.github.io/me">Контакты</a></string>
+    <string name="savely">Главный разработчик: код всех версий. Также подрабатывал в дизайне: дизайн до версии beta_v10 (См. commits on Github) - также адаптировал дизайн под устройства (Верстка для андройд (?)). И как плюс, создал эту страничку:)\n<a href="https://haha4un.github.io/me">Контакты</a></string>
     <string name="maximus">Главный дизайнер: дизайн версий beta_v10 и выше; Стоит ли объяснять, почему он главный дизайнер?\n<a href="https://vk.com/maximkeyrdis">Контакты</a></string>
     <string name="danilus">Второй дизайнер: круглые кнопки. Да, круглые.\n<a href="https://vk.com/id457058038">Контакты</a></string>
 
     <string name="howto_img">Это картинки</string>
     <string name="howto_draw">Это рисовалка</string>
     <string name="howto_relax">Это релакс</string>
+    <string name="howto_flower">Это цветок</string>
 </resources>

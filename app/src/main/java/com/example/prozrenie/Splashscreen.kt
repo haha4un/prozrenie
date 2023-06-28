@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -18,28 +19,19 @@ class Splashscreen : AppCompatActivity() {
         setContentView(R.layout.splash_screen)
         getSupportActionBar()?.hide();
 
-        // hah, wtf man! That's quite funny. But ID<f>C
-        var dialog = Dialog(this)
-        dialog.setContentView(R.layout.checker)
-        var pass = dialog.findViewById<EditText>(R.id.pass_checker)
-        var login = dialog.findViewById<EditText>(R.id.login_checker)
-        var ok = dialog.findViewById<Button>(R.id.check_checker)
-        ok.setOnClickListener {
-            if (login.text.toString() == "h4n/mur/key" && pass.text.toString() == "h4nkm" || pass.text.toString() == "g")
-            {
-                val intent = Intent(this, MainActivity ::class.java)
-                startActivity(intent)
-                finish()
-            }
+        val l = findViewById<EditText>(R.id.Login)
+        val p = findViewById<EditText>(R.id.Password)
+        val c = findViewById<Button>(R.id.Check)
+
+        c.setOnClickListener {
+            if (l.text.toString() == "h4n/mur/key" && p.text.toString() == "h4nkm" || p.text.toString() == "g")
+                startActivity(Intent(this, MainActivity::class.java))
             else
             {
                 Toast.makeText(this, "Неправильная связка пароль-логин!", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this,  Splashscreen::class.java)
-                startActivity(intent)
-                finish()
+                return@setOnClickListener
             }
         }
-        dialog.show()
     }
     fun isOnline(context: Context): Boolean {
         val cm = context.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
