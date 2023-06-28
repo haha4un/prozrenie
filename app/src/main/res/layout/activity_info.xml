@@ -52,8 +52,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
                     android:src="@drawable/sav_ava" />
 
                 <TextView
@@ -85,8 +85,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
                     android:src="@drawable/max_ava" />
 
                 <TextView
@@ -118,8 +118,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
                     android:src="@drawable/dan_ava" />
 
                 <TextView

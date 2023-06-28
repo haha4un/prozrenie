@@ -22,8 +22,8 @@
             android:orientation="horizontal">
 
             <FrameLayout
-                android:layout_width="50sp"
-                android:layout_height="50sp"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
                 android:onClick="game"
                 android:tag="1">
 
@@ -42,8 +42,8 @@
             </FrameLayout>
 
             <FrameLayout
-                android:layout_width="50sp"
-                android:layout_height="50sp"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
                 android:onClick="game"
                 android:tag="2">
 
@@ -72,8 +72,8 @@
             android:orientation="horizontal">
 
             <FrameLayout
-                android:layout_width="50sp"
-                android:layout_height="50sp"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
                 android:onClick="game"
                 android:tag="3">
 
@@ -92,8 +92,8 @@
             </FrameLayout>
 
             <FrameLayout
-                android:layout_width="50sp"
-                android:layout_height="50sp"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
                 android:tag="0">
 
                 <ImageView
@@ -111,8 +111,8 @@
             </FrameLayout>
 
             <FrameLayout
-                android:layout_width="50sp"
-                android:layout_height="50sp"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
                 android:onClick="game"
                 android:tag="4">
 
@@ -140,8 +140,8 @@
             android:orientation="horizontal">
 
             <FrameLayout
-                android:layout_width="50sp"
-                android:layout_height="50sp"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
                 android:onClick="game"
                 android:tag="5">
 
@@ -160,8 +160,8 @@
             </FrameLayout>
 
             <FrameLayout
-                android:layout_width="50sp"
-                android:layout_height="50sp"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
                 android:onClick="game"
                 android:tag="6">
 
