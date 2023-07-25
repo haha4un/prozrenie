@@ -27,6 +27,9 @@ class overlook_note : AppCompatActivity() {
         // --------------------------------------------------------- //
 
         var note = intent.getSerializableExtra("KEY_note")
+
+        var denote = note.toString()
+
         var id = intent.getSerializableExtra("KEY_id")
         var key = intent.getSerializableExtra("KEY")
         var ID = intent.getSerializableExtra("ID")
@@ -38,6 +41,11 @@ class overlook_note : AppCompatActivity() {
 
         val database = Firebase.database
         s.setOnClickListener {
+            if (check(key.toString()) == "denied" && denote != n.text.toString())
+            {
+                Toast.makeText(this, "Нельзя редактировать ID-Заметку!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             val db = database.getReference("main/$id/lessons/$key")
             db.setValue(n.text.toString())
             var intent = Intent(this, View_Edit_Card::class.java)

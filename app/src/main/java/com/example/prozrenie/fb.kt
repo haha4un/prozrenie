@@ -6,6 +6,7 @@ class fb {
         var name: String? = null
         var id: String? = null
         var date: String? = null
+        var diagnose: String? = null
 
         fun fb() {}
         fun fb(
@@ -13,13 +14,15 @@ class fb {
             surname: String?,
             middlename: String?,
             date: String?,
-            ids: String?
+            ids: String?,
+            diagnos: String?
         ) {
             this.surname = surname
             this.name = name
             this.middlename = middlename
             this.date = date
             this.id = ids
+            this.diagnose = diagnos
         }
         fun getFullName(): String? {
             return "$surname $name $middlename"
@@ -38,6 +41,9 @@ class fb {
         }
         fun getMiddlenames(): String? {
             return middlename
+        }
+        fun getDiagnoses():String? {
+            return diagnose
         }
 
 

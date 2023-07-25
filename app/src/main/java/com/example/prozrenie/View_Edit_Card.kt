@@ -59,6 +59,7 @@ class View_Edit_Card : AppCompatActivity() {
         val s = findViewById<EditText>(R.id.Edit_Sur)
         val m = findViewById<EditText>(R.id.Edit_Mid)
         val d = findViewById<EditText>(R.id.Edit_Data)
+        val di = findViewById<EditText>(R.id.Diagnose_edit)
 
         val save = findViewById<Button>(R.id.saveEdited)
         save.setOnClickListener {
@@ -69,6 +70,7 @@ class View_Edit_Card : AppCompatActivity() {
             myRef.child("surname").setValue("${s.text}")
             myRef.child("middlename").setValue("${m.text}")
             myRef.child("date").setValue("${d.text}")
+            myRef.child("diagnose").setValue("${di.text}")
         }
 
         var fb: fb = fb()
@@ -85,12 +87,13 @@ class View_Edit_Card : AppCompatActivity() {
                         s.setText(fbe?.getSurnames())
                         m.setText(fbe?.getMiddlenames())
                         d.setText(fbe?.getData())
+                        di.setText(fbe?.getDiagnoses())
 
                         NAME = n.text.toString()
                         SECOND_NAME = s.text.toString()
                         MIDDLE_NAME = m.text.toString()
                         DATE = d.text.toString()
-                        DIAGNOSE = "-"
+                        DIAGNOSE = di.text.toString()
 
                         ID_str = fbe?.getIds()
                         return

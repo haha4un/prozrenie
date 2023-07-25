@@ -71,7 +71,7 @@ class Create_Card : AppCompatActivity() {
                     5 -> {
                         diagnose = create.text.toString(); Toast.makeText(
                             this,
-                            "dig: $sur",
+                            "dig: $diagnose",
                             Toast.LENGTH_SHORT
                         ).show()
                         create.setVisibility(EditText.INVISIBLE);create.hint = "";Toast.makeText(
@@ -82,7 +82,7 @@ class Create_Card : AppCompatActivity() {
                     }
                     6 -> {
                         i = 0
-                        var id = "${name.hashCode()}${sur.hashCode()}${middle.hashCode()}${date.hashCode()}${diagnose.hashCode()}${Random.nextInt(9)}${Random.nextInt(9)}"
+                        var id = "${name.hashCode()}${sur.hashCode()}${middle.hashCode()}${date.hashCode()}${Random.nextInt(9)}${Random.nextInt(9)}" //I've tried to put in the diangose, but smth doesnt want to work
                         var x = "${name.hashCode()}${sur.hashCode()}${middle.hashCode()}${date.hashCode()}"
                         val myRef = database.getReference("main/$x")
                         myRef.child("name").setValue(name)
