@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View_Edit_Card">
+    tools:context=".View_Edit_Card"
+    android:orientation="vertical">
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/l1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginTop="5dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +73,20 @@
             android:fontFamily="@font/montserrat_italic"
             android:textColor="@color/gray"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Edit_Name" />
+            app:layout_constraintTop_toBottomOf="@+id/Edit_Name"/>
+
+        <EditText
+            android:id="@+id/Diagnose_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Diagnose"
+            android:inputType="text"
+            android:text="Диагноз"
+            android:fontFamily="@font/montserrat_italic"
+            android:textColor="@color/gray" />
 
         <HorizontalScrollView
             android:layout_width="match_parent"
@@ -92,17 +109,19 @@
                 android:text="🖨"
                 android:background="@drawable/roundbutton"
                 android:textStyle="normal" />
+
             <Button
                 android:id="@+id/saveEdited"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10sp"
                 android:layout_marginEnd="5dp"
+                android:fontFamily="@font/montserrat_regular"
                 android:gravity="center"
                 android:text="Сохранить"
-                android:fontFamily="@font/montserrat_regular"
+                android:textSize="15sp"
                 android:textColor="@color/gray"
-                android:background="@drawable/roundbutton"
                 android:textStyle="normal" />
 
             <Button
@@ -114,31 +133,18 @@
                 android:gravity="center"
                 android:text="+"
                 android:fontFamily="@font/montserrat_regular"
-                android:textColor="@color/gray"
                 android:background="@drawable/roundbutton"
+                android:textColor="@color/gray"
                 android:textStyle="normal" />
         </LinearLayout>
         </HorizontalScrollView>
-    </LinearLayout>
 
-
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/l1">
 
         <LinearLayout
             android:id="@+id/scroolForNotes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />
-    </ScrollView>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</ScrollView>
+</LinearLayout>

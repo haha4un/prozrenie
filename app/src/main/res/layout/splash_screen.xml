@@ -64,6 +64,7 @@
             android:layout_height="wrap_content"
             android:text="Проверить"
             android:fontFamily="@font/montserrat_italic"
+            android:textColor="@color/gray"
             android:id="@+id/Check" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

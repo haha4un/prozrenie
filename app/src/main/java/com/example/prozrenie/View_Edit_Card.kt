@@ -27,7 +27,6 @@ import com.itextpdf.text.pdf.BaseFont
 import com.itextpdf.text.pdf.PdfWriter
 import java.io.File
 import java.io.FileOutputStream
-import java.nio.file.Files
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -172,13 +171,17 @@ class View_Edit_Card : AppCompatActivity() {
     }
 
     val STORAGE_CODE = 1001
+
     fun savePdf(name: String, second: String, third: String, Date: String, diagnose: String)
     {
         val mDoc = Document()
 
         val mFileName = "$name-$second-${SimpleDateFormat("yyyMMdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis())}"
-        val path = "${Environment.getExternalStorageDirectory()}/носорог"
-        //Files.createDirectory(path)
+
+        val myDirectory = File(Environment.getExternalStorageDirectory(), "носорог")
+        if (!myDirectory.exists()) {
+            myDirectory.mkdirs()
+        }
         val mFilePath = "${Environment.getExternalStorageDirectory()}/носорог/${mFileName}.pdf"
 
          val FONT = "res/font/arial.ttf"
@@ -190,7 +193,7 @@ class View_Edit_Card : AppCompatActivity() {
             mDoc.open()
             mDoc.addAuthor("Savely Stulcev (haha4un) and co")
 
-            var data = "${second.toUpperCase()} ${name.toUpperCase()} ${third.toUpperCase()}\n\n\nName: $name\nSecond-name: $second\nMiddle-name: $third\nDate of birth: $Date\nID: $ID_str\nDiagnose: $diagnose\n\n\n/------------/\n\n"
+            var data = "${second.toUpperCase()} ${name.toUpperCase()} ${third.toUpperCase()}\n\n\nИмя: $name\nФамилия: $second\nОтчество: $third\nДата рождения: $Date\nID: $ID_str\nДиагноз: $diagnose\n\n\n/------------/\n\n"
 
             mDoc.addTitle("$second $name $third")
             mDoc.newPage()

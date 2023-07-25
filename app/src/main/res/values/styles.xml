@@ -9,4 +9,10 @@
         </item>
     </style>
     <string name="game_1">GAME 1\n</string>
+
+    <style name="roundbtns">
+        <item name="background">
+            @drawable/roundbutton
+        </item>
+    </style>
 </resources>

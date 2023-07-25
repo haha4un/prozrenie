@@ -29,6 +29,7 @@ class Create_Card : AppCompatActivity() {
         var sur = ""
         var middle = ""
         var date = ""
+        var diagnose = ""
         var i = 1
         val database = Firebase.database
         database.getReference("main")
@@ -65,21 +66,30 @@ class Create_Card : AppCompatActivity() {
                             this,
                             "date: $date",
                             Toast.LENGTH_SHORT
-                        ).show(); create.setVisibility(EditText.INVISIBLE);create.hint = "";Toast.makeText(
+                        ).show();create.setText("");create.hint = "Диагноз";
+                    }
+                    5 -> {
+                        diagnose = create.text.toString(); Toast.makeText(
+                            this,
+                            "dig: $sur",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        create.setVisibility(EditText.INVISIBLE);create.hint = "";Toast.makeText(
                             this,
                             "Нажмите еще раз, чтобы подтвердить сохранение.",
                             Toast.LENGTH_SHORT
                         ).show();
                     }
-                    5 -> {
+                    6 -> {
                         i = 0
-                        var id = "${name.hashCode()}${sur.hashCode()}${middle.hashCode()}${date.hashCode()}${Random.nextInt(9)}${Random.nextInt(9)}"
+                        var id = "${name.hashCode()}${sur.hashCode()}${middle.hashCode()}${date.hashCode()}${diagnose.hashCode()}${Random.nextInt(9)}${Random.nextInt(9)}"
                         var x = "${name.hashCode()}${sur.hashCode()}${middle.hashCode()}${date.hashCode()}"
                         val myRef = database.getReference("main/$x")
                         myRef.child("name").setValue(name)
                         myRef.child("surname").setValue(sur)
                         myRef.child("middlename").setValue(middle)
                         myRef.child("date").setValue(date)
+                        myRef.child("diagnose").setValue(diagnose)
                         myRef.child("id").setValue(id) // in the and you must put in ${Random(1000).toString().hashCode()} for unique id, but it's for test
                         myRef.child("lessons").child("0").setValue("Id: $id")
                         Toast.makeText(this, "Успешно!", Toast.LENGTH_SHORT).show()

@@ -17,6 +17,8 @@
         android:layout_height="0dp"
         android:layout_weight="50"
         android:layout_gravity="center"
+        android:fontFamily="@font/montserrat_italic"
+        android:textColor="@color/gray"
         android:text="Да"/>
     <Button
         android:id="@+id/no"
@@ -24,6 +26,8 @@
         android:layout_height="0dp"
         android:layout_weight="50"
         android:layout_gravity="center"
+        android:fontFamily="@font/montserrat_italic"
+        android:textColor="@color/gray"
         android:text="Нет"/>
 
 </LinearLayout>

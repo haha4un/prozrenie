@@ -20,10 +20,11 @@
 
     <Button
         android:id="@+id/save_editedNote"
+        style="@style/Widget.Material3.Button"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginBottom="5sp"
-        android:background="@drawable/roundbutton"
         android:fontFamily="@font/montserrat_italic"
         android:text="Сохранить"
         android:textColor="@color/gray"
