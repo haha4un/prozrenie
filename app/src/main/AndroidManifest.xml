@@ -21,9 +21,13 @@
         android:theme="@style/Theme.Prozrenie"
         tools:targetApi="31">
         <activity
-            android:name=".flower_game"
+            android:name=".cross_game"
             android:exported="false"
             android:screenOrientation="landscape"/>
+        <activity
+            android:name=".flower_game"
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".info"
             android:exported="false" />

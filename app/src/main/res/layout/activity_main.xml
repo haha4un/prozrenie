@@ -118,9 +118,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_gravity="center"
                             android:fontFamily="@font/montserrat_bold"
                             android:text="Рисовалка"
-                            android:layout_gravity="center"
                             android:textAllCaps="true"
                             android:textColor="@color/gray"
                             android:textSize="15sp" />
@@ -201,6 +201,32 @@
                             android:layout_height="match_parent"
                             android:fontFamily="@font/montserrat_bold"
                             android:text="Цветок"
+                            android:layout_gravity="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/gray"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/cross_game_l"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10sp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5sp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:src="@drawable/flower_m" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="Крестики"
                             android:layout_gravity="center"
                             android:textAllCaps="true"
                             android:textColor="@color/gray"

@@ -202,7 +202,7 @@
             tools:ignore="HardcodedText"
             android:tag="flower"
             android:layout_margin="5sp"
-            android:onClick="question_btn_flower"/>
+            android:onClick="question_btn_flower" />
         <TextView
             android:id="@+id/scores_flower"
             android:layout_width="wrap_content"

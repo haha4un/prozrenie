@@ -78,6 +78,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        var cross = findViewById<LinearLayout>(R.id.cross_game_l)
+        cross.setOnClickListener {
+            val intent = Intent(this, cross_game::class.java)
+            startActivity(intent)
+        }
+
     }
     fun isOnline(context: Context): Boolean {
         val cm = context.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
