@@ -14,6 +14,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.get
 import androidx.core.view.updateLayoutParams
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 class cross_game : AppCompatActivity() {
@@ -22,6 +25,7 @@ class cross_game : AppCompatActivity() {
     var sc: TextView ?= null
     var sci: Int = 0
     var RAN_POS = 0
+    val PRE_FIX = "round_"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +40,7 @@ class cross_game : AppCompatActivity() {
 
     fun makeTheLines()
     {
+        RAN_POS = Random.nextInt(10,48)
       if (cl?.childCount != 0) {
           cl?.removeAllViews()
       }
@@ -45,24 +50,25 @@ class cross_game : AppCompatActivity() {
           nl.setOrientation(LinearLayout.HORIZONTAL)
           cl?.addView(nl)
       }
-        colorLines()
+        colorLines(1,2)
     }
 
-    fun colorLines()
+    fun colorLines(f: Byte, s: Byte)
     {
-        RAN_POS = Random.nextInt(2,48)
+        var fs = "$PRE_FIX$f"
+        var ss = "$PRE_FIX$s"
         var cont = 0
-        for (i in 0 until cl!!.childCount)
+        for (i in 0 until cl!!.childCount-1)
         {
             val j = cl!!.getChildAt(i) as LinearLayout
             cont++
-            for (ij in 0..8)
+            for (ij in 0..7)
             {
                 var ni = ImageView(this)
                 ni.maxWidth = 25
                 ni.maxHeight = 25
                 if (cont % 2 == 0 && cont!= RAN_POS) {
-                    ni.setImageResource(R.drawable.round_2)
+                    ni.setImageResource(resources.getIdentifier(fs, "drawable", packageName))
                     ni.setOnClickListener {
                         sci--
                         sc?.text = sci.toString()
@@ -81,7 +87,7 @@ class cross_game : AppCompatActivity() {
                     }
                 }
                 else {
-                    ni.setImageResource(R.drawable.round_1)
+                    ni.setImageResource(resources.getIdentifier(ss, "drawable", packageName))
                     ni.setOnClickListener {
                         sci--
                         sc?.text = sci.toString()
@@ -93,8 +99,6 @@ class cross_game : AppCompatActivity() {
             }
         }
     }
-
-
     fun question_btn_cross(view: View) {
         var dialog = Dialog(this)
         dialog.setContentView(R.layout.questtext)
@@ -104,4 +108,6 @@ class cross_game : AppCompatActivity() {
         ok.setOnClickListener { dialog.dismiss() }
         dialog.show()
     }
+
+
 }

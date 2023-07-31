@@ -97,7 +97,7 @@
                     android:layout_marginStart="10sp"
                     android:foregroundGravity="center"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:id="@+id/drawing_game"
@@ -220,7 +220,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
-                            android:src="@drawable/flower_m" />
+                            android:src="@drawable/cross_m" />
 
                         <TextView
                             android:layout_width="wrap_content"
