@@ -11,6 +11,10 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlin.random.Random
 
@@ -30,12 +34,24 @@ class cross_game : AppCompatActivity() {
         cl = findViewById(R.id.common_lay)
         sc = findViewById(R.id.scores_cross)
 
-        main(1,2)
+        RAN_POS = Random.nextInt(10, 48)
+        GlobalScope.launch (Dispatchers.Main) {
+            repeat(100){
+                delay(100)
+                main(1,2)
+                delay(1000)
+                main(2,1)
+                delay(1000)
+                main(1,2)
+                delay(1000)
+                main(2,1)
+            }
+        }
     }
 
 
     fun main(f: Byte, s: Byte) = runBlocking {
-        RAN_POS = Random.nextInt(10, 48)
+//        RAN_POS = Random.nextInt(10, 48)
             makeTheLines()
             colorLines(f,s)
     }
