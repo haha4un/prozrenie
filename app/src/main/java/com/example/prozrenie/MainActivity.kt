@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         getSupportActionBar()?.hide();
 
 
-        var create_card = findViewById<Button>(R.id.create_card)
+        var create_card = findViewById<LinearLayout>(R.id.create_card)
         create_card.setOnClickListener{
             if (!isOnline(this))
             {
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        var view_card = findViewById<Button>(R.id.view_card)
+        var view_card = findViewById<LinearLayout>(R.id.view_card)
         view_card.setOnClickListener{
             if (!isOnline(this))
             {

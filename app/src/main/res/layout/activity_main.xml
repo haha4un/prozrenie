@@ -61,131 +61,138 @@
                     android:layout_margin="5sp"/>
             </FrameLayout>
 
-            <TextView
-                android:id="@+id/minigamesTxtM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50sp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/montserrat_bold"
-                android:text="мини-игры"
-                android:textColor="@color/gray"
-                app:autoSizeMaxTextSize="40sp"
-                app:autoSizeMinTextSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/gamesM"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/lilwithinf"/>
-
             <HorizontalScrollView
                 android:id="@+id/gamesM"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:overScrollMode="never"
                 android:scrollbars="none"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/minigamesTxtM">
+                app:layout_constraintTop_toBottomOf="@id/lilwithinf">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginStart="10sp"
                     android:foregroundGravity="center"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:gravity="top"
+                    android:orientation="horizontal">
 
                     <LinearLayout
-                        android:id="@+id/drawing_game"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="10sp"
-                        android:gravity="center"
                         android:orientation="vertical"
-                        android:padding="5sp">
+                        android:gravity="center">
 
-                        <ImageView
+                        <LinearLayout
+                            android:id="@+id/drawing_game"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:src="@drawable/draw_m" />
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="5sp">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:src="@drawable/draw_m" />
 
-                        <TextView
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Рисовалка"
+                                android:textAllCaps="true"
+                                android:textColor="@color/gray"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/imgs_game"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:fontFamily="@font/montserrat_bold"
-                            android:text="Рисовалка"
-                            android:textAllCaps="true"
-                            android:textColor="@color/gray"
-                            android:textSize="15sp" />
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="5sp">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:src="@drawable/imgs_m" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Картинки"
+                                android:layout_gravity="center"
+                                android:textAllCaps="true"
+                                android:textColor="@color/gray"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/relax_game"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="5sp">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:src="@drawable/relax_m" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Релакс"
+                                android:layout_gravity="center"
+                                android:textAllCaps="true"
+                                android:textColor="@color/gray"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/view_card"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="5sp">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:src="@drawable/view_card_m" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="посмотреть карточки"
+                                android:layout_gravity="center"
+                                android:textAllCaps="true"
+                                android:textColor="@color/gray"
+                                android:textSize="15sp" />
+                        </LinearLayout>
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/imgs_game"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="10sp"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="5sp">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:src="@drawable/imgs_m" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:fontFamily="@font/montserrat_bold"
-                            android:text="Картинки"
-                            android:layout_gravity="center"
-                            android:textAllCaps="true"
-                            android:textColor="@color/gray"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/relax_game"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="10sp"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="5sp">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:src="@drawable/relax_m" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:fontFamily="@font/montserrat_bold"
-                            android:text="Релакс"
-                            android:layout_gravity="center"
-                            android:textAllCaps="true"
-                            android:textColor="@color/gray"
-                            android:textSize="15sp" />
-                    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
 
                     <LinearLayout
                         android:id="@+id/flower_game_l"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginStart="10sp"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="5sp">
@@ -211,7 +218,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginStart="10sp"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="5sp">
@@ -232,50 +238,34 @@
                             android:textColor="@color/gray"
                             android:textSize="15sp" />
                     </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/create_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5sp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:src="@drawable/create_card_m" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="Создать карточку"
+                            android:layout_gravity="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/gray"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
-
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/gamesM">
-
-                <Button
-                    android:id="@+id/create_card"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="10sp"
-                    android:background="@drawable/rectangle_m"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:gravity="center"
-                    android:text="Создать карточку"
-                    android:textAllCaps="true"
-                    android:textColor="@color/gray"
-                    app:autoSizeMaxTextSize="40sp"
-                    app:autoSizeMinTextSize="20sp" />
-
-                <Button
-                    android:id="@+id/view_card"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="10sp"
-                    android:background="@drawable/rectangle_m"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:gravity="center"
-                    android:textColor="@color/gray"
-                    android:textAllCaps="true"
-                    android:text="посмотреть карточки"
-                    app:autoSizeMaxTextSize="40sp"
-                    app:autoSizeMinTextSize="20sp" />
-            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

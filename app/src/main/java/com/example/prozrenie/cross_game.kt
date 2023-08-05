@@ -2,6 +2,7 @@ package com.example.prozrenie
 
 import android.app.Dialog
 import android.graphics.drawable.GradientDrawable.Orientation
+import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -14,15 +15,19 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.get
 import androidx.core.view.updateLayoutParams
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlin.random.Random
 
 class cross_game : AppCompatActivity() {
 
-    var cl: LinearLayout?= null
-    var sc: TextView ?= null
+    var cl: LinearLayout? = null
+    var sc: TextView? = null
     var sci: Int = 0
     var RAN_POS = 0
     val PRE_FIX = "round_"
@@ -35,12 +40,17 @@ class cross_game : AppCompatActivity() {
         cl = findViewById(R.id.common_lay)
         sc = findViewById(R.id.scores_cross)
 
-        makeTheLines()
+        main(1,2)
     }
 
-    fun makeTheLines()
+    fun main(f: Byte, s: Byte) = runBlocking {
+        RAN_POS = Random.nextInt(10, 48)
+            makeTheLines()
+            colorLines(f,s)
+    }
+
+    suspend fun makeTheLines()
     {
-        RAN_POS = Random.nextInt(10,48)
       if (cl?.childCount != 0) {
           cl?.removeAllViews()
       }
@@ -50,20 +60,21 @@ class cross_game : AppCompatActivity() {
           nl.setOrientation(LinearLayout.HORIZONTAL)
           cl?.addView(nl)
       }
-        colorLines(1,2)
     }
 
-    fun colorLines(f: Byte, s: Byte)
+    suspend fun colorLines(f: Byte, s: Byte)
     {
         var fs = "$PRE_FIX$f"
         var ss = "$PRE_FIX$s"
         var cont = 0
+        var count_el = 0
         for (i in 0 until cl!!.childCount-1)
         {
             val j = cl!!.getChildAt(i) as LinearLayout
             cont++
             for (ij in 0..7)
             {
+                count_el++
                 var ni = ImageView(this)
                 ni.maxWidth = 25
                 ni.maxHeight = 25
@@ -72,7 +83,7 @@ class cross_game : AppCompatActivity() {
                     ni.setOnClickListener {
                         sci--
                         sc?.text = sci.toString()
-                        makeTheLines()
+                        main(s,f)
                     }
                 }
                 else if (cont == RAN_POS)
@@ -83,15 +94,16 @@ class cross_game : AppCompatActivity() {
                         Toast.makeText(this, "Congrats!", Toast.LENGTH_SHORT).show()
                         sc?.text = sci.toString()
                         cont = 0
-                        makeTheLines()
+                        main(s,f)
+                        return@setOnClickListener
                     }
                 }
-                else {
+                else if (cont % 2 != 0 && cont!= RAN_POS) {
                     ni.setImageResource(resources.getIdentifier(ss, "drawable", packageName))
                     ni.setOnClickListener {
                         sci--
                         sc?.text = sci.toString()
-                        makeTheLines()
+                        main(s,f)
                     }
                 }
                 j.addView(ni)
@@ -108,6 +120,4 @@ class cross_game : AppCompatActivity() {
         ok.setOnClickListener { dialog.dismiss() }
         dialog.show()
     }
-
-
 }
