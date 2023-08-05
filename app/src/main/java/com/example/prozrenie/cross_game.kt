@@ -37,7 +37,7 @@ class cross_game : AppCompatActivity() {
         RAN_POS = Random.nextInt(10, 48)
         GlobalScope.launch (Dispatchers.Main) {
             repeat(100){
-                delay(100)
+                delay(1000)
                 main(1,2)
                 delay(1000)
                 main(2,1)
@@ -101,6 +101,7 @@ class cross_game : AppCompatActivity() {
                         Toast.makeText(this, "Congrats!", Toast.LENGTH_SHORT).show()
                         sc?.text = sci.toString()
                         cont = 0
+                        RAN_POS = Random.nextInt(10, 48)
                         main(s,f)
                         return@setOnClickListener
                     }
