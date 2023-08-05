@@ -1,26 +1,16 @@
 package com.example.prozrenie
 
+import android.annotation.SuppressLint
 import android.app.Dialog
-import android.graphics.drawable.GradientDrawable.Orientation
-import android.os.AsyncTask
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.get
-import androidx.core.view.updateLayoutParams
-import kotlinx.coroutines.CoroutineStart
-import kotlinx.coroutines.async
-import kotlinx.coroutines.awaitAll
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.runBlocking
 import kotlin.random.Random
 
@@ -42,6 +32,7 @@ class cross_game : AppCompatActivity() {
 
         main(1,2)
     }
+
 
     fun main(f: Byte, s: Byte) = runBlocking {
         RAN_POS = Random.nextInt(10, 48)
@@ -76,8 +67,8 @@ class cross_game : AppCompatActivity() {
             {
                 count_el++
                 var ni = ImageView(this)
-                ni.maxWidth = 25
-                ni.maxHeight = 25
+                ni.setLayoutParams(ViewGroup.LayoutParams(200, 200))
+
                 if (cont % 2 == 0 && cont!= RAN_POS) {
                     ni.setImageResource(resources.getIdentifier(fs, "drawable", packageName))
                     ni.setOnClickListener {
@@ -86,7 +77,7 @@ class cross_game : AppCompatActivity() {
                         main(s,f)
                     }
                 }
-                else if (cont == RAN_POS)
+                else if (cont-3 == RAN_POS-3)
                 {
                     ni.setImageResource(R.drawable.round_3)
                     ni.setOnClickListener {

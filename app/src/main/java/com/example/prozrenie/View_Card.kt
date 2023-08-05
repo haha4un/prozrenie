@@ -1,10 +1,10 @@
 package com.example.prozrenie
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -43,6 +43,12 @@ class View_Card : AppCompatActivity() {
 
             }
         })
+    }
+    override fun onBackPressed() {
+        setResult(RESULT_CANCELED)
+        super.onBackPressed()
+        finish()
+        startActivity(Intent(this, MainActivity::class.java))
     }
     fun add(res: String, scrool: LinearLayout, ids: String)
     {

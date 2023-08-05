@@ -2,6 +2,7 @@ package com.example.prozrenie
 
 
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.View
@@ -27,7 +28,16 @@ class info : AppCompatActivity() {
 
         val d = findViewById<TextView>(R.id.d_inf)
         d.movementMethod = LinkMovementMethod.getInstance()
+
     }
+    override fun onBackPressed() {
+        setResult(RESULT_CANCELED)
+        super.onBackPressed()
+        finish()
+        startActivity(Intent(this, MainActivity::class.java))
+    }
+
+
     fun License_btn(view: View)
     {
         var dialog = Dialog(this)

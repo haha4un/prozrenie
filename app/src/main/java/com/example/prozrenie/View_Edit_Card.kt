@@ -149,6 +149,7 @@ class View_Edit_Card : AppCompatActivity() {
 
         }
         tohome.setOnClickListener {
+            finish();
             startActivity(Intent(this, MainActivity::class.java))
         }
         // --------------------------------------------------------- //
@@ -171,6 +172,12 @@ class View_Edit_Card : AppCompatActivity() {
             else
                 savePdf(name = NAME!!, second = SECOND_NAME!!, third = MIDDLE_NAME!!, Date = DATE!!, diagnose =  DIAGNOSE!!)
         }
+    }
+    override fun onBackPressed() {
+        setResult(RESULT_CANCELED)
+        super.onBackPressed()
+        finish()
+        startActivity(Intent(this, MainActivity::class.java))
     }
 
     val STORAGE_CODE = 1001

@@ -79,6 +79,7 @@ class overlook_note : AppCompatActivity() {
         }
         tohome.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
     fun check(x: String) : String
