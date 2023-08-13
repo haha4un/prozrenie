@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-   <img src="https://img.shields.io/badge/Current%20Version-now%20v1%20is%20available!-yellow" alt="App version">
+   <img src="https://img.shields.io/badge/Current%20Version-now%20beta_11.11.2%20is%20available!-yellow" alt="App version">
     <img src="https://img.shields.io/badge/Works%20in-7th%20and%20higher%20android%20versions-yellow" alt="App's demands">
    <img src="https://img.shields.io/badge/Our%20license-is%20MIT's%20license-yellow" alt="License">
 </p>
