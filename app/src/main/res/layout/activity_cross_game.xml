@@ -57,5 +57,63 @@
             android:gravity="center"
             android:text="0"
             android:textSize="50sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Ш"
+                android:inputType="number"
+                android:gravity="center"
+                android:fontFamily="@font/montserrat_italic"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:id="@+id/height_cross"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="X"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_italic"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Д"
+                android:inputType="number"
+                android:gravity="center"
+                android:fontFamily="@font/montserrat_italic"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:id="@+id/lenght_cross"/>
+        </LinearLayout>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="размеры"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_italic"
+            android:id="@+id/sizes_cross"
+            android:inputType="number"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="скорость"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_italic"
+            android:id="@+id/speed_cross"
+            android:inputType="number"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:id="@+id/submit_data"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
