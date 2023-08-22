@@ -175,6 +175,7 @@
                                 android:layout_height="match_parent"
                                 android:fontFamily="@font/montserrat_bold"
                                 android:text="посмотреть\nкарточки"
+                                android:gravity="center"
                                 android:layout_gravity="center"
                                 android:textAllCaps="true"
                                 android:textColor="@color/gray"
@@ -259,6 +260,7 @@
                             android:fontFamily="@font/montserrat_bold"
                             android:text="Создать\nкарточку"
                             android:layout_gravity="center"
+                            android:gravity="center"
                             android:textAllCaps="true"
                             android:textColor="@color/gray"
                             android:textSize="15sp" />

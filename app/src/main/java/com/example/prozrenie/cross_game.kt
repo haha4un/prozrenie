@@ -13,6 +13,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.prozrenie.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -31,6 +32,7 @@ class cross_game : AppCompatActivity() {
     var LENGHT = 8
     var SIZES = 200
     var SPEED = 1000
+    var MULHL = HEIGHT*LENGHT
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,8 +56,10 @@ class cross_game : AppCompatActivity() {
             LENGHT = w.text.toString().toInt()
             SIZES = s.text.toString().toInt()
             SPEED = sp.text.toString().toInt()
+            MULHL =HEIGHT* LENGHT
+            RAN_POS = Random.nextInt(0, MULHL)
         }
-        RAN_POS = Random.nextInt(1, 20)
+        RAN_POS = Random.nextInt(0, MULHL)
         starter()
     }
 
@@ -73,21 +77,21 @@ class cross_game : AppCompatActivity() {
     }
 
     fun main(f: Byte, s: Byte) = runBlocking {
-            makeTheLines()
-            colorLines(f,s)
+        makeTheLines()
+        colorLines(f,s)
     }
 
     suspend fun makeTheLines()
     {
-      if (cl?.childCount != 0) {
-          cl?.removeAllViews()
-      }
+        if (cl?.childCount != 0) {
+            cl?.removeAllViews()
+        }
 
-      for (i in 0..HEIGHT) {
-          var nl = LinearLayout(this)
-          nl.setOrientation(LinearLayout.HORIZONTAL)
-          cl?.addView(nl)
-      }
+        for (i in 0..HEIGHT) {
+            var nl = LinearLayout(this)
+            nl.setOrientation(LinearLayout.HORIZONTAL)
+            cl?.addView(nl)
+        }
     }
 
     suspend fun colorLines(f: Byte, s: Byte)
@@ -96,17 +100,16 @@ class cross_game : AppCompatActivity() {
         var ss = "$PRE_FIX$s"
         var cont = 0
         var count_el = 0
-        for (i in 0 until cl!!.childCount-1)
+        for (i in 0 until  cl!!.childCount-1)
         {
             val j = cl!!.getChildAt(i) as LinearLayout
             cont++
-            for (ij in 0..LENGHT-1)
+            for (ij in 0 until LENGHT)
             {
-                count_el++
                 var ni = ImageView(this)
                 ni.setLayoutParams(ViewGroup.LayoutParams(SIZES, SIZES))
 
-                if (cont % 2 == 0 && cont!= RAN_POS) {
+                if (cont % 2 == 0 && count_el!= RAN_POS) {
                     ni.setImageResource(resources.getIdentifier(fs, "drawable", packageName))
                     ni.setOnClickListener {
                         sci--
@@ -114,7 +117,7 @@ class cross_game : AppCompatActivity() {
                         main(s,f)
                     }
                 }
-                else if (cont-3 == RAN_POS-3)
+                else if (count_el == RAN_POS)
                 {
                     ni.setImageResource(R.drawable.round_3)
                     ni.setOnClickListener {
@@ -122,12 +125,12 @@ class cross_game : AppCompatActivity() {
                         Toast.makeText(this, "Congrats!", Toast.LENGTH_SHORT).show()
                         sc?.text = sci.toString()
                         cont = 0
-                        RAN_POS = Random.nextInt(1, 20)
+                        RAN_POS = Random.nextInt(0, MULHL)
                         main(s,f)
                         return@setOnClickListener
                     }
                 }
-                else if (cont % 2 != 0 && cont!= RAN_POS) {
+                else if (cont % 2 != 0 && count_el!= RAN_POS) {
                     ni.setImageResource(resources.getIdentifier(ss, "drawable", packageName))
                     ni.setOnClickListener {
                         sci--
@@ -135,6 +138,7 @@ class cross_game : AppCompatActivity() {
                         main(s,f)
                     }
                 }
+                count_el++
                 j.addView(ni)
                 cont++
             }
