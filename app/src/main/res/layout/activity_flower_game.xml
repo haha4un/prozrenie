@@ -38,7 +38,12 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="1"
+                    android:visibility="invisible"
                     android:textColor="@color/white" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
             </FrameLayout>
 
             <FrameLayout
@@ -58,7 +63,12 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="2"
+                    android:visibility="invisible"
                     android:textColor="@color/white" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
             </FrameLayout>
 
         </LinearLayout>
@@ -88,7 +98,12 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="3"
+                    android:visibility="invisible"
                     android:textColor="@color/white" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
             </FrameLayout>
 
             <FrameLayout
@@ -107,7 +122,12 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="0"
+                    android:visibility="invisible"
                     android:textColor="@color/white" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
             </FrameLayout>
 
             <FrameLayout
@@ -127,7 +147,12 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="4"
+                    android:visibility="invisible"
                     android:textColor="@color/white" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
             </FrameLayout>
         </LinearLayout>
 
@@ -156,7 +181,12 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="5"
+                    android:visibility="invisible"
                     android:textColor="@color/white" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
             </FrameLayout>
 
             <FrameLayout
@@ -176,7 +206,12 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="6"
+                    android:visibility="invisible"
                     android:textColor="@color/white" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
             </FrameLayout>
         </LinearLayout>
     </LinearLayout>
