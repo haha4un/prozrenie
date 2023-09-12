@@ -46,6 +46,21 @@
             android:textColor="@color/gold"
             android:textSize="20sp"
             tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/resize_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:layout_marginEnd="5sp"
+            android:background="@drawable/around"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            android:onClick="resize_btn_click"
+            android:tag="flower"
+            android:text="⚙"
+            android:textColor="@color/gold"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/scores_cross"
@@ -57,63 +72,5 @@
             android:gravity="center"
             android:text="0"
             android:textSize="50sp" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_gravity="center">
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Ш"
-                android:inputType="number"
-                android:gravity="center"
-                android:fontFamily="@font/montserrat_italic"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:id="@+id/height_cross"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="X"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:fontFamily="@font/montserrat_italic"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Д"
-                android:inputType="number"
-                android:gravity="center"
-                android:fontFamily="@font/montserrat_italic"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:id="@+id/lenght_cross"/>
-        </LinearLayout>
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="размеры"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:fontFamily="@font/montserrat_italic"
-            android:id="@+id/sizes_cross"
-            android:inputType="number"/>
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="скорость"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:fontFamily="@font/montserrat_italic"
-            android:id="@+id/speed_cross"
-            android:inputType="number"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SAVE"
-            android:id="@+id/submit_data"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
